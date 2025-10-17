@@ -1,0 +1,64 @@
+{
+  "score": {
+    "obtained": 40,
+    "total": 100
+  },
+  "totalItemsText": "1件中 1 〜 1件",
+  "questions": [
+    {
+      "page": "1",
+      "questionNumber": "1",
+      "questionText": "NAT は何の略か?",
+      "correctAnswer": "Network Address Transrator",
+      "studentAnswer": "Network Address Transport",
+      "resultIconAlt": null,
+      "resultIconSrc": "/common/images/icons/point_worst.png",
+      "resultText": null,
+      "teacherComment": null
+    },
+    {
+      "page": "2",
+      "questionNumber": "家庭用の NAT は主として何のために使われるか?",
+      "questionText": "プライベート IP アドレスとグローバル IP アドレスの変換",
+      "correctAnswer": "プライベート IP アドレスとグローバル IP アドレスの変換",
+      "studentAnswer": "20 点",
+      "resultIconAlt": null,
+      "resultIconSrc": null,
+      "resultText": null,
+      "teacherComment": null
+    },
+    {
+      "page": "3",
+      "questionNumber": "NAPT は何を用いて行きと帰りの通信の対応をとっているか?",
+      "questionText": "ポート番号",
+      "correctAnswer": "プロトコル番号",
+      "studentAnswer": "",
+      "resultIconAlt": null,
+      "resultIconSrc": null,
+      "resultText": null,
+      "teacherComment": null
+    },
+    {
+      "page": "4",
+      "questionNumber": "DHCP は何の略か?",
+      "questionText": "Dynamic Host Configuration Protocol",
+      "correctAnswer": "Dynamic Host Configuration Protocol",
+      "studentAnswer": "20 点",
+      "resultIconAlt": null,
+      "resultIconSrc": null,
+      "resultText": null,
+      "teacherComment": null
+    },
+    {
+      "page": "5",
+      "questionNumber": "DHCP で受け渡される情報を選択せよ (複数)",
+      "questionText": "IP アドレスネットマスクDNS リゾルバの IP アドレスゲートウェイの IP アドレス",
+      "correctAnswer": "ゲートウェイの IP アドレスIP アドレスネットマスク",
+      "studentAnswer": "",
+      "resultIconAlt": null,
+      "resultIconSrc": null,
+      "resultText": null,
+      "teacherComment": null
+    }
+  ]
+}

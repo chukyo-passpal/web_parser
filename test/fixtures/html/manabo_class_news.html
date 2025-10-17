@@ -1,0 +1,453 @@
+<style>
+    #form-news-edit ul {
+        padding-inline-start: 10px;
+    }
+
+    #form-news-edit li {
+        padding: 5px;
+        border-top: 1px dotted #baccca;
+        list-style-type: none;
+    }
+
+    #form-news-edit li:first-of-type {
+        border-top: none;
+    }
+</style>
+
+<script>
+    $(function () {
+        // event setup
+        $('.a-modal-news-form').on('click', function (e) {
+            e.preventDefault();
+            openModalNews(85131, $('#div-class-contents').attr('directory_id'));
+        });
+
+        $('.a-edit-news').on('click', function (e) {
+            e.preventDefault();
+            openModalNews(85131, $('#div-class-contents').attr('directory_id'), $(this).attr('news_id'));
+        });
+
+        $('.a-remove-news').on('click', function (e) {
+            e.preventDefault();
+            removeNews($(this).attr('news_id'));
+        });
+
+        $('.a-news-mode-edit').off().on('click', function () {
+            glexa.loadClassNews(85131, 0, 'edit');
+            return false;
+        });
+
+        $('.a-news-mode-normal').off().on('click', function () {
+            glexa.loadClassNews(85131, 0);
+            return false;
+        });
+
+        // first load
+        glexa.openField();
+
+    });
+
+    function openModalNews(classId, directoryId, newsId) {
+        params = {
+            class_id: 85131,
+        }
+        if (directoryId) {
+            params.directory_id = directoryId;
+        }
+        if (newsId) {
+            params.news_id = newsId;
+        }
+        glexa.openRemoteModal({
+            method: 'get',
+            action: 'teacher_modal_news_form',
+            params: params
+        });
+    }
+
+    function removeNews(newsId) {
+        glexa.confirm('削除してもよろしいですか?', function (e) {
+            glexa.ajax({
+                action: 'teacher_ajax_news_remove_accept',
+                params: {
+                    news_id: newsId
+                },
+                onSuccess: function () {
+                    if ($('#div-class-news').length) {
+                        glexa.loadClassNews(85131, glexa.sessionStorage.getItem('directory_id'));
+                    } else if (typeof loadNews == 'function') {
+                        loadNews(1);
+                    }
+                }
+            });
+        });
+    }
+
+    function newsEditInit() {
+        $('.a-news-menu-sort').off().on('click', function () {
+            setNewsEditMode('sort');
+            return false;
+        });
+        $('.a-news-menu-move').off().on('click', function () {
+            setNewsEditMode('move');
+            return false;
+        });
+        $('.a-news-menu-copy').off().on('click', function () {
+            setNewsEditMode('copy');
+            return false;
+        });
+        $('.a-news-menu-backup').off().on('click', function () {
+            setNewsEditMode('backup');
+            return false;
+        });
+        $('.a-news-menu-restore').off().on('click', function () {
+            setNewsEditMode('restore');
+            return false;
+        });
+
+        // setNewsEditMode('init');
+    }
+
+    function setNewsEditMode(mode) {
+        $('.a-news-menu').css({ opacity: 0.2 });
+        $('.a-news-menu-' + mode).css({ opacity: 1.0 });
+
+        $('.a-news-edit').hide();
+        $('.a-news-edit-' + mode).show();
+
+        newsSortDestroy();
+        newsDragDestroy();
+
+        switch (mode) {
+            case 'sort':
+                newsSortInit();
+                break;
+            case 'move':
+                newsMoveInit();
+                break;
+            case 'copy':
+                newsCopyInit();
+                break;
+            case 'backup':
+                newsBackupInit();
+                break;
+            case 'restore':
+                newsRestoreInit();
+                break;
+        }
+    }
+
+    function newsSortInit() {
+        glexa.setSort({
+            element: '#ul-news-list',
+            onSuccess: function (newsIds) {
+                glexa.ajax({
+                    action: 'glexa_ajax_class_news_edit_sort',
+                    params: {
+                        class_id: '85131',
+                        news_ids: newsIds,
+                    },
+                    onError: function () { },
+                });
+            },
+        });
+    }
+
+    function newsSortDestroy() {
+        glexa.destroySort({ element: '#ul-news-list' });
+    }
+
+    function newsDragHelper() {
+        var num = $('#form-news-edit input[name="news_ids[]"]:checked').length;
+        return '<fieldset style="margin-top:15px; margin-left:15px;"><span class="badge badge-danger">' + num + '</span></fieldset>';
+    }
+
+    function newsMoveInit() {
+        glexa.setDrag({
+            dragElement: '.li-news-item',
+            dropElement: '.x-news-drop',
+            helper: newsDragHelper,
+            onDropped: function (e, ui) {
+                var newsIds = $('#form-news-edit input[name="news_ids[]"]:checked').map(function (i, e) {
+                    return e.value;
+                }).get();
+                glexa.ajax({
+                    action: 'glexa_ajax_class_news_edit_move',
+                    params: {
+                        class_id: $(e.target).attr('class_id'),
+                        directory_id: $(e.target).attr('directory_id'),
+                        news_ids: newsIds,
+                        is_open: 1,
+                        is_limit: 1,
+                        // is_target: $('.class-top-news [name=is_target]:checked').val(),
+                    },
+                    onSuccess: function () {
+                        glexa.loadClassNews(85131, 0, 'edit');
+                    },
+                });
+            },
+        });
+    }
+
+    function newsDragDestroy() {
+        glexa.destroyDrag({ dragElement: '.li-news-item', dropElement: '.x-news-drop' });
+    }
+
+    function newsCopyInit() {
+        glexa.setDrag({
+            dragElement: '.li-news-item',
+            dropElement: '.x-news-drop',
+            helper: newsDragHelper,
+            onDropped: function (e, ui) {
+                var newsIds = $('#form-news-edit input[name="news_ids[]"]:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                glexa.ajax({
+                    action: 'glexa_ajax_class_news_edit_copy',
+                    params: {
+                        class_id: $(e.target).attr('class_id'),
+                        directory_id: $(e.target).attr('directory_id'),
+                        news_ids: newsIds,
+                        is_open: $('.class-top-news [name=is_open]:checked').val(),
+                        is_limit: $('.class-top-news [name=is_limit]:checked').val(),
+                        // is_target: $('[name=is_target]:checked').val(),
+                    }
+                });
+            }
+        });
+    }
+
+    function newsBackupInit() {
+        $('.button-news-backup').off().on('click', function () {
+            glexa.confirm('時間がかかる場合があります。実行してもよろしいですか？', function () {
+                $('#form-news-edit [name=action]').val('glexa_ajax_class_news_edit_backup');
+                $('#form-news-edit').submit();
+            });
+        });
+    }
+
+    function newsRestoreInit() {
+        glexa.openRemoteModal({
+            action: 'glexa_ajax_class_news_edit_restore_form',
+            params: {
+                class_id: '85131',
+                directory_id: '0',
+            },
+        });
+    }
+
+</script>
+<div class="panel panel-default sp-margin-bottom-none sp-border-bottom-none">
+    <div class="panel-heading cf info_box">
+        <i class="mark"></i>お知らせ
+
+
+    </div>
+    <div class="panel-body class-top-news">
+        <dl class="cf x-openclose" id="class-news-238195">
+            <dt class="cf x-openclose-title">
+
+                <b>Powershell の日本語について</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <span>まず、9回目の課題について：<br /><br />内部の変数の意味</span><br /><span>OPENリスト、CLOSEDリストのコンピュータ内部の表現</span><br /><span>既に訪問した頂点の判定や処理</span><br /><span>スタックの処理</span><br /><span>など、どうなっているのかな？と思いながら、読み進めよう。</span><br /><span>（教科書は文章で説明しています。負けないこと）</span><br /><br /><span>Powershellで
+                        | を使うとおかしい、という人：
+                        UTF-8にさらに2種類あり、問題を起こしているかもしれません。BOMという情報です。これをヒントに、Powershell側、下にあるUTF-8とあるあたりを触り、コードを変更します。どちらかにするとうまくいきます。</span>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-238117">
+            <dt class="cf x-openclose-title">
+
+                <b>9回目の課題について (〆切は、授業中に）</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    鈴木先生の課題レポート、がんばってください。<br /><br />今回９回目のデータ構造の課題は、〆切を火曜日までにします。<br />それでも間に合わないという場合、10回目の課題にあわせて提出も認めます（減点します）。<br />メールでは提出しないこと（そちらからは1通でも、受ける側は大量になっています）。<br />ご協力を。<br /><br /><span>プログラムについて：</span><br /><br /><span>問6.1の巻末解答を参考に。リストやスタックを準備している部分は読み飛ばしてよい。</span><br /><span>（私たちは、STEP5.3にあるように、list.oとstackqueue.oを再利用します）</span><br /><br /><span>main関数に注目。図6.6と教科書解説、STEP5.4や授業のPDFを基に、コードを吟味する。</span><br /><span>とくに、図6.6の最後のforループが何をしているか、コードではどう書くのかに注目。</span><br /><br /><span>-&gt;
+                        演算子が読めないと、forのあたり読めない（もちろん、書けない）。じっくり考えてみてください。 -&gt;
+                        演算子の絵を書こう。アドレス（ポインター変数）から、構造体にアクセスしているときの表記法でした。</span><br /><br /><br /><span>レポートについて：</span><br /><span>章立てを行い、レポート形式を整えてください。</span><br /><span><br />1.
+                        はじめに</span><br /><span>2. プログラム　（探索部分とmainだけでいい）(自分のコメントをつけること）</span><br /><span>3.
+                        実行例　（例題の実行例とは異なるものも）</span><br /><span>4.
+                        おわりに　（木が与えられたら、到達に最悪のノードはどの位置のノードかな）<br /></span><span></span>
+                    <ul>
+                        <li>今回のレポートには、リストやスタックキューのソースコードを、「絶対に」つけないこと</li>
+                    </ul>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229127">
+            <dt class="cf x-openclose-title">
+
+                <b>(４月) 受講生の皆さんへ　（授業アンケート、ルーブリック）</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <span>アルゴリズム２は、アルゴリズム１の受講が前提になっています。まず、</span><span>二重ループまでのＣプログラミング、計算量の基礎、レポートの形式について、復習をしておいてください。<br /></span><br /><span>アルゴリズム２は、アルゴリズム１よりもＣ言語のレベルがぐんと上がっていきます。長谷川先生のＣ言語２の話題を使います。1年生の2つのＣ言語プログラミングの授業を追いかけながら、アルゴリズム１と２でセットになっている授業です。</span><br /><br /><span>先輩たちの<a
+                            href="https://manabo.cnc.chukyo-u.ac.jp/addon/fdcheck/assessment/summary/32927"
+                            target="_blank"
+                            rel="noopener">授業アンケート</a>についても、目を通しておいてください。また、わからないときはTAの皆さんにどんどん相談を。</span><br /><br /><span>教科書の話題を解説している授業です。パワーポイントだけの授業ではありません。授業前後には、教科書の文章をしっかり読み込んでみてほしいと思います。シラバスに沿って進みます。</span><br /><br /><span>プログラミングに関するIT技術の基礎は「アルゴリズム」と「データサイエンス」という時代になってきています。キャリアを意識しながら、適切な履修を行ってください。<br /><br />------------------------------------------<br />ルーブリック<br /><br />・
+                        スタートは左の一番上です。左から右に評価、上から下へと話題が進んでいきます。<br /><br />・ 最初の３つの行は、レポートの構成に対応しています。<br /></span>
+                    <br><img src="/common/images/icons/pdf.png" alt="" class="icon" /> <a href="/file/MjsHJcjzGc/"
+                        target="_blank">ルーブリックアルゴ2(土屋).pdf</a>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229175">
+            <dt class="cf x-openclose-title">
+
+                <b>出席の扱いと教室内の注意</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    授業最後に、MaNaboで授業のポイント確認アンケートを行います。<br />（出席していないのに回答する人のことは考慮していません）<br />--------<br /><span>（私の）この授業では、出席数は成績に加味しません。特別な理由がなければ、病欠や大会出席など、欠席を連絡する必要はありません。出席扱いはしません。<br /><br />5回までは減点はありませんが、6回以上の欠席はテストを受験できません（受験に2/3の出席が必要なのは全学ルール。授業は15回なので正直、緩いよね。また必修科目では、家庭から連絡があれば、出席情報などを開示します）</span><br /><br /><span>MaNaBoの仕組み上、教室以外からも出席関係のアクションにアクセスができてしまうこと（ついでにSNSなどで在籍者だけに示すコードを伝えること）については、学科会議で話題になっています。今後は、出席を不正に登録したことが検知されてしまわないように、ご注意を。</span><br /><br /><span>授業中の教室で出席者に不快に思われていること：飲食（おやつや食事）、ヘッドフォンやイヤホンで音楽を聴く（音漏れ）、スマホで漫画を読む（ゲームをするなど）、授業と関係なく、静かにしないでいること。</span><br /><br /><span>「指摘されないから、やってよい」とは思っていないはず。協力を。</span>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229136">
+            <dt class="cf x-openclose-title">
+
+                <b>（出席確認） MaNaBoのまとめアンケートに答えたかどうかを確認したい</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    自分で確認すること（私にMaNaBoで依頼しないこと。この話題には返信しません）<br /><br />マイページから、アクティビティ。<br />検索機能をつかって、まとめアンケートへのアクションだけに限定してください。<br /><br />（数え方を教えてくれた皆さん、ありがとう。やり方が広まると思いますので、助けてもらって/あげてください）
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229126">
+            <dt class="cf x-openclose-title">
+
+                <b>授業のウェブページ、情報センターのウェブページ</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <a href="http://openweb.chukyo-u.ac.jp/z190119/algo2/index.html">データ構造とアルゴリズム2<br /><br /></a><a
+                        href="http://openweb.chukyo-u.ac.jp/z190119/index.html">担当科目の一覧ページ</a><br /><br /><a
+                        href="https://www.chukyo-u.ac.jp/student-staff/it/staff.html">中京大学　情報センター</a>　（障害確認）
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229139">
+            <dt class="cf x-openclose-title">
+
+                <b>2024年度のテスト結果（得点だけ連絡、追加課題連絡あり）</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <br />課題とレポート 70%
+                    (課題は、ナップザックまで14つ）<br /><span><br />アルゴ1と同様に、課題は14個あり70点分と考えると1つ5点。テストをマークの25点+アルファと考えれば、合否の大まかな予想ができると思います（ただし、マークテストは6割の得点が合格条件でした）。課題は提出したから5点ではありませんし、0点もあります。</span><br /><br /><span>課題は授業で回答を示しています。私からのコメント、正解例のコードや時間計算量分析との対応などを通して、◎（よい）、〇（標準）、△（ちょっと誤りや不適切さが目立つ）、&times;（誤り、不適切）(0点の場合あり)
+                        くらいで自己評価してみてください。</span><br /><br />定期試験　30%　(20問を25点換算する予定です）<br /><br />----<br />平均 14.8
+                    (23年度は13.50 22年度は15.8)<br /><br />(得点の度数分布）<br />7 ?-
+                    dosuu.<br />6:*<br />7:<br />8:**<br />9:<br />10:****<br />11:*****<br />12:******<br />13:*******<br />14:*******<br />15:************<br />16:*****<br />17:**********<br />18:*********<br />19:****<br />20:****　（高得点者も多いね）<br /><br />（各問題の正答率）<br />9
+                    ?-
+                    seitou.<br />1:88.1<br />2:85.5<br />3:57.8<br />4:72.3<br />5:59.2　（資格試験問題。配列を使用したリストの実装法）<br />6:48.6　（最低正答率）<br />7:72.3<br />8:89.4<br />9:88.1<br />10:76.3<br />11:89.4<br />12:84.2<br />13:92.1　（ダイクストラ法が最高正答率）<br />14:80.2<br />15:55.2　（正答率が低い。不思議）<br />16:80.2<br />17:80.2<br />18:56.5<br />19:72.3<br />20:52.6<br /><br />去年と同じような内容の出題のつもりだけど、国語問題への弱さが目立つ。解説を読んだり、解説を書いてみる、練習をしよう。
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229123">
+            <dt class="cf x-openclose-title">
+
+                <b> アルゴリズムの学習支援を実践研究している研究者たちから</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <span>他の大学の先生から、2つのサイトの推薦があります。</span><br /><br /><span>1.
+                        アルゴリズム図鑑　</span><br /><span>　この言葉で検索してみてください。アプリです。</span><a
+                        href="https://www.shoeisha.co.jp/book/detail/9784798149776">書籍</a><span>もあります。急いで答えに行ってしまうので、授業のあと、復習のために見てもらったほうがよいかも</span><br /><br /><span>2.
+                        Python
+                        tutor</span><br /><span>　コードの実行過程について、コンピュータ内部のイメージを表現します。Python以外の言語にも使えます。Cのリンクは、</span><a
+                        href="https://pythontutor.com/c.html#mode=edit">ここ</a>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229130">
+            <dt class="cf x-openclose-title">
+
+                <b>workspaceの中を整理しよう！　　gcc -oがおかしい人へ</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    (1) プログラム開発に関するファイルやフォルダー（ディレクトリ）名は、半角英数。スペースは使わないこと。<br />(2)
+                    .vscodeというフォルダーの下に、プログラムを置かないこと。このフォルダーは、vscodeの設定ファイルを置くところ。プログラムを置くべき場所ではありません。<br /><br />workspaceの下に、各授業のフォルダーを作り、整理しなおそう！<br />（この作業は、デスクトップからやると楽でよいね）<br /><br />(3)
+                    移動は、cd コマンド。最初はworkspaceにいるのではないかな。<br />cd algo2<br />cd
+                    1102<br />などと移動してみよう。<br />ls<br />として、どんなファイルがあるか確かめよう<br /><br /><br />(4) main.c や
+                    swap.cがなくても、gcc -c はできてしまう。gcc
+                    -oは、失敗します。<br />だから、本当に、作ったファイルのある場所にいるかどうか確かめて。<br />lsのほか、ファイルの中身を確かめよう<br />cat
+                    main.c<br />1時間目には、空の人が多数。サイズも0になっています。<br /><br />ファイルのある場所に移動して、作業を。 </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229122">
+            <dt class="cf x-openclose-title">
+
+                <b>VSコードの自動整形</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <strong>VS Code コードの自動整形用キー</strong>
+                    <div class="margin-sm">Windows&nbsp; &nbsp;Shift Alt F<br />Mac Option
+                        F<br /><br />設定されていれば、各言語ごとに整形されます。<br />C言語は、いわゆるBSDオールマンスタイルに。</div>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229121">
+            <dt class="cf x-openclose-title">
+
+                <b>Powershell（VSコードのターミナル）の必須コマンド</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <span>Windows10では、Shift + マウスの右クリックのメニューから</span><br /><span>Window
+                        11では、右クリック　のメニューから</span><br /><br /><span>Power Shellのターミナルウィンドウが起動します。(MS CodeのターミナルもPower
+                        Shell)</span><br /><br /><span>最低限のコマンド：</span><br /><span>ls　　　　&nbsp;
+                        (リスト。ファイルの一覧）</span><br /><span>pwd　（Print Workig Directory 作業ディレクトリ名の出力）</span><br /><span>cd
+                        ..&nbsp; &nbsp; (一つ上へ、change directory)</span><br /><span>cd algo2&nbsp;
+                        &nbsp;(algo2ディレクトリへ移動)</span><br /><span>./実行ファイル　(カレントディレクトリの下の実行ファイルの実行。./
+                        はここにある、というイメージ）</span><br /><br /><br /><span>cp ファイル名　ファイル名</span><br /><span>mv
+                        ファイル名　場所&nbsp;</span><br /><span>(例) mv ../myfile1 .
+                        (一つ上のmyfle1を、ここへ移動)</span><br /><br /><span>alias&nbsp; &nbsp;(コマンド短縮と本当のコマンドの対象一覧。UNIXコマンドやMS
+                        DOSコマンドの一部が置き換えされています)</span><br /><br /><span>$env:path
+                        (path変数がどうなっているかを出力）</span><br /><span>get-command コマンド名 (pathのどこに、コマンドがあるかを出力）</span>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229124">
+            <dt class="cf x-openclose-title">
+
+                <b>（教務）（学生生活）勉強カフェ、いろいろな相談先情報</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <br /><a href="http://openweb.chukyo-u.ac.jp/z190119/info/advice.html" target="_blank"
+                        rel="noopener">関連情報ページ</a><br />相談しやすい人、部署へ声をかけてください。<br />同じ学科の先生に相談しにくければ、他の学科の教員でかまいません。<br /><br /><span>勉強カフェ：金曜日４時間目、11号館の3階が会場です。11号館のエレベータで3階にあがると、すぐにわかります。4月12日からです。</span><br /><br /><span>大学には、身体の保健室のほか、心や学習の保健室（あるいは問題の解消に向けた支援室）があります。不安や落ち込み、やる気、友人関係の問題、学習の問題、学費や生活の問題など、広く大学の学生生活について、気にかかっていることがあれば、学生サポートセンターのアドバイザーの皆さんに、お話してみてください。最初の一歩には、リーフレットにあるQRコードから相談センターのフォームを検索して利用したり、直通の電話を利用してみてください。<br /><br /><br /></span><span></span><br /><span>&nbsp;</span><a
+                        href="https://manabo.cnc.chukyo-u.ac.jp/file/WfpFCVsJMm/" target="_blank"
+                        rel="noopener">center.pdf</a>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229119">
+            <dt class="cf x-openclose-title">
+
+                <b>（進学） 大学院関係</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    4月3日に開催された大学院の中間発表会(修士2年生、博士2年生)の発表会のプログラムです。「機械学習とデータオーグメンテーション」を利用したテーマが多くなっています。<br /><br />５月に大学院進学ガイダンスが予定されています。これからの進路選択には、就職と進学の両方を見てもらえれば、と思います。
+                    <br><img src="/common/images/icons/pdf.png" alt="" class="icon" /> <a href="/file/ZPaKE7WywM/"
+                        target="_blank">中間発表最終版.pdf</a>
+                </dd>
+            </div>
+        </dl>
+        <dl class="cf x-openclose" id="class-news-229118">
+            <dt class="cf x-openclose-title">
+
+                <b>(人工知能高等研究所) 中京大学公開講座　ソフトサイエンスシリーズ</b>
+            </dt>
+            <div class="margin-sm">
+                <dd>
+                    <a href="https://www.iasai.chukyo-u.ac.jp/softscience.html" target="_blank"
+                        rel="noopener">過去の講演会</a>は、人工知能高等研究所（中京大学）と名古屋市科学館が共催し、市民講座として公開されてきました。2019年度からは主に高校生や学部生に向けた講演会へ変わってきています。<br />2021年度からの講演はビデオ収録でしたので、まだ視聴することができます。<br /><br />2021年度は、医療画像処理とAIに関する素晴らしい講演でした。先生が丁寧な準備をされています。画像処理をテーマとする学部生は必見の内容です。<br /><br />22年度は、自動運転技術やスマートシティー構想を支える情報技術開発の現状や未来に関する講演です。<br /><br />23年度は、ウェアラブルデバイスを身につけたユーザたちの未来に関する講演です。講演者の先生は、スマートグラス（メガネ）をつけて講演されています。<br /><br />24年度からは、対面講座となっています。
+                </dd>
+            </div>
+        </dl>
+    </div><!--panel-body-->
+</div><!--panel-->

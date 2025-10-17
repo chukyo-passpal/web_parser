@@ -1,0 +1,65 @@
+<script>
+    $(function () {
+        // event setup
+        $('.a-set-mail-member').off().on('click', function (e) {
+            e.preventDefault();
+            setMailMember($(this).attr('member_id'), false);
+            $('#div-mail-members').slideUp();
+        });
+
+        $('.button-members').each(function () {
+            var memberId = $(this).attr('member_id');
+            $('.a-set-mail-member').each(function () {
+                if ($(this).attr('member_id') == memberId) {
+                    $(this).closest('li').remove();
+                }
+            });
+        })
+    });
+</script>
+<style>
+    .div-mail-members {
+        height: 10em;
+        overflow-y: auto;
+    }
+</style>
+<div class="div-mail-members panel panel-default sp-margin-bottom-none sp-border-none margin-top-md">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                        src="/common/images/noimage-member.jpg" alt=""
+                        style="max-width:25px;max-height:25px;" /></span></a>
+            <script>$(function () { $(".x-fancy").on("click", function (e) { e.preventDefault(); }); $(".x-fancy").fancybox({ type: "image" }); })</script>
+            <a href="#" class="a-set-mail-member" member_id="31590"><b>キャリア支援課</b></a>
+        </li>
+        <li class="list-group-item">
+            <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                        src="/common/images/noimage-member.jpg" alt=""
+                        style="max-width:25px;max-height:25px;" /></span></a>
+            <a href="#" class="a-set-mail-member" member_id="23281"><b>教育推進センター（アンケート）</b></a>
+        </li>
+        <li class="list-group-item">
+            <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                        src="/common/images/noimage-member.jpg" alt=""
+                        style="max-width:25px;max-height:25px;" /></span></a>
+            <a href="#" class="a-set-mail-member" member_id="31899"><b>自己成長評価アンケート(工)</b></a>
+        </li>
+        <li class="list-group-item">
+            <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                        src="/common/images/noimage-member.jpg" alt=""
+                        style="max-width:25px;max-height:25px;" /></span></a>
+            <a href="#" class="a-set-mail-member" member_id="13452"><b>ラシキア　城治</b></a>
+        </li>
+        <li class="list-group-item">
+            <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                        src="/common/images/noimage-member.jpg" alt=""
+                        style="max-width:25px;max-height:25px;" /></span></a>
+            <a href="#" class="a-set-mail-member" member_id="13560"><b>バサーケ　イアン</b></a>
+        </li>
+    </ul>
+</div><!--panel-->

@@ -1,0 +1,401 @@
+{
+  "title": "2025 春学期",
+  "terms": [
+    {
+      "archiveId": "20",
+      "label": "2025 春学期",
+      "active": true
+    },
+    {
+      "archiveId": "21",
+      "label": "2025 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "18",
+      "label": "2024 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "19",
+      "label": "2024 春学期",
+      "active": false
+    },
+    {
+      "archiveId": "17",
+      "label": "2023 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "16",
+      "label": "2023 春学期",
+      "active": false
+    },
+    {
+      "archiveId": "15",
+      "label": "2022 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "14",
+      "label": "2022 春学期",
+      "active": false
+    },
+    {
+      "archiveId": "13",
+      "label": "2021 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "12",
+      "label": "2021 春学期",
+      "active": false
+    },
+    {
+      "archiveId": "10",
+      "label": "2020 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "9",
+      "label": "2020 春学期",
+      "active": false
+    },
+    {
+      "archiveId": "7",
+      "label": "2019 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "8",
+      "label": "2019 春学期",
+      "active": false
+    },
+    {
+      "archiveId": "6",
+      "label": "2018 秋学期",
+      "active": false
+    },
+    {
+      "archiveId": "5",
+      "label": "2018 春学期",
+      "active": false
+    },
+    {
+      "archiveId": "4",
+      "label": "MaNaBo説明動画",
+      "active": false
+    }
+  ],
+  "viewModes": [
+    {
+      "archiveId": "20",
+      "mode": null,
+      "label": "時間割",
+      "active": true
+    },
+    {
+      "archiveId": "20",
+      "mode": "list",
+      "label": "一覧",
+      "active": false
+    }
+  ],
+  "days": [
+    "月",
+    "火",
+    "水",
+    "木",
+    "金",
+    "土"
+  ],
+  "periods": [
+    {
+      "period": "1",
+      "slots": [
+        {
+          "day": "月",
+          "className": "コンピュータネットワーク",
+          "teacher": "鈴木 常彦",
+          "href": "/class/85146/"
+        },
+        {
+          "day": "火",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "水",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "木",
+          "className": "アルゴリズムとデータ構造２",
+          "teacher": "土屋 孝文",
+          "href": "/class/85131/"
+        },
+        {
+          "day": "金",
+          "className": "Ｊａｖａ言語１",
+          "teacher": "ラシキア 城治",
+          "href": "/class/85140/"
+        },
+        {
+          "day": "土",
+          "className": null,
+          "teacher": null,
+          "href": null
+        }
+      ]
+    },
+    {
+      "period": "2",
+      "slots": [
+        {
+          "day": "月",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "火",
+          "className": "画像パターン処理",
+          "teacher": "目加田 慶人",
+          "href": "/class/86314/"
+        },
+        {
+          "day": "水",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "木",
+          "className": "ライティング／コミュニケーション",
+          "teacher": null,
+          "href": "/class/85121/"
+        },
+        {
+          "day": "金",
+          "className": "Ｊａｖａ言語１演習",
+          "teacher": "ラシキア 城治",
+          "href": "/class/85141/"
+        },
+        {
+          "day": "土",
+          "className": null,
+          "teacher": null,
+          "href": null
+        }
+      ]
+    },
+    {
+      "period": "3",
+      "slots": [
+        {
+          "day": "月",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "火",
+          "className": "幾何学",
+          "teacher": null,
+          "href": "/class/85120/"
+        },
+        {
+          "day": "水",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "木",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "金",
+          "className": "レトリックの論理学",
+          "teacher": null,
+          "href": "/class/87014/"
+        },
+        {
+          "day": "土",
+          "className": null,
+          "teacher": null,
+          "href": null
+        }
+      ]
+    },
+    {
+      "period": "4",
+      "slots": [
+        {
+          "day": "月",
+          "className": "情報工学実験１",
+          "teacher": "山田 雅之",
+          "href": "/class/85138/"
+        },
+        {
+          "day": "火",
+          "className": "社会における統計学",
+          "teacher": null,
+          "href": "/class/86987/"
+        },
+        {
+          "day": "水",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "木",
+          "className": "オペレーティングシステム",
+          "teacher": "長谷川 明生",
+          "href": "/class/85143/"
+        },
+        {
+          "day": "金",
+          "className": "技術英語１",
+          "teacher": "バサーケ イアン",
+          "href": "/class/85124/"
+        },
+        {
+          "day": "土",
+          "className": null,
+          "teacher": null,
+          "href": null
+        }
+      ]
+    },
+    {
+      "period": "5",
+      "slots": [
+        {
+          "day": "月",
+          "className": "情報工学実験１",
+          "teacher": "山田 雅之",
+          "href": "/class/85138/"
+        },
+        {
+          "day": "火",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "水",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "木",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "金",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "土",
+          "className": null,
+          "teacher": null,
+          "href": null
+        }
+      ]
+    },
+    {
+      "period": "6",
+      "slots": [
+        {
+          "day": "月",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "火",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "水",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "木",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "金",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "土",
+          "className": null,
+          "teacher": null,
+          "href": null
+        }
+      ]
+    },
+    {
+      "period": "7",
+      "slots": [
+        {
+          "day": "月",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "火",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "水",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "木",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "金",
+          "className": null,
+          "teacher": null,
+          "href": null
+        },
+        {
+          "day": "土",
+          "className": null,
+          "teacher": null,
+          "href": null
+        }
+      ]
+    }
+  ]
+}

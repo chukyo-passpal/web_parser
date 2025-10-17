@@ -1,0 +1,498 @@
+{
+    "student": {
+        "id": "t324000",
+        "name": "中京 太郎(CHUKYO TARO)",
+        "division": "学部（正規）",
+        "affiliation": "学部生",
+        "status": "在学",
+        "className": "F",
+        "faculty": "工学部",
+        "department": "情報工学科",
+        "course": "（共通）",
+        "address": "〒000-0000 愛知県〇〇市〇〇町〇〇ー〇〇 （090-0000-0000） （登録なし）"
+    },
+    "periodRange": "2025年06月16日～2025年06月21日",
+    "days": [
+        {
+            "label": "月06/16",
+            "date": ""
+        },
+        {
+            "label": "火06/17",
+            "date": ""
+        },
+        {
+            "label": "水06/18",
+            "date": ""
+        },
+        {
+            "label": "木06/19",
+            "date": ""
+        },
+        {
+            "label": "金06/20",
+            "date": ""
+        },
+        {
+            "label": "土06/21",
+            "date": ""
+        }
+    ],
+    "periods": [
+        {
+            "periodLabel": "1時限",
+            "slots": [
+                {
+                    "classroom": "1731",
+                    "subject": "コンピュータネット",
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31311070&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616",
+                    "lessonCode": "T31311070",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "A1",
+                    "optionDate": "20250616"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": "1731",
+                    "subject": "アルゴリデータ構造２",
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31311160&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619",
+                    "lessonCode": "T31311160",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "D1",
+                    "optionDate": "20250619"
+                },
+                {
+                    "classroom": "1731",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31310930&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620",
+                    "lessonCode": "T31310930",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "E1",
+                    "optionDate": "20250620"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                }
+            ]
+        },
+        {
+            "periodLabel": "2時限",
+            "slots": [
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": "1731",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31311200&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617",
+                    "lessonCode": "T31311200",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "B2",
+                    "optionDate": "20250617"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": "1731",
+                    "subject": "ライティング／コミュ",
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31310100&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619",
+                    "lessonCode": "T31310100",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "D2",
+                    "optionDate": "20250619"
+                },
+                {
+                    "classroom": "1731",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31310940&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620",
+                    "lessonCode": "T31310940",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "E2",
+                    "optionDate": "20250620"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                }
+            ]
+        },
+        {
+            "periodLabel": "3時限",
+            "slots": [
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": "2133",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31310070&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B3&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617",
+                    "lessonCode": "T31310070",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "B3",
+                    "optionDate": "20250617"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": "2142",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T30007818&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E3&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620",
+                    "lessonCode": "T30007818",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "E3",
+                    "optionDate": "20250620"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                }
+            ]
+        },
+        {
+            "periodLabel": "4時限",
+            "slots": [
+                {
+                    "classroom": "1731",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31310840&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616",
+                    "lessonCode": "T31310840",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "A4",
+                    "optionDate": "20250616"
+                },
+                {
+                    "classroom": "2143",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T30007668&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617",
+                    "lessonCode": "T30007668",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "B4",
+                    "optionDate": "20250617"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": "2131",
+                    "subject": "オペシステム",
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31311020&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619",
+                    "lessonCode": "T31311020",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "D4",
+                    "optionDate": "20250619"
+                },
+                {
+                    "classroom": "845",
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31310120&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620",
+                    "lessonCode": "T31310120",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "E4",
+                    "optionDate": "20250620"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                }
+            ]
+        },
+        {
+            "periodLabel": "5時限",
+            "slots": [
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": "ARF020PVI01Action.do?LSN_CD=T31310840&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A5&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616",
+                    "lessonCode": "T31310840",
+                    "lessonYear": "2025",
+                    "termCode": "01",
+                    "timetableCode": "A5",
+                    "optionDate": "20250616"
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                }
+            ]
+        },
+        {
+            "periodLabel": "6時限",
+            "slots": [
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                }
+            ]
+        },
+        {
+            "periodLabel": "7時限",
+            "slots": [
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                },
+                {
+                    "classroom": null,
+                    "subject": null,
+                    "detailUrl": null,
+                    "lessonCode": null,
+                    "lessonYear": null,
+                    "termCode": null,
+                    "timetableCode": null,
+                    "optionDate": null
+                }
+            ]
+        }
+    ]
+}

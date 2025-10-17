@@ -1,0 +1,348 @@
+<script>
+    $(function () {
+        // event setup
+        $('.a-mail-view').on('click', function (e) {
+            e.preventDefault();
+            openModalMailView($(this).attr('mail_id'));
+        });
+
+        $('.a-remove-mails').on('click', function (e) {
+            e.preventDefault();
+            removeMails();
+        });
+
+        $('.a-download-mails').on('click', function (e) {
+            e.preventDefault();
+            downloadMails();
+        });
+
+        $('.button-sends-search').on('click', function (e) {
+            e.preventDefault();
+            searchMails();
+        });
+
+        // first load
+        glexa.enterKeySubmit();
+        glexa.setDatepicker();
+    });
+
+    function reloadMails() {
+        var q = $('input[name=q]').val();
+        var start = $('input[name=start_date]').val();
+        var end = $('input[name=end_date]').val();
+        glexa.loadMailSends('1', q, '', start, end);
+    }
+
+    function removeMails() {
+        glexa.confirm('削除してもよろしいですか？', function () {
+            glexa.ajaxForm({
+                form: '#form-mails',
+                onSuccess: function () {
+                    reloadMails();
+                }
+            });
+        });
+    }
+
+    function downloadMails() {
+        var download = function () {
+            location.href = window.urlbase + '?action=glexa_mail_csv_download_accept&mode=1';
+        };
+
+        var privacy = function (callback) {
+            {
+                return false;
+            }
+            return glexa.openPrivacyAlert(download);
+        }
+
+        if (!privacy(download)) {
+            glexa.confirm('送信したメールをダウンロードします<br />(バックアップにはファイルの容量により時間がかかる場合があります)', function () {
+                download();
+            });
+        }
+    }
+
+    function searchMails() {
+        var q = $('input[name=q]').val();
+        var start = $('input[name=start_date]').val();
+        var end = $('input[name=end_date]').val();
+        glexa.loadMailSends(1, q, null, start, end);
+    }
+</script>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="mark"></i>
+        送信メール一覧
+    </div><!--panel-heading-->
+    <div class="panel-body">
+        <ul class="page-nav cf">
+            <li>
+                <a href="#" class="a-remove-mails">
+                    <img src="/common/images/icons/remove.png" alt="" class="icon" /> チェックしたメールを一括削除
+                </a>
+            </li>
+            <li>
+                <a href="#" class="a-download-mails">
+                    <img src="/common/images/icons/download.png" alt="" class="icon" /> CSVファイルでダウンロード
+                </a>
+            </li>
+        </ul>
+
+        <ul class="page-nav cf">
+            <li>
+                <img src="/common/images/icons/search.png" alt="" class="icon" />
+                <input type="text" class="form-control x-enter" id="q" name="q" value="">
+                <img src="/common/images/icons/calender.png" alt="" class="icon" />
+                <input type="text" name="start_date" value="" class="form-control datepicker size7" />
+                ～
+                <input type="text" name="end_date" value="" class="form-control datepicker size7" />
+                <button class="btn btn-default button-sends-search">検索</button>
+            </li>
+        </ul>
+
+        <form id="form-mails">
+            <input type="hidden" name="action" value="glexa_mail_send_remove_accept" />
+            <script>$(function () { $(".a-exec-pager").on("click", function (e) { e.preventDefault(); glexa.loadMailSends($(this).attr("page"), '', ''); }); $(".select-exec-pager").on("change", function (e) { glexa.loadMailSends($(this).val(), '', ''); }); })</script>
+            <div class="row margin-top-md margin-bottom-md">
+                <div class="col-sm-2">8件中 1 〜 8件</div>
+            </div>
+            <div class="table-responsive sp-resize-table">
+                <table class="table-default">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <div class="div-inner md">
+                                    <a href="#" id="a-glexa-order-key-311716c3c3ddbd6408b9b7bb913fc819">タイトル</a>
+                                    <script>$("#a-glexa-order-key-311716c3c3ddbd6408b9b7bb913fc819").on("click", function (e) { e.preventDefault(); glexa.loadMailSends('1', '', 'mail_title_desc'); });</script>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="div-inner md">
+                                    <a href="#" id="a-glexa-order-key-814dc35a2604d5f29f6b8975fdc05c4e">宛先</a>
+                                    <script>$("#a-glexa-order-key-814dc35a2604d5f29f6b8975fdc05c4e").on("click", function (e) { e.preventDefault(); glexa.loadMailSends('1', '', 'mail_sendname_desc'); });</script>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="div-inner lg">
+                                    <a href="#" id="a-glexa-order-key-b52e6a1d577e8a25df1594a9b9660acc">送信日</a>
+                                    <script>$("#a-glexa-order-key-b52e6a1d577e8a25df1594a9b9660acc").on("click", function (e) { e.preventDefault(); glexa.loadMailSends('1', '', 'mail_datetime_desc'); });</script>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="div-inner sm">
+                                    <a href="#" id="a-glexa-order-key-a0f189322746a1ca197cb024e0d1677e">未読人数</a>
+                                    <script>$("#a-glexa-order-key-a0f189322746a1ca197cb024e0d1677e").on("click", function (e) { e.preventDefault(); glexa.loadMailSends('1', '', 'mail_readcount_desc'); });</script>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_15312842" name="mail_id[15312842]"
+                                    value="15312842" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="15312842">
+                                    Re: Re: ゼミ応募メール確認のお願い
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <script>$(function () { $(".x-fancy").on("click", function (e) { e.preventDefault(); }); $(".x-fancy").fancybox({ type: "image" }); })</script>
+                                <span class="margin-left-sm">ラシキア　城治</span>
+                            </td>
+                            <td>
+                                2025年6月20日(金) 17:05
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_15312262" name="mail_id[15312262]"
+                                    value="15312262" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="15312262">
+                                    ゼミ応募メール確認のお願い
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">ラシキア　城治</span>
+                            </td>
+                            <td>
+                                2025年6月20日(金) 16:37
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_15311915" name="mail_id[15311915]"
+                                    value="15311915" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="15311915">
+                                    Re: ゼミ面接のお願いについて
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">中京　太郎</span>
+                            </td>
+                            <td>
+                                2025年6月20日(金) 16:10
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_15288073" name="mail_id[15288073]"
+                                    value="15288073" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="15288073">
+                                    ゼミ面接のお願いについて
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">ラシキア　城治</span>
+                            </td>
+                            <td>
+                                2025年6月19日(木) 14:17
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_14408275" name="mail_id[14408275]"
+                                    value="14408275" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="14408275">
+                                    Re: 最終課題の評価公開
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">正木　彰伍</span>
+                            </td>
+                            <td>
+                                2025年1月29日(水) 12:55
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_14115175" name="mail_id[14115175]"
+                                    value="14115175" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="14115175">
+                                    11回目の課題の得点について
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">宮川　裕貴, 正木　彰伍</span>
+                            </td>
+                            <td>
+                                2024年12月18日(水) 17:06
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_13673242" name="mail_id[13673242]"
+                                    value="13673242" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="13673242">
+                                    Re: おたずね
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">正木　彰伍</span>
+                            </td>
+                            <td>
+                                2024年11月15日(金) 09:20
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="checkbox" id="mail_id_13341370" name="mail_id[13341370]"
+                                    value="13341370" />
+                            </td>
+                            <td>
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> <a href="#"
+                                    class="a-mail-view" mail_id="13341370">
+                                    Re: 【重要】提出してもらった解析学の宿題02について
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">佐藤　俊郎</span>
+                            </td>
+                            <td>
+                                2024年10月9日(水) 21:51
+                            </td>
+                            <td class="text-right">
+                                0
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div><!--panel-body-->
+</div><!--panel-->
