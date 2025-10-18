@@ -1,6 +1,7 @@
 {
     "name": "web_parser",
     "module": "src/index.ts",
+    "exports": "./src/index.ts",
     "type": "module",
     "scripts": {
         "lint": "eslint . --ext .ts"
