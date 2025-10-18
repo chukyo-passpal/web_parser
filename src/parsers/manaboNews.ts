@@ -1,9 +1,10 @@
 import { load } from "cheerio";
 import { ManaboNewsSchema, type ManaboNewsDTO } from "../schemas/manaboNews";
+import type { ZodSafeParseResult } from "zod";
 
 const normalizeWhitespace = (value: string): string => value.replace(/\s+/g, " ").trim();
 
-export const parseManaboNews = (html: string): ManaboNewsDTO => {
+export const parseManaboNews = (html: string): ZodSafeParseResult<ManaboNewsDTO> => {
     const $ = load(html);
 
     const rows = $(".table-info tbody tr");
@@ -23,7 +24,7 @@ export const parseManaboNews = (html: string): ManaboNewsDTO => {
         }
     });
 
-    return ManaboNewsSchema.parse({
+    return ManaboNewsSchema.safeParse({
         message,
         items,
     });

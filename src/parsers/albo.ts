@@ -2,6 +2,7 @@ import { type CheerioAPI, load } from "cheerio";
 import type { Element } from "domhandler";
 import { type CubicsPtNewsEntryDTO, type CubicsPtNewsDTO, CubicsPtNewsSchema } from "../schemas/albo";
 import { normalizeWhitespace, extractFirstQuotedValue } from "./cubics";
+import type { ZodSafeParseResult } from "zod";
 
 const parseNewsEntry = (row: Element, $: CheerioAPI): CubicsPtNewsEntryDTO | null => {
     const categoryAlt = $(row).find("th.category img").attr("alt") ?? null;
@@ -25,7 +26,7 @@ const parseNewsEntry = (row: Element, $: CheerioAPI): CubicsPtNewsEntryDTO | nul
     };
 };
 
-export const parseCubicsPtNews = (html: string): CubicsPtNewsDTO => {
+export const parseCubicsPtNews = (html: string): ZodSafeParseResult<CubicsPtNewsDTO> => {
     const $ = load(html);
 
     const tabs = $("#tab_element")
@@ -53,7 +54,7 @@ export const parseCubicsPtNews = (html: string): CubicsPtNewsDTO => {
 
     const selectedTab = tabs.find((tab) => tab.active);
 
-    return CubicsPtNewsSchema.parse({
+    return CubicsPtNewsSchema.safeParse({
         selectedTabId: selectedTab ? selectedTab.id : null,
         tabs: tabs.map((tab) => ({
             id: tab.id,

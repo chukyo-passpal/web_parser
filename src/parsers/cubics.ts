@@ -1,5 +1,6 @@
 import { load } from "cheerio";
 import { CubicsAsTimetableSchema, type CubicsAsTimetableDTO } from "../schemas/cubics";
+import type { ZodSafeParseResult } from "zod";
 
 export const normalizeWhitespace = (value: string): string => value.replace(/\s+/g, " ").trim();
 
@@ -11,7 +12,7 @@ export const extractFirstQuotedValue = (raw: string | undefined | null): string 
     return match ? match[1] ?? null : null;
 };
 
-export const parseCubicsAsTimetable = (html: string): CubicsAsTimetableDTO => {
+export const parseCubicsAsTimetable = (html: string): ZodSafeParseResult<CubicsAsTimetableDTO> => {
     const $ = load(html);
 
     const studentTable = $("table.output").first();
@@ -113,7 +114,7 @@ export const parseCubicsAsTimetable = (html: string): CubicsAsTimetableDTO => {
         })
         .get();
 
-    return CubicsAsTimetableSchema.parse({
+    return CubicsAsTimetableSchema.safeParse({
         student,
         periodRange,
         days,

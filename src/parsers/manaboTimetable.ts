@@ -2,6 +2,7 @@ import { load } from "cheerio";
 import type { Cheerio, CheerioAPI } from "cheerio";
 import type { Element } from "domhandler";
 import { ManaboTimetableSchema, type ManaboTimetableDTO, type ManaboTimetablePeriodDTO, type ManaboTimetableSlotDTO } from "../schemas/manaboTimetable";
+import type { ZodSafeParseResult } from "zod";
 
 const normalizeWhitespace = (value: string): string => value.replace(/\s+/g, " ").trim();
 
@@ -40,7 +41,7 @@ const buildPeriod = (row: Cheerio<Element>, days: string[], $: CheerioAPI): Mana
     };
 };
 
-export const parseManaboTimetable = (html: string): ManaboTimetableDTO => {
+export const parseManaboTimetable = (html: string): ZodSafeParseResult<ManaboTimetableDTO> => {
     const $ = load(html);
 
     const title = normalizeWhitespace($("#time_table_name").text());
@@ -82,7 +83,7 @@ export const parseManaboTimetable = (html: string): ManaboTimetableDTO => {
         .map((_, row) => buildPeriod($(row), days, $))
         .get();
 
-    return ManaboTimetableSchema.parse({
+    return ManaboTimetableSchema.safeParse({
         title,
         terms: termAnchors,
         viewModes,

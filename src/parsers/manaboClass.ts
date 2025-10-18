@@ -16,10 +16,11 @@ import {
     type ManaboClassQuizResultDTO,
     type ManaboClassSyllabusDTO,
 } from "../schemas/manaboClass";
+import type { ZodSafeParseResult } from "zod";
 
 const normalizeWhitespace = (value: string): string => value.replace(/\s+/g, " ").trim();
 
-export const parseManaboClassDirectory = (html: string): ManaboClassDirectoryDTO => {
+export const parseManaboClassDirectory = (html: string): ZodSafeParseResult<ManaboClassDirectoryDTO> => {
     const $ = load(html);
     const classNode = $(".class-top-directory .x-content-drop").first();
     const classId = classNode.attr("class_id") ?? "";
@@ -37,14 +38,14 @@ export const parseManaboClassDirectory = (html: string): ManaboClassDirectoryDTO
         .get()
         .filter((directory) => directory.directoryId.length > 0 && directory.title.length > 0);
 
-    return ManaboClassDirectorySchema.parse({
+    return ManaboClassDirectorySchema.safeParse({
         classId,
         className,
         directories,
     });
 };
 
-export const parseManaboClassContent = (html: string): ManaboClassContentDTO => {
+export const parseManaboClassContent = (html: string): ZodSafeParseResult<ManaboClassContentDTO> => {
     const $ = load(html);
     const items: {
         contentId: string;
@@ -90,19 +91,19 @@ export const parseManaboClassContent = (html: string): ManaboClassContentDTO => 
         });
     });
 
-    return ManaboClassContentSchema.parse({
+    return ManaboClassContentSchema.safeParse({
         items,
     });
 };
 
-export const parseManaboClassNotAttendContent = (html: string): ManaboClassNotAttendContentDTO => {
+export const parseManaboClassNotAttendContent = (html: string): ZodSafeParseResult<ManaboClassNotAttendContentDTO> => {
     const contentHtml = html.trim();
-    return ManaboClassNotAttendContentSchema.parse({
+    return ManaboClassNotAttendContentSchema.safeParse({
         contentHtml,
     });
 };
 
-export const parseManaboClassEntry = (html: string): ManaboClassEntryDTO => {
+export const parseManaboClassEntry = (html: string): ZodSafeParseResult<ManaboClassEntryDTO> => {
     const $ = load(html);
     const rows = $("table.table-default tbody tr")
         .map((_, row) => {
@@ -119,12 +120,12 @@ export const parseManaboClassEntry = (html: string): ManaboClassEntryDTO => {
         })
         .get();
 
-    return ManaboClassEntrySchema.parse({
+    return ManaboClassEntrySchema.safeParse({
         rows,
     });
 };
 
-export const parseManaboClassNews = (html: string): ManaboClassNewsDTO => {
+export const parseManaboClassNews = (html: string): ZodSafeParseResult<ManaboClassNewsDTO> => {
     const $ = load(html);
     const items = $("dl.x-openclose")
         .map((_, element) => {
@@ -139,12 +140,12 @@ export const parseManaboClassNews = (html: string): ManaboClassNewsDTO => {
         })
         .get();
 
-    return ManaboClassNewsSchema.parse({
+    return ManaboClassNewsSchema.safeParse({
         items,
     });
 };
 
-export const parseManaboClassSyllabus = (html: string): ManaboClassSyllabusDTO => {
+export const parseManaboClassSyllabus = (html: string): ZodSafeParseResult<ManaboClassSyllabusDTO> => {
     const $ = load(html);
     const title = normalizeWhitespace($(".panel-heading").first().text());
 
@@ -174,14 +175,14 @@ export const parseManaboClassSyllabus = (html: string): ManaboClassSyllabusDTO =
         });
     });
 
-    return ManaboClassSyllabusSchema.parse({
+    return ManaboClassSyllabusSchema.safeParse({
         title,
         sections,
         lessonPlan,
     });
 };
 
-export const parseManaboClassQuizResult = (html: string): ManaboClassQuizResultDTO => {
+export const parseManaboClassQuizResult = (html: string): ZodSafeParseResult<ManaboClassQuizResultDTO> => {
     const $ = load(html);
     const scoreText = normalizeWhitespace($(".text-center .Red b").first().text());
     const totalText = normalizeWhitespace($(".text-center").first().text()).split("/")[1] ?? "0";
@@ -239,7 +240,7 @@ export const parseManaboClassQuizResult = (html: string): ManaboClassQuizResultD
         })
         .get();
 
-    return ManaboClassQuizResultSchema.parse({
+    return ManaboClassQuizResultSchema.safeParse({
         score: {
             obtained,
             total,

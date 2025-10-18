@@ -12,6 +12,7 @@ import {
     type ManaboReceivedMailDTO,
     type ManaboSentMailDTO,
 } from "../schemas/manaboMail";
+import type { ZodSafeParseResult } from "zod";
 
 const normalizeWhitespace = (value: string): string => value.replace(/\s+/g, " ").trim();
 
@@ -39,7 +40,7 @@ const extractPagination = (
     return { summary: summaryText.length ? summaryText : null, pages };
 };
 
-export const parseManaboReceivedMail = (html: string): ManaboReceivedMailDTO => {
+export const parseManaboReceivedMail = (html: string): ZodSafeParseResult<ManaboReceivedMailDTO> => {
     const $ = load(html);
     const { summary, pages } = extractPagination($);
 
@@ -70,14 +71,14 @@ export const parseManaboReceivedMail = (html: string): ManaboReceivedMailDTO => 
         })
         .get();
 
-    return ManaboReceivedMailSchema.parse({
+    return ManaboReceivedMailSchema.safeParse({
         summary,
         pages,
         mails,
     });
 };
 
-export const parseManaboSentMail = (html: string): ManaboSentMailDTO => {
+export const parseManaboSentMail = (html: string): ZodSafeParseResult<ManaboSentMailDTO> => {
     const $ = load(html);
     const summary = normalizeWhitespace($(".row.margin-top-md .col-sm-2").first().text());
 
@@ -110,13 +111,13 @@ export const parseManaboSentMail = (html: string): ManaboSentMailDTO => {
         })
         .get();
 
-    return ManaboSentMailSchema.parse({
+    return ManaboSentMailSchema.safeParse({
         summary: summary.length ? summary : null,
         mails,
     });
 };
 
-export const parseManaboMailView = (html: string): ManaboMailViewDTO => {
+export const parseManaboMailView = (html: string): ZodSafeParseResult<ManaboMailViewDTO> => {
     const $ = load(html);
 
     const title = normalizeWhitespace($(".modal-title").first().text());
@@ -131,7 +132,7 @@ export const parseManaboMailView = (html: string): ManaboMailViewDTO => {
     const bodyBlock = $(".modal-body .margin-top-lg").eq(1);
     const bodyHtml = bodyBlock.html()?.trim() ?? "";
 
-    return ManaboMailViewSchema.parse({
+    return ManaboMailViewSchema.safeParse({
         title,
         replyMailId: replyButton.attr("reply_mail_id") ?? null,
         fromMemberId: replyButton.attr("from_member_id") ?? null,
@@ -143,12 +144,12 @@ export const parseManaboMailView = (html: string): ManaboMailViewDTO => {
     });
 };
 
-export const parseManaboMailSend = (html: string): ManaboMailSendDTO => {
+export const parseManaboMailSend = (html: string): ZodSafeParseResult<ManaboMailSendDTO> => {
     const $ = load(html);
     const modalTitle = normalizeWhitespace($(".modal-title").first().text());
     const form = $("#form-mail");
 
-    return ManaboMailSendSchema.parse({
+    return ManaboMailSendSchema.safeParse({
         modalTitle,
         form: {
             action: form.find('input[name="action"]').attr("value") ?? "",
@@ -160,7 +161,7 @@ export const parseManaboMailSend = (html: string): ManaboMailSendDTO => {
     });
 };
 
-export const parseManaboMailMember = (html: string): ManaboMailMemberDTO => {
+export const parseManaboMailMember = (html: string): ZodSafeParseResult<ManaboMailMemberDTO> => {
     const $ = load(html);
     const members = $(".div-mail-members li")
         .map((_, item) => {
@@ -177,7 +178,7 @@ export const parseManaboMailMember = (html: string): ManaboMailMemberDTO => {
         .get()
         .filter((member) => member.memberId.length > 0);
 
-    return ManaboMailMemberSchema.parse({
+    return ManaboMailMemberSchema.safeParse({
         members,
     });
 };
