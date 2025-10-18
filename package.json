@@ -1,10 +1,20 @@
 {
-    "name": "web_parser",
-    "module": "src/index.ts",
-    "exports": "./src/index.ts",
+    "name": "@chukyo-passpal/web_parser",
+    "version": "0.1.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/esm/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "type": "module",
     "scripts": {
-        "lint": "eslint . --ext .ts"
+        "lint": "eslint . --ext .ts",
+        "build:cjs": "tsc --project tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfig.esm.json"
     },
     "devDependencies": {
         "@eslint/js": "^9.37.0",
