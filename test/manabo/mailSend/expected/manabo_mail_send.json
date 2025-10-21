@@ -1,0 +1,10 @@
+{
+  "modalTitle": "メール作成",
+  "form": {
+    "action": "glexa_modal_mail_form_accept",
+    "replyMailId": "",
+    "signature": "",
+    "csrfToken": "13c5bb7e9ec6d6fcba06e8621b7cee8b"
+  },
+  "submitLabel": "送信"
+}

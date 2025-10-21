@@ -1,0 +1,162 @@
+<script>
+    $(function () {
+        // event setup
+        $('.button-search-members').on('click', function (e) {
+            e.preventDefault();
+            searchMailMembers();
+        });
+
+        $('.button-send-mail').on('click', function (e) {
+            e.preventDefault();
+            sendMail();
+        });
+
+        $('input[name=title],textarea[name=body]').on('keyup', function () {
+            glexa.localStorage.setItem('mail-tmp-' + $(this).attr('name'), $(this).val());
+        });
+
+        $('input[name=member_q]').on('keyup change', function (e) {
+            controlSearchButton();
+        });
+
+        // first load
+        $('input[name=title]').val(glexa.localStorage.getItem('mail-tmp-title'));
+        $('textarea[name=body]').val(glexa.localStorage.getItem('mail-tmp-body'));
+        $('#div-mail-members').slideUp();
+        $('.button-search-members').prop('disabled', true);
+        putUploader();
+
+        glexa.enterKeySubmit();
+        controlSearchButton();
+    });
+
+    function searchMailMembers() {
+        if ($('input[name=member_q]').val().length) {
+            params = {
+                q: $('input[name=member_q]').val()
+            };
+            glexa.ajax({
+                action: 'glexa_modal_mail_ajax_member_list',
+                params: params,
+                element: '#div-mail-members',
+                onSuccess: function () {
+                    $('#div-mail-members').slideDown('fast');
+                    // $('input[name=member_q]').val('');
+                }
+            });
+        } else {
+            $('#div-mail-members').slideUp('fast');
+        }
+    }
+
+    function controlSearchButton() {
+
+        $('.button-search-members').prop('disabled', true);
+        try {
+            if ($('input[name=member_q]').val().length) {
+                $('.button-search-members').prop('disabled', false);
+            }
+        } catch (e) {
+        }
+    }
+
+    function setMailMember(memberId, isConst) {
+        params = {
+            member_id: memberId,
+            is_const: isConst ? 1 : 0
+        };
+        glexa.ajax({
+            action: 'glexa_modal_mail_ajax_member_view',
+            params: params,
+            onSuccess: function (response) {
+                $('#div-send-members').append(response.html);
+                $('.button-members').off().on('click', function (e) {
+                    e.preventDefault();
+                    $(this).remove();
+                });
+                // $('.button-search-members').prop('disabled', true);
+                controlSearchButton();
+            }
+        });
+    }
+
+    function sendMail() {
+        glexa.ajax({
+            action: 'glexa_modal_mail_form_accept',
+            params: $('#form-mail').serializeArray(),
+            onSuccess: function () {
+                glexa.localStorage.removeItem('mail-tmp-title');
+                glexa.localStorage.removeItem('mail-tmp-body');
+                glexa.alert('メールを送信しました');
+                glexa.closeRemoteModal();
+                if (typeof reloadMails == 'function') {
+                    reloadMails();
+                }
+            }
+        });
+    }
+
+    function putUploader() {
+        glexa.uploader({
+            maxFiles: 100,
+            useDefaultRemovedFile: true,
+            params: {
+                csrf_token: '13c5bb7e9ec6d6fcba06e8621b7cee8b',
+            },
+        });
+    }	
+</script>
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+            <h4 class="modal-title">メール作成</h4>
+        </div>
+        <div class="modal-body">
+            <form id="form-mail">
+                <input type="hidden" name="action" value="glexa_modal_mail_form_accept" />
+                <input type="hidden" name="reply_mail_id" value="" />
+                <input type="hidden" name="signature" value="" />
+                <input type="hidden" name="csrf_token" value="13c5bb7e9ec6d6fcba06e8621b7cee8b" />
+                <p class="green margin-bottom-sm">宛先<span class="required">*</span></p>
+
+                <div id="searchbox">
+                    <div class="form-inline margin-top-sm margin-bottom-sm">
+                        <input type="text" class="form-control size16 x-enter" name="member_q" autofocus>
+                        <button class="btn btn-primary button-search-members">検索</button>
+                    </div>
+                </div>
+                <div id="div-mail-members"></div>
+                <div id="div-send-members" class="form-inline margin-top-md"></div>
+                <div id="div-send-others"></div>
+
+                <p class="green margin-top-md margin-bottom-sm">タイトル<span class="required">*</span></p>
+                <input type="text" class="form-control size30 sp-width100per" name="title" value="">
+
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <p class="green margin-top-md margin-bottom-sm">本文<span class="required">*</span></p>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea class="form-control col-md-4 sp-width100per" rows="8" name="body"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group margin-top-md row">
+                    <div class="col-md-12">
+                        <p class="green margin-bottom-sm">ファイルの選択</p>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="div-uploader"></div>
+                        <div id="div-preview-uploads"></div>
+                        <div id="div-files"></div>
+                    </div>
+                </div>
+            </form>
+        </div><!--modal-body-->
+        <div class="modal-footer">
+            <button class="btn btn-primary button-send-mail size10">送信</button>
+        </div>
+    </div><!--modal-content-->
+</div><!--modal-dialog-->

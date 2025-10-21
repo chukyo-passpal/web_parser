@@ -1,0 +1,765 @@
+<script>
+    $(function () {
+        // event setup
+        $('.a-mail-view').on('click', function (e) {
+            e.preventDefault();
+            openModalMailView($(this).attr('mail_id'));
+        });
+
+        $('.a-remove-mails').on('click', function (e) {
+            e.preventDefault();
+            removeMails();
+        });
+
+        $('.a-download-mails').on('click', function (e) {
+            e.preventDefault();
+            downloadMails();
+        });
+
+        $('.a-readall-mails').on('click', function (e) {
+            e.preventDefault();
+            readallMails();
+        });
+
+        $('.a-unread-mail-list').on('click', function (e) {
+            e.preventDefault();
+            glexa.loadMailReceives(null, null, null, 1);
+        });
+
+        $('.a-all-mail-list').on('click', function (e) {
+            e.preventDefault();
+            glexa.loadMailReceives();
+        });
+
+        $('.button-receives-search').on('click', function (e) {
+            e.preventDefault();
+            searchMails();
+        });
+
+        // first load
+        glexa.setToggleCheckbox();
+        glexa.enterKeySubmit();
+        glexa.setDatepicker();
+    });
+
+    function reloadMails() {
+        var q = $('input[name=q]').val();
+        var start = $('input[name=start_date]').val();
+        var end = $('input[name=end_date]').val();
+        glexa.loadMailReceives('1', q, '', start, end);
+    }
+
+    function removeMails() {
+        glexa.confirm('削除してもよろしいですか？', function () {
+            glexa.ajaxForm({
+                form: '#form-mails',
+                onSuccess: function () {
+                    reloadMails();
+                }
+            });
+        });
+    }
+
+    function readallMails() {
+        glexa.confirm('すべてのメールを既読にしてもよろしいですか？', function () {
+            glexa.ajaxForm({
+                form: '#readall_form',
+                onSuccess: function (json) {
+                    reloadMails();
+                    glexa.alert(json.message);
+                }
+            });
+        });
+    }
+
+    function downloadMails() {
+        var download = function () {
+            location.href = window.urlbase + '?action=glexa_mail_csv_download_accept&mode=0';
+        };
+
+        if (!glexa.openPrivacyAlert(download)) {
+            glexa.confirm('受信したメールをダウンロードします。<br />時間がかかる場合がありますのでそのままお待ちください', function () {
+                download();
+            });
+        }
+    }
+
+    function searchMails() {
+        var q = $('input[name=q]').val();
+        var start = $('input[name=start_date]').val();
+        var end = $('input[name=end_date]').val();
+        glexa.loadMailReceives(1, q, null, null, start, end);
+    }
+</script>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="mark"></i>受信メール一覧
+    </div><!--panel-heading-->
+    <div class="panel-body">
+        <ul class="page-nav cf">
+            <li>
+                <a href="#" class="a-readall-mails">
+                    <img src="/common/images/icons/mail_read.png" alt="" class="icon" /> すべてのメールを既読にする
+                </a>
+            </li>
+            <li>
+                <a href="#" class="a-unread-mail-list">
+                    <img src="/common/images/icons/mail.png" alt="" class="icon" /> 未読メールのみ表示する
+                </a>
+            </li>
+            <li>
+                <a href="#" class="a-remove-mails">
+                    <img src="/common/images/icons/remove.png" alt="" class="icon" /> チェックしたメールを一括削除
+                </a>
+            </li>
+        </ul>
+
+        <form id="readall_form" action="/mails/" method="post"><input type="hidden" name="action"
+                value="glexa_mail_receive_readall"></form>
+
+        <ul class="page-nav cf">
+            <li>
+                <img src="/common/images/icons/search.png" alt="" class="icon" />
+                <input type="text" id="q" name="q" value="" class="form-control sp-size10 x-enter">
+                <img src="/common/images/icons/calender.png" alt="" class="icon" />
+                <input type="text" name="start_date" value="" class="form-control datepicker size7" />
+                ～
+                <input type="text" name="end_date" value="" class="form-control datepicker size7" />
+                <button class="btn btn-default button-receives-search">検索</button>
+            </li>
+        </ul>
+
+        <script>$(function () { $(".a-exec-pager").on("click", function (e) { e.preventDefault(); glexa.loadMailReceives($(this).attr("page"), '', ''); }); $(".select-exec-pager").on("change", function (e) { glexa.loadMailReceives($(this).val(), '', ''); }); })</script>
+        <div class="row margin-top-md margin-bottom-md">
+            <div class="col-sm-2">139件中 1 〜 30件</div>
+            <div class="text-right margin-right-lg">
+                <nav>
+                    <ul class="pagination">
+                        <li><a href="#" class="a-exec-pager active" page="1">1</a></li>
+                        <li><a href="#" class="a-exec-pager" page="2">2</a></li>
+                        <li><a href="#" class="a-exec-pager" page="3">3</a></li>
+                        <li><a href="#" class="a-exec-pager" page="4">4</a></li>
+                        <li><a href="#" class="a-exec-pager" page="5">5</a></li>
+                        <li><a href="#" aria-label="Next" class="a-exec-pager" page="2"><span
+                                    aria-hidden="true">&raquo;</span></a></li>
+                        <li><a href="#" aria-label="Next" class="a-exec-pager" page="5"><span
+                                    aria-hidden="true">&raquo;&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <form id="form-mails">
+            <input type="hidden" name="action" value="glexa_ajax_mail_remove_accept" />
+            <div class="table-responsive sp-resize-table">
+                <table class="table-default">
+                    <thead>
+                        <tr>
+                            <th class="text-center x-checks" width="20"><img src="/common/images/icons/check.png" alt=""
+                                    class="icon" /> </th>
+                            <th>
+                                <div class="div-inner md">
+                                    <a href="#" id="a-glexa-order-key-311716c3c3ddbd6408b9b7bb913fc819">タイトル</a>
+                                    <script>$("#a-glexa-order-key-311716c3c3ddbd6408b9b7bb913fc819").on("click", function (e) { e.preventDefault(); glexa.loadMailReceives('1', '', 'mail_title_desc', ''); });</script>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="div-inner md">
+                                    <a href="#" id="a-glexa-order-key-814dc35a2604d5f29f6b8975fdc05c4e">送信者</a>
+                                    <script>$("#a-glexa-order-key-814dc35a2604d5f29f6b8975fdc05c4e").on("click", function (e) { e.preventDefault(); glexa.loadMailReceives('1', '', 'mail_sendname_desc', ''); });</script>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="div-inner lg">
+                                    <a href="#" id="a-glexa-order-key-b52e6a1d577e8a25df1594a9b9660acc">受信日</a>
+                                    <script>$("#a-glexa-order-key-b52e6a1d577e8a25df1594a9b9660acc").on("click", function (e) { e.preventDefault(); glexa.loadMailReceives('1', '', 'mail_datetime_desc', ''); });</script>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15313350]" value="15313350" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="15313350">
+                                    Re: Re: Re: ゼミ応募メール確認のお願い
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <script>$(function () { $(".x-fancy").on("click", function (e) { e.preventDefault(); }); $(".x-fancy").fancybox({ type: "image" }); })</script>
+                                <span class="margin-left-sm">ラシキア　城治</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月20日(金) 19:27</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15312445]" value="15312445" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_arrow_right.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="15312445">
+                                    Re: ゼミ応募メール確認のお願い
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">ラシキア　城治</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月20日(金) 16:57</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15311915]" value="15311915" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="15311915">
+                                    Re: ゼミ面接のお願いについて
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">中京　太郎</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月20日(金) 16:10</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15307023]" value="15307023" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15307023">
+                                    学生広報スタッフ『ライト』（４期生）募集中！！
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93589/">学生広報スタッフ「ライト」4期生募集クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月20日(金) 12:46</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15296239]" value="15296239" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15296239">
+                                    ゼミ登録の受付締め切り間近です
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93591/">ゼミ登録クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月20日(金) 12:26</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15262696]" value="15262696" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="15262696">
+                                    【訂正】【参加学生募集】世界ラリー選手権フォーラムエイト・ラリージャパン2025観戦者をもてなし、豊田市の魅力をPRせよ
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93679/">ラリージャパン連携プロジェクト募集クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月17日(火) 09:35</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15248494]" value="15248494" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="15248494">
+                                    【参加学生募集】世界ラリー選手権フォーラムエイト・ラリージャパン2025観戦者をもてなし、豊田市の魅力をPRせよ
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93679/">ラリージャパン連携プロジェクト募集クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月17日(火) 09:10</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15227672]" value="15227672" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="15227672">
+                                    ゼミ第1次選考申請をしてください
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93591/">ゼミ登録クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月16日(月) 09:00</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15185119]" value="15185119" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15185119">
+                                    数値計算実験のレポートについて
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85138/">情報工学実験１クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月11日(水) 15:00</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15160575]" value="15160575" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15160575">
+                                    ネットワーク実験のレポートについて
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85138/">情報工学実験１クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月9日(月) 13:35</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15156170]" value="15156170" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15156170">
+                                    自衛隊ゲスト講師
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85146/">コンピュータネットワーククラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年6月9日(月) 08:19</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15075441]" value="15075441" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15075441">
+                                    ゼミ紹介メモの締め切り延長
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85121/">ライティング／コミュニケーションクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月31日(土) 11:30</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15071540]" value="15071540" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15071540">
+                                    ゼミ紹介メモの締め切り延長
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85121/">ライティング／コミュニケーションクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月30日(金) 16:54</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15049925]" value="15049925" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15049925">
+                                    ネットワーク実験の授業録画
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85138/">情報工学実験１クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月28日(水) 12:52</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[15015928]" value="15015928" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="15015928">
+                                    教材の受講期限が近付いています。
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">システム管理者(情報システム担当者）</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月25日(日) 08:00</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14950106]" value="14950106" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="14950106">
+                                    来週からのネットワーク実験の準備
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85138/">情報工学実験１クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月19日(月) 17:30</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14906901]" value="14906901" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="14906901">
+                                    ゼミ登録クラスの運用開始
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93591/">ゼミ登録クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月14日(水) 17:24</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14858351]" value="14858351" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="14858351">
+                                    あなたのアイデアで日本のトップリーグで活躍するスポーツチームのファン獲得に挑戦しませんか？
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93574/">【追加募集】スポーツチームファン獲得プロジェクト募集クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月9日(金) 10:28</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14842403]" value="14842403" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="14842403">
+                                    研究室 (ゼミ) 紹介
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85121/">ライティング／コミュニケーションクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年5月8日(木) 09:03</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14802548]" value="14802548" />
+                            </td>
+                            <td class="title">
+                                <span class="error"><img src="/common/images/icons/mail.png" alt="" class="icon" />
+                                    未読</span>
+                                <a href="#" class="a-mail-view" mail_id="14802548">
+                                    ビジネスアイデアワークショップ開催のご案内
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93510/">ビジネスアイデアワークショップ申込クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年4月29日(火) 14:30</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14729855]" value="14729855" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14729855">
+                                    📚chukyo career school [6/21(土)]定員制・先着順
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/93504/">2年生・1年生対象📚chukyo career school [6/21(土)]定員制・先着順クラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年4月22日(火) 13:26</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14647729]" value="14647729" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14647729">
+                                    授業スライドのトラブルについて
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/85146/">コンピュータネットワーククラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年4月14日(月) 11:05</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14537898]" value="14537898" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14537898">
+                                    🌈新2年生対象キャリアガイダンス📅🎉［4/7 - 4/9］参加必須
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">キャリア支援課</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年3月28日(金) 18:40</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14521759]" value="14521759" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14521759">
+                                    教材の受講期限が近付いています。
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">システム管理者(情報システム担当者）</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年3月19日(水) 08:03</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14502764]" value="14502764" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14502764">
+                                    【トヨタ自動車硬式野球部×中京大学】地域を盛り上げるイベントを一緒に作りませんか？
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/92825/">【トヨタ自動車硬式野球部×中京大学】交流試合運営体験＆企画提案プロジェクトクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年3月7日(金) 15:07</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14483248]" value="14483248" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14483248">
+                                    教材の受講期限が近付いています。
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">システム管理者(情報システム担当者）</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年2月26日(水) 08:03</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14471486]" value="14471486" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14471486">
+                                    【2/27締切迫る！】あなたのアイデアで社会の課題に挑戦しませんか？
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/83267/">【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト募集クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年2月24日(月) 12:24</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14460059]" value="14460059" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14460059">
+                                    【2/27締切】あなたのアイデアで日本のトップリーグで活躍するスポーツチームのファン獲得に挑戦しませんか？
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/83267/">【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト募集クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年2月20日(木) 12:58</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14445560]" value="14445560" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14445560">
+                                    【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト参加学生募集のお知らせ
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <img src="/common/images/icons/members.png" alt="" class="icon" /> <a
+                                    href="/class/83267/">【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト募集クラスクラス</a>
+                            </td>
+                            <td>
+                                <span class="date">2025年2月12日(水) 19:58</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="mail_id[14430965]" value="14430965" />
+                            </td>
+                            <td class="title">
+                                <img src="/common/images/icons/mail_read.png" alt="" class="icon" />
+                                <a href="#" class="a-mail-view" mail_id="14430965">
+                                    教材の受講期限が近付いています。
+                                </a>
+                            </td>
+                            <td class="td-thumbnail text-left">
+                                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                                            src="/common/images/noimage-member.jpg" alt=""
+                                            style="max-width:25px;max-height:25px;" /></span></a>
+                                <span class="margin-left-sm">システム管理者(情報システム担当者）</span>
+                            </td>
+                            <td>
+                                <span class="date">2025年2月6日(木) 08:00</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div><!--panel-body-->
+</div><!--panel-->

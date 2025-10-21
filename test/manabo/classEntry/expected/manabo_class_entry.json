@@ -1,0 +1,34 @@
+{
+  "rows": [
+    {
+      "directory": "第3回 Javaプログラムを動かす",
+      "lectureDate": null,
+      "status": "欠席"
+    },
+    {
+      "directory": "第4回 staticキーワード、基本型",
+      "lectureDate": null,
+      "status": "欠席"
+    },
+    {
+      "directory": "第6回 制御構造",
+      "lectureDate": null,
+      "status": "欠席"
+    },
+    {
+      "directory": "第8回 値による呼び出し、可変引数",
+      "lectureDate": null,
+      "status": "欠席"
+    },
+    {
+      "directory": "第9回 コマンドライン引数、Mathクラス、オーバーロード",
+      "lectureDate": null,
+      "status": "出席"
+    },
+    {
+      "directory": "第10回 コンストラクタ",
+      "lectureDate": null,
+      "status": "出席"
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+<script>
+    $(function () {
+        $('.a-load-timetable').on('click', function (e) {
+            e.preventDefault();
+            glexa.sessionStorage.setItem('timetable_mode', $(this).attr('mode'));
+            loadTimetable($(this).attr('archive_id'), $(this).attr('mode'));
+        });
+
+    });
+
+</script>
+<div class="calendar gx-tabs">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#" class="a-load-timetable" archive_id="20"><span>2025 春学期</span></a>
+        </li>
+        <li>
+            <a href="#" class="a-load-timetable" archive_id="21"><span>2025 秋学期</span></a>
+        </li>
+        <li>
+            <a href="#" class="a-load-timetable" archive_id="18"><span>2024 秋学期</span></a>
+        </li>
+        <li>
+            <a href="#" class="a-load-timetable" archive_id="19"><span>2024 春学期</span></a>
+        </li>
+        <li>
+            <a href="#" class="a-load-timetable" archive_id="17"><span>2023 秋学期</span></a>
+        </li>
+        <li>
+            <a href="#" class="a-load-timetable" archive_id="16"><span>2023 春学期</span></a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">その他 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="15"><span>2022 秋学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="14"><span>2022 春学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="13"><span>2021 秋学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="12"><span>2021 春学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="10"><span>2020 秋学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="9"><span>2020 春学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="7"><span>2019 秋学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="8"><span>2019 春学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="6"><span>2018 秋学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="5"><span>2018 春学期</span></a>
+                </li>
+                <li>
+                    <a href="#" class="a-load-timetable" archive_id="4"><span>MaNaBo説明動画</span></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="cf">
+                <h4 id="time_table_name" class="display-inline-block margin-none">2025 春学期</h4>
+                <div class="text-right margin-bottom-sm float-right">
+                    <a href="#" class="btn btn-black btn-sm a-load-timetable active" archive_id="20">時間割</a>
+                    <a href="#" class="btn btn-black btn-sm a-load-timetable" archive_id="20" mode="list">一覧</a>
+                </div>
+            </div>
+            <div id="f-1">
+                <div class="tab_in">
+                    <div id="time_table">
+                        <div class="alert alert-default">
+                            <div class="table-responsive sp-resize-table">
+                                <table summary="時間割" class="table-calendar">
+                                    <thead>
+                                        <tr>
+                                            <th class="left_top"></th>
+                                            <th class="data" width="14%">
+                                                <div class="div-inner sm">
+                                                    月
+                                                </div>
+                                            </th>
+                                            <th class="data" width="14%">
+                                                <div class="div-inner sm">
+                                                    火
+                                                </div>
+                                            </th>
+                                            <th class="data" width="14%">
+                                                <div class="div-inner sm">
+                                                    水
+                                                </div>
+                                            </th>
+                                            <th class="data" width="14%">
+                                                <div class="div-inner sm">
+                                                    木
+                                                </div>
+                                            </th>
+                                            <th class="data" width="14%">
+                                                <div class="div-inner sm">
+                                                    金
+                                                </div>
+                                            </th>
+                                            <th class="data" width="14%">
+                                                <div class="div-inner sm">
+                                                    土
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th class="time">1</th>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85146/">
+                                                        <b>コンピュータネットワーク</b>
+                                                        <br>鈴木　常彦 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85131/">
+                                                        <b>アルゴリズムとデータ構造２</b>
+                                                        <br>土屋　孝文 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85140/">
+                                                        <b>Ｊａｖａ言語１</b>
+                                                        <br>ラシキア　城治 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="time">2</th>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/86314/">
+                                                        <b>画像パターン処理</b>
+                                                        <br>目加田　慶人 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85121/">
+                                                        <b>ライティング／コミュニケーション</b>
+                                                        <a href="/class/85121/1214564/"><small
+                                                                class="label label-sm label-danger">NEW</small></a>
+                                                        <br>鈴木　常彦 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85141/">
+                                                        <b>Ｊａｖａ言語１演習</b>
+                                                        <br>ラシキア　城治 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="time">3</th>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85120/">
+                                                        <b>幾何学</b>
+                                                        <a href="/class/85120/1214554/"><small
+                                                                class="label label-sm label-danger">NEW</small></a>
+                                                        <br>山田　雅之 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/87014/">
+                                                        <b>レトリックの論理学</b>
+                                                        <a href="/class/87014/1242959/"><small
+                                                                class="label label-sm label-danger">NEW</small></a>
+                                                        <br>松浦　明宏 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="time">4</th>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85138/">
+                                                        <b>情報工学実験１</b>
+                                                        <br>山田　雅之 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/86987/">
+                                                        <b>社会における統計学</b>
+                                                        <a href="/class/86987/1242556/"><small
+                                                                class="label label-sm label-danger">NEW</small></a>
+                                                        <br>永井　勇 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85143/">
+                                                        <b>オペレーティングシステム</b>
+                                                        <br>長谷川　明生 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85124/">
+                                                        <b>技術英語１</b>
+                                                        <br>バサーケ　イアン </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="time">5</th>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                                <div class="student timetable-icon margin-bottom-md">
+                                                    <a class="" href="/class/85138/">
+                                                        <b>情報工学実験１</b>
+                                                        <br>山田　雅之 </a>
+                                                </div>
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="time">6</th>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="time">7</th>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                            <td class="vertical-align-top td-thumbnail text-left">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <h5><b>上記以外のクラス（A,B,C限含む）</b></h5>
+                        <div class="table-responsive other-class other-class-student-view">
+                            <table class="table-default">
+                                <thead>
+                                    <tr>
+                                        <th><a href="#" id="a-glexa-order-key-4ffa31d568b03151724a4fc16c4f8b93">クラス名</a>
+                                            <script>$("#a-glexa-order-key-4ffa31d568b03151724a4fc16c4f8b93").on("click", function (e) { e.preventDefault(); loadTimetable('20', '', 'class_name DESC'); });</script>
+                                        </th>
+                                        <th>曜日／時限</th>
+                                        <th><a href="#" id="a-glexa-order-key-6c0865678a65a8f1cc571f047608ad52">教員名</a>
+                                            <script>$("#a-glexa-order-key-6c0865678a65a8f1cc571f047608ad52").on("click", function (e) { e.preventDefault(); loadTimetable('20', '', 'name DESC'); });</script>
+                                        </th>
+                                        <th><a href="#" id="a-glexa-order-key-9557e4b6c37b0c0748548a3ee75b79c7">教室</a>
+                                            <script>$("#a-glexa-order-key-9557e4b6c37b0c0748548a3ee75b79c7").on("click", function (e) { e.preventDefault(); loadTimetable('20', '', 'classroom DESC'); });</script>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="student">
+                                                <a href="/class/92846/" class="green">2025資格センター募集講座紹介【全学年用】</a>
+                                                <a href="/class/92846/1335856/"><small
+                                                        class="label label-sm label-danger">NEW</small></a>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="student">
+                                                <a href="/class/93504/" class="green">2年生・1年生対象📚chukyo career school
+                                                    [6/21(土)]定員制・先着順</a>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            キャリア支援課
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="student">
+                                                <a href="/class/93510/" class="green">ビジネスアイデアワークショップ申込クラス</a>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            社会連携部
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="student">
+                                                <a href="/class/93574/" class="green">【追加募集】スポーツチームファン獲得プロジェクト募集クラス</a>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            社会連携部
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="student">
+                                                <a href="/class/93589/" class="green">学生広報スタッフ「ライト」4期生募集クラス</a>
+                                                <a href="/class/93589/0/"><small
+                                                        class="label label-sm label-danger">NEW</small></a>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            広報課
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="student">
+                                                <a href="/class/93591/" class="green">ゼミ登録</a>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            鈴木　常彦
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="student">
+                                                <a href="/class/93679/" class="green">ラリージャパン連携プロジェクト募集クラス</a>
+                                            </span>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            社会連携部
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div><!--table-responsive-->
+                    </div>
+                </div>
+            </div>
+        </div><!--panel-body-->
+    </div><!--panel-->
+</div><!--calendar-->

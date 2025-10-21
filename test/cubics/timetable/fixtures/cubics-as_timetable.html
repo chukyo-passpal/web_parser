@@ -1,0 +1,4260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+
+<!-- e-CANDO/Cosminexus PLayerTemplate for Struts -->
+<!-- TemplateVer.2006/07/14(01-04-A-/A) -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>授業・時間割照会　
+        授業時間割照会画面
+
+    </title>
+
+
+
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta http-equiv="content-style-type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="Cache-Type" content="no-chache">
+    <meta http-equiv="Expires" content="-1">
+    <link href="css/css.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="css/print.css" type="text/css" rel="stylesheet" media="print">
+    <link href="css/m.css" type="text/css" rel="stylesheet" media="screen">
+    <link rev="MADE" href="mailto:dummy@xxxxxxxxxxxxxx.ac.jp">
+    <script type="text/javascript" charset="UTF-8" src="js/asl.js"></script>
+    <script language="javascript" type="text/javascript">
+        < !-
+
+            isElementsObject_msg1 = '指定された項目(';
+        isElementsObject_msg2 = ')が存在しない';
+        isElementsObject_msg3 = '処理することが';
+
+        openItemSelect_msg1 = '機能IDが指定されていない';
+        openItemSelect_msg2 = '処理することが';
+
+        execDownload_msg1 = 'のダウンロード';
+
+        execOnlinePrint_msg1 = 'の印刷または表示';
+
+        itemSelectTypeI_msg1 = '対象データ';
+
+        itemSelect_msg1 = 'ダウンロード項目';
+
+        CMB_NULLLABEL = '未選択';
+
+        ->
+    </script>
+
+
+
+    <script type="text/javascript">
+        < !-
+            window.onload = function() {
+                setFocus("txtYear");  // 初期フォーカス位置の名称(name)
+            }
+        window.document.onkeydown = function (e) {
+            enterSubmitForm(e, "EPageSet");  // Enter時、実行されるサブミットボタン名称(name)
+        }
+            ->
+    </script>
+
+    <script type="text/javascript">
+        var message = new Array();
+
+
+
+
+
+
+        message[0] = '1731<BR/>1732';
+        message[1] = 'コンピュータネットワーク';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[2] = '1731<BR/>1732';
+        message[3] = 'アルゴリズムとデータ構造２';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[4] = '1731<BR/>1732';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[5] = '1731<BR/>1732';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[6] = '1731<BR/>1732';
+        message[7] = 'ライティング／コミュニケーション';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[8] = '1731<BR/>1732';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[9] = '2133';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[10] = '2142';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[11] = '1731<BR/>1732';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[12] = '2143';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[13] = '2131';
+        message[14] = 'オペレーティングシステム';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        message[15] = '845';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script type="text/javascript" charset="UTF-8" src="js/asl_chipHelp.js"></script>
+</head>
+
+<body>
+    <!--ブロックcontainer-->
+    <div id="container">
+
+        <!--ブロックmain-->
+        <div id="main">
+
+            <form name="ARF010PCT01Form" method="POST" action="/unias/ARF010PCT01EventAction.do"
+                onsubmit="return isDoubleSendCheck(this);">
+                <div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN"
+                        value="a315fdb35399187f289cf28c05149824"></div>
+
+                <!--ブロックheader-->
+
+
+
+
+
+
+
+
+
+
+
+                <script language="javascript" type="text/javascript">
+                    < !-
+                    
+                    var back_control_flg = getCookie("BACK_CONTROL_FLG");
+                    if (back_control_flg == "false") {
+                        history.forward();
+                    }
+                    setCookie("BACK_CONTROL_FLG", "false");
+
+                    // メニュータイプ区分
+                    mnu_typ_clsi = 'A';
+
+                    msgTbl['UNM000010E'] = 'ログインＩＤまたはパスワードが不正です。[UNM000010E]';
+                    msgTbl['UNM000010E_ENG'] = 'Login ID or Password is invalid. [UNM000010E]';
+                    msgTbl['UNM000020E'] = 'ログインに失敗しました。{0}[UNM000020E]';
+                    msgTbl['UNM000020E_ENG'] = 'Login failed. {0}[UNM000020E]';
+                    msgTbl['UNM000030I'] = 'ログインしました。{0}[UNM000030I]';
+                    msgTbl['UNM000030I_ENG'] = 'Successfully logged in. {0}[UNM000030I]';
+                    msgTbl['UNM000040I'] = 'ログアウトしました。{0}[UNM000040I]';
+                    msgTbl['UNM000040I_ENG'] = 'Successfully logged out. {0}[UNM000040I]';
+                    msgTbl['UNM000050C'] = 'ログアウトします。よろしいですか？[UNM000050C]';
+                    msgTbl['UNM000050C_ENG'] = 'You are going to logout. Is it all right? [UNM000050C]';
+                    msgTbl['UNM000060E'] = '排他エラーが発生しました。更新しているデータは他のユーザにより更新されています。[UNM000060E]';
+                    msgTbl['UNM000060E_ENG'] = 'An exclusion error occurred. The data updating has already updated by other user. [UNM000060E]';
+                    msgTbl['UNM000070I'] = '{0}を追加しました。[UNM000070I]';
+                    msgTbl['UNM000070I_ENG'] = '{0} has successfully added. [UNM000070I]';
+                    msgTbl['UNM000080I'] = '{0}を更新しました。[UNM000080I]';
+                    msgTbl['UNM000080I_ENG'] = '{0} has successfully updated. [UNM000080I]';
+                    msgTbl['UNM000090I'] = '{0}を削除しました。[UNM000090I]';
+                    msgTbl['UNM000090I_ENG'] = '{0} has successfully deleted. [UNM000090I]';
+                    msgTbl['UNM000100E'] = '{0}のデータは、すでに登録されています。[UNM000100E]';
+                    msgTbl['UNM000100E_ENG'] = '{0} has already been registered. [UNM000100E]';
+                    msgTbl['UNM000110E'] = '削除するデータを選択してください。[UNM000110E]';
+                    msgTbl['UNM000110E_ENG'] = 'Please choose the data to delete. [UNM000110E]';
+                    msgTbl['UNM000120C'] = '{0}を追加します。よろしいですか？[UNM000120C]';
+                    msgTbl['UNM000120C_ENG'] = '{0} will be added. Is it all right? [UNM000120C]';
+                    msgTbl['UNM000130C'] = '{0}を更新します。よろしいですか？[UNM000130C]';
+                    msgTbl['UNM000130C_ENG'] = '{0} will be updated. Is it all right? [UNM000130C]';
+                    msgTbl['UNM000140C'] = '{0}を削除します。よろしいですか？[UNM000140C]';
+                    msgTbl['UNM000140C_ENG'] = '{0} will be deleted. Is it all right? [UNM000140C]';
+                    msgTbl['UNM000150C'] = '画面の入力値が更新されています。保存しないで、作業を続けますか？[UNM000150C]';
+                    msgTbl['UNM000150C_ENG'] = 'Input data on this screen is changed. Do you continue working without saving it? [UNM000150C]';
+                    msgTbl['UNM000160E'] = '排他エラーが発生しました。選択したデータは他のユーザにより照会されています。[UNM000160E]';
+                    msgTbl['UNM000160E_ENG'] = 'An exclusion error occurred. The data is inquired by other user. [UNM000160E]';
+                    msgTbl['UNM000170E'] = '該当データは他の利用者より既に削除されています。[UNM000170E]';
+                    msgTbl['UNM000170E_ENG'] = 'The data has already been deleted by other user. [UNM000170E]';
+                    msgTbl['UNM000180E'] = '排他エラーが発生しました。削除しようとしたデータは他のユーザにより更新されています。[UNM000180E]';
+                    msgTbl['UNM000180E_ENG'] = 'An exclusion error occurred. The deleting data has already been updated by other user. [UNM000180E]';
+                    msgTbl['UNM000190E'] = '該当バッチ処理は実行中ですから、実行できません。後でやり直してください。[UNM000190E]';
+                    msgTbl['UNM000190E_ENG'] = 'The batch process is running. Please start it again later. [UNM000190E]';
+                    msgTbl['UNM000200E'] = '該当アップロード処理は実行中ですから、実行できません。後でやり直してください。[UNM000200E]';
+                    msgTbl['UNM000200E_ENG'] = 'The upload process is running. Please start it again later. [UNM000200E]';
+                    msgTbl['UNM000210I'] = '処理は正常に終了しました。[UNM000210I]';
+                    msgTbl['UNM000210I_ENG'] = 'The process has finished successfully. [UNM000210I]';
+                    msgTbl['UNM000220C'] = '{0}を行います。よろしいですか？[UNM000220C]';
+                    msgTbl['UNM000220C_ENG'] = 'You are going to run {0}. Is it all right? [UNM000220C]';
+                    msgTbl['UNM000230E'] = '必須項目({0})が入力されていません。[UNM000230E]';
+                    msgTbl['UNM000230E_ENG'] = 'Required item ({0}) is blank. [UNM000230E]';
+                    msgTbl['UNM000240E'] = '該当するデータが存在しません。[UNM000240E]';
+                    msgTbl['UNM000240E_ENG'] = 'The data does not exist. [UNM000240E]';
+                    msgTbl['UNM000250E'] = '検索結果が表示可能件数を超えました。[UNM000250E]';
+                    msgTbl['UNM000250E_ENG'] = 'Search results exceed the limit. [UNM000250E]';
+                    msgTbl['UNM000260E'] = 'ダウンロードに失敗しました。[UNM000260E]';
+                    msgTbl['UNM000260E_ENG'] = 'Download has failed. [UNM000260E]';
+                    msgTbl['UNM000270I'] = '入力内容に誤りがあります。以下のメッセージに従い修正してください。[UNM000270I]';
+                    msgTbl['UNM000270I_ENG'] = 'Input data has (an) error(s). Please revise it according to the following messages. [UNM000270I]';
+                    msgTbl['UNM000280E'] = '絞込検索を行う場合は、項目と値の両方を指定してください。[UNM000280E]';
+                    msgTbl['UNM000280E_ENG'] = 'Please input both item and value to refine search. [UNM000280E]';
+                    msgTbl['UNM000290I'] = '{0}は既に登録されています。上書きしますか？[UNM000290I]';
+                    msgTbl['UNM000290I_ENG'] = '{0} has already been registered. Do you want to overwrite? [UNM000290I]';
+                    msgTbl['UNM000300I'] = '{0}が受理されました。[UNM000300I]';
+                    msgTbl['UNM000300I_ENG'] = '{0} has accepted. [UNM000300I]';
+                    msgTbl['UNM000310I'] = '{0}が取消されました。[UNM000310I]';
+                    msgTbl['UNM000310I_ENG'] = '{0} has canceled. [UNM000310I]';
+                    msgTbl['UNM000320E'] = '{0}は他機能で使用されているため、削除できません。[UNM000320E]';
+                    msgTbl['UNM000320E_ENG'] = '{0} is used by other function. It cannot be deleted. [UNM000320E]';
+                    msgTbl['UNM000330E'] = '表示する項目を選択してください。[UNM000330E]';
+                    msgTbl['UNM000330E_ENG'] = 'Please choose an item to display. [UNM000330E]';
+                    msgTbl['UNM000340E'] = '{0}を処理する権限がありません。[UNM000340E]';
+                    msgTbl['UNM000340E_ENG'] = 'There is no authority to handle {0}. [UNM000340E]';
+                    msgTbl['UNM000350E'] = '指定された検索条件に誤りがあります。[UNM000350E]';
+                    msgTbl['UNM000350E_ENG'] = 'Search condition has an error. [UNM000350E]';
+                    msgTbl['UNM000360E'] = '画面の入力値が更新されていません。処理を中断します。[UNM000360E]';
+                    msgTbl['UNM000360E_ENG'] = 'Input data on this screen is not changed. Process has terminated. [UNM000360E]';
+                    msgTbl['UNM000370I'] = '以下の{0}を一括登録しました。[UNM000370I]';
+                    msgTbl['UNM000370I_ENG'] = 'Following {0} has successfully registered. [UNM000370I]';
+                    msgTbl['UNM000380I'] = '以下の{0}を一括削除しました。[UNM000380I]';
+                    msgTbl['UNM000380I_ENG'] = 'Following {0} has successfully deleted. [UNM000380I]';
+                    msgTbl['UNM000390E'] = '更新しているデータは他のユーザより使用されていますので、処理できませんでした。[UNM000390E]';
+                    msgTbl['UNM000390E_ENG'] = 'The process failed because the data updating is being used by other user. [UNM000390E]';
+                    msgTbl['UNM000400E'] = 'ＤＢ処理中のエラーにより処理が続行できませんでした。[UNM000400E]';
+                    msgTbl['UNM000400E_ENG'] = 'Process cannot be continued because of an error during DB processing. [UNM000400E]';
+                    msgTbl['UNM000410E'] = 'データベースのオープンに失敗しました。[UNM000410E]';
+                    msgTbl['UNM000410E_ENG'] = 'Opening the database is failed. [UNM000410E]';
+                    msgTbl['UNM000420E'] = 'データベースの切断に失敗しました。[UNM000420E]';
+                    msgTbl['UNM000420E_ENG'] = 'Closing the database connection is failed. [UNM000420E]';
+                    msgTbl['UNM000430E'] = 'データベースのロールバックに失敗しました。[UNM000430E]';
+                    msgTbl['UNM000430E_ENG'] = 'Rollbacking the database is failed. [UNM000430E]';
+                    msgTbl['UNM000440E'] = '自動採番テーブルの受付番号は最大値になりました。[UNM000440E]';
+                    msgTbl['UNM000440E_ENG'] = 'Automatic numbering table for receipt number hit the maximum. [UNM000440E]';
+                    msgTbl['UNM000450E'] = '致命的なエラーにより処理が続行できませんでした。[UNM000450E]';
+                    msgTbl['UNM000450E_ENG'] = 'Processing could not continue due to a fatal error. [UNM000450E]';
+                    msgTbl['UNM000460E'] = 'データベースのコミットに失敗しました。[UNM000460E]';
+                    msgTbl['UNM000460E_ENG'] = 'Database commit failed. [UNM000460E]';
+                    msgTbl['UNM000470E'] = 'データの読込中にエラーが発生しました。[UNM000470E]';
+                    msgTbl['UNM000470E_ENG'] = 'An error occurred while reading data. [UNM000470E]';
+                    msgTbl['UNM000480E'] = 'データの登録中にエラーが発生しました。[UNM000480E]';
+                    msgTbl['UNM000480E_ENG'] = 'An error occurred while registering data. [UNM000480E]';
+                    msgTbl['UNM000490E'] = 'データの更新中にエラーが発生しました。[UNM000490E]';
+                    msgTbl['UNM000490E_ENG'] = 'An error occurred while updating data. [UNM000490E]';
+                    msgTbl['UNM000500E'] = 'データの削除中にエラーが発生しました。[UNM000500E]';
+                    msgTbl['UNM000500E_ENG'] = 'An error occurred while deleting data. [UNM000500E]';
+                    msgTbl['UNM000510C'] = '画面の入力値が更新されています。保存しないで、終了してもよろしいですか？[UNM000510C]';
+                    msgTbl['UNM000510C_ENG'] = 'Input data on this screen is changed. Are you sure you want to quit without saving? [UNM000510C]';
+                    msgTbl['UNM000520C'] = '{0}を中止します。よろしいですか？[UNM000520C]';
+                    msgTbl['UNM000520C_ENG'] = '{0} will be canceled. Is it all right? [UNM000520C]';
+                    msgTbl['UNM000530I'] = '{0}処理を受け付けました。\n処理状況は「バッチジョブ実行監視」からご確認ください。[UNM000530I]';
+                    msgTbl['UNM000530I_ENG'] = '{0} has accepted. Please confirm the processing status from "batch process monitor screen". [UNM000530I]';
+                    msgTbl['UNM000540I'] = '※処理中は、以下のメニューが使用できなくなります。[UNM000540I]';
+                    msgTbl['UNM000540I_ENG'] = '※The following menu can not be used during processing. [UNM000540I]';
+                    msgTbl['UNM000550E'] = 'ファイルのコピーに失敗しました。[UNM000550E]';
+                    msgTbl['UNM000550E_ENG'] = 'Failed to copy the file. [UNM000550E]';
+                    msgTbl['UNM000560E'] = 'ファイルの読込に失敗しました。[UNM000560E]';
+                    msgTbl['UNM000560E_ENG'] = 'Failed to read the file. [UNM000560E]';
+                    msgTbl['UNM000570E'] = '{0}のデータは存在しません。[UNM000570E]';
+                    msgTbl['UNM000570E_ENG'] = 'The data({0}) do(es) not exist. [UNM000570E]';
+                    msgTbl['UNM000580E'] = '{0}の登録に失敗しました。[UNM000580E]';
+                    msgTbl['UNM000580E_ENG'] = 'Failed to register {0}. [UNM000580E]';
+                    msgTbl['UNM000590E'] = '{0}の更新に失敗しました。[UNM000590E]';
+                    msgTbl['UNM000590E_ENG'] = 'Failed to update {0}. [UNM000590E]';
+                    msgTbl['UNM000600E'] = '該当するデータは既に存在しています。[UNM000600E]';
+                    msgTbl['UNM000600E_ENG'] = 'The corresponding data have already existed. [UNM000600E]';
+                    msgTbl['UNM000610E'] = '入力された{0}は、既に{1}に登録されています。[UNM000610E]';
+                    msgTbl['UNM000610E_ENG'] = 'This {0} has been already registered to {1}. [UNM000610E]';
+                    msgTbl['UNM000620C'] = '{0}を一括登録します。よろしいですか？[UNM000620C]';
+                    msgTbl['UNM000620C_ENG'] = 'All the {0} will be registerd. Is it all right? [UNM000620C]';
+                    msgTbl['UNM000630I'] = '{0}を一括登録しました。[UNM000630I]';
+                    msgTbl['UNM000630I_ENG'] = 'All the {0} have been registerd. [UNM000630I]';
+                    msgTbl['UNM000640I'] = '以下を{0}します。\n内容を確認の上、よろしければ「{1}」ボタンをクリックしてください。[UNM000640I]';
+                    msgTbl['UNM000640I_ENG'] = 'Following data will be {0}. Please click "{1}" button for confirmation. [UNM000640I]';
+                    msgTbl['UNM000650I'] = '{0}を申請しました。[UNM000650I]';
+                    msgTbl['UNM000650I_ENG'] = '{0} is applied.[UNM000650I]';
+                    msgTbl['UNM000660I'] = '{0}を取り消しました。[UNM000660I]';
+                    msgTbl['UNM000660I_ENG'] = '{0} is cancelled.[UNM000660I]';
+                    msgTbl['UNM000670C'] = '承認してよろしいですか？[UNM000670C]';
+                    msgTbl['UNM000670C_ENG'] = 'You are going to approve data. Is it all right? [UNM000670C]';
+                    msgTbl['UNM000680C'] = '申請を却下してよろしいですか？[UNM000680C]';
+                    msgTbl['UNM000680C_ENG'] = 'You are going to reject application. Is it all right? [UNM000680C]';
+                    msgTbl['UNM000690C'] = '承認を取り消してよろしいですか？[UNM000690C]';
+                    msgTbl['UNM000690C_ENG'] = 'You are going to cancel approval. Is it all right? [UNM000690C]';
+                    msgTbl['UNM000700I'] = '{0}を承認しました。[UNM000700I]';
+                    msgTbl['UNM000700I_ENG'] = '{0} have been approved. [UNM000700I]';
+                    msgTbl['UNM000710I'] = '{0}の申請を却下しました。[UNM000710I]';
+                    msgTbl['UNM000710I_ENG'] = '{0}\'s application have been rejected. [UNM000710I]';
+                    msgTbl['UNM000720I'] = '{0}の承認を取り消しました。[UNM000720I]';
+                    msgTbl['UNM000720I_ENG'] = 'Approval on {0} have been canceled. [UNM000720I]';
+                    msgTbl['UNM000730I'] = '{0}を一括承認しました。[UNM000730I]';
+                    msgTbl['UNM000730I_ENG'] = 'All the {0} have been approved. [UNM000730I]';
+                    msgTbl['UNM000740C'] = '{0}が存在しています。よろしいですか？[UNM000740C]';
+                    msgTbl['UNM000740C_ENG'] = '{0} data exist. Is it all right? [UNM000740C]';
+                    msgTbl['UNM000900E'] = '不正な画面遷移が発生しました。再ログインしてください。[UNM000900E]';
+                    msgTbl['UNM000900E_ENG'] = 'Invalid screen transition occurred. Please login again. [UNM000900E]';
+                    msgTbl['UNM000910E'] = 'ログアウトされました。閉じるか再ログインしてください。[UNM000910E]';
+                    msgTbl['UNM000910E_ENG'] = 'Logged out. Close the window or login again. [UNM000910E]';
+                    msgTbl['UNM000920E'] = 'この機能は使用できません。[UNM000920E]';
+                    msgTbl['UNM000920E_ENG'] = 'This function can not be used. [UNM000920E]';
+                    msgTbl['UNM000930E'] = '現在この機能は制限されています。[UNM000930E]';
+                    msgTbl['UNM000930E_ENG'] = 'Currently this function is restricted. [UNM000930E]';
+                    msgTbl['UNM000940E'] = '不正な画面遷移が発生したため、この機能は使用できません。[UNM000940E]';
+                    msgTbl['UNM000940E_ENG'] = 'This function can not be used because an invalid screen transition has occurred. [UNM000940E]';
+                    msgTbl['UNM000999E'] = 'システムエラーが発生しました。[UNM000999E]';
+                    msgTbl['UNM000999E_ENG'] = 'System error has occurred. [UNM000999E]';
+                    msgTbl['UNM009999E'] = 'システムの管理者に連絡してください。[UNM009999E]';
+                    msgTbl['UNM009999E_ENG'] = 'Please contact the system administrator. [UNM009999E]';
+                    msgTbl['UNM013010E'] = '{0}には{1}以降の年度を入力してください。[UNM013010E]';
+                    msgTbl['UNM013010E_ENG'] = 'Please enter a year after the {1} to {0}. [UNM013010E]';
+                    msgTbl['UNM013020E'] = '{0}には{1}以降の日付を入力してください。[UNM013020E]';
+                    msgTbl['UNM013020E_ENG'] = 'Please enter a date after the {1} to {0}. [UNM013020E]';
+                    msgTbl['UNM013025E'] = '{0}には{1}以降の時間を入力してください。[UNM013025E]';
+                    msgTbl['UNM013025E_ENG'] = 'Please enter a time after the {1} to {0}. [UNM013025E]';
+                    msgTbl['UNM013030E'] = '{0}には正しい{1}を入力してください。[UNM013030E]';
+                    msgTbl['UNM013030E_ENG'] = 'Please enter the correct {1} to {0}. [UNM013030E]';
+                    msgTbl['UNM013040E'] = '{0}を入力してください。[UNM013040E]';
+                    msgTbl['UNM013040E_ENG'] = 'Please enter {0}. [UNM013040E]';
+                    msgTbl['UNM013050E'] = '{0}を登録してください。[UNM013050E]';
+                    msgTbl['UNM013050E_ENG'] = 'Please register {0}. [UNM013050E]';
+                    msgTbl['UNM013060E'] = '{0}を選択してください。[UNM013060E]';
+                    msgTbl['UNM013060E_ENG'] = 'Please select the {0}. [UNM013060E]';
+                    msgTbl['UNM013070E'] = '{0}には有効な{1}を入力してください。[UNM013070E]';
+                    msgTbl['UNM013070E_ENG'] = 'Please enter a valid {1} to {0}. [UNM013070E]';
+                    msgTbl['UNM013080E'] = 'コード値には変更可が選択されています。{0}にも変更可を選択してください。[UNM013080E]';
+                    msgTbl['UNM013080E_ENG'] = 'The selected code value is Changeable. Please select Changeable for {0}. [UNM013080E]';
+                    msgTbl['UNM013090E'] = '{0}ため、{1}できません。[UNM013090E]';
+                    msgTbl['UNM013090E_ENG'] = 'Because {0}, it is not able to {1}. [UNM013090E]';
+                    msgTbl['UNM013100E'] = '入力された{0}は存在しません。[UNM013100E]';
+                    msgTbl['UNM013100E_ENG'] = 'Entered {0} does not exist. [UNM013100E]';
+                    msgTbl['UNM013110E'] = '{0}されていない{1}が存在します。[UNM013110E]';
+                    msgTbl['UNM013110E_ENG'] = '{1} that is not {0} exists. [UNM013110E]';
+                    msgTbl['UNM013120I'] = '{0} バッチメインクラスの処理を開始しました。[UNM013120I]';
+                    msgTbl['UNM013120I_ENG'] = '{0} the process of batch main class has started. [UNM013120I]';
+                    msgTbl['UNM013130I'] = '{0} バッチメインクラスの処理を終了しました。 終了コード({1}[{2}])[UNM013130I]';
+                    msgTbl['UNM013130I_ENG'] = '{0} the process of batch main class has finished. Exit code is ({1} [{2}]). [UNM013130I]';
+                    msgTbl['UNM013140I'] = '{0} バッチＦ層クラスの処理を開始しました。[UNM013140I]';
+                    msgTbl['UNM013140I_ENG'] = '{0} the process of batch F-layer class has started. [UNM013140I]';
+                    msgTbl['UNM013150I'] = '{0} バッチＦ層クラスの処理を終了しました。 終了コード({1}[{2}])[UNM013150I]';
+                    msgTbl['UNM013150I_ENG'] = '{0} the process of batch F-layer class has finished. Exit code is ({1} [{2}]).[UNM013150I]';
+                    msgTbl['UNM013160E'] = '入力ファイルデータに誤りがあります。[UNM013160E]';
+                    msgTbl['UNM013160E_ENG'] = 'There are errors in the input file data. [UNM013160E]';
+                    msgTbl['UNM013170I'] = '{0}件数: {1}件[UNM013170I]';
+                    msgTbl['UNM013170I_ENG'] = '{0} The counts: {1} [UNM013170I]';
+                    msgTbl['UNM013180E'] = '{0}を指定する場合は、{1}を指定してください。[UNM013180E]';
+                    msgTbl['UNM013180E_ENG'] = 'To specify {0}, specify {1}. [UNM013180E]';
+                    msgTbl['UNM013190E'] = '{0}と{1}の組み合わせに誤りがあります。[UNM013190E]';
+                    msgTbl['UNM013190E_ENG'] = 'There is an error in the combination of {0} and {1}. [UNM013190E]';
+                    msgTbl['UNM013200E'] = '{0}が{1}と違います。[UNM013200E]';
+                    msgTbl['UNM013200E_ENG'] = '{0} is different from {1}. [UNM013200E]';
+                    msgTbl['UNM013210E'] = 'テキストファイルのオープンに失敗しました。[UNM013210E]';
+                    msgTbl['UNM013210E_ENG'] = 'Failed to open the text file. [UNM013210E]';
+                    msgTbl['UNM013220E'] = 'テキストファイルの書き込み中にエラーが発生しました。[UNM013220E]';
+                    msgTbl['UNM013220E_ENG'] = 'An error occurred during the writing of the text file. [UNM013220E]';
+                    msgTbl['UNM013230E'] = 'テキストファイルのクローズに失敗しました。[UNM013230E]';
+                    msgTbl['UNM013230E_ENG'] = 'Failed to close the text file. [UNM013230E]';
+                    msgTbl['UNM013240E'] = 'CSVファイルのオープンに失敗しました。[UNM013240E]';
+                    msgTbl['UNM013240E_ENG'] = 'Failed to open the CSV file. [UNM013240E]';
+                    msgTbl['UNM013250E'] = 'CSVファイルの取得に失敗しました。[UNM013250E]';
+                    msgTbl['UNM013250E_ENG'] = 'Failed to get the CSV file. [UNM013250E]';
+                    msgTbl['UNM013260E'] = 'CSVファイルの読み込み中にエラーが発生しました。[UNM013260E]';
+                    msgTbl['UNM013260E_ENG'] = 'An error occurred during the reading of the CSV file. [UNM013260E]';
+                    msgTbl['UNM013270E'] = 'CSVファイルの書き込み中にエラーが発生しました。[UNM013270E]';
+                    msgTbl['UNM013270E_ENG'] = 'An error occurred during the writing of the CSV file. [UNM013270E]';
+                    msgTbl['UNM013280E'] = 'CSVファイルのクローズに失敗しました。[UNM013280E]';
+                    msgTbl['UNM013280E_ENG'] = 'Failed to close the CSV file. [UNM013280E]';
+                    msgTbl['UNM013290I'] = 'ユーザーID[{0}]のパスワードを変更しました。\n※パスワード有効期限{1}〜{2}[UNM013290I]';
+                    msgTbl['UNM013290I_ENG'] = 'The password for user ID [{0}] has been changed. ※Password validity period {1} - {2} [UNM013290I]';
+                    msgTbl['UNM013300E'] = '{0}指定する場合は、{1}を入力してください。[UNM013300E]';
+                    msgTbl['UNM013300E_ENG'] = 'To specify {0}, specify {1}. [UNM013300E]';
+                    msgTbl['UNM013310E'] = '入力データに誤りがあります。[UNM013310E]';
+                    msgTbl['UNM013310E_ENG'] = 'There are errors in the input data.  [UNM013310E]';
+                    msgTbl['UNM013320E'] = '{0}の範囲が不正です。[UNM013320E]';
+                    msgTbl['UNM013320E_ENG'] = 'Range of {0} is invalid. [UNM013320E]';
+                    msgTbl['UNM013330I'] = '学籍番号({0}) {1}処理が終了しました。[UNM013330I]';
+                    msgTbl['UNM013330I_ENG'] = 'College register number ({0}) {1} process has ended. [UNM013330I]';
+                    msgTbl['UNM013340C'] = '{0}をキャンセルします。よろしいですか？[UNM013340C]';
+                    msgTbl['UNM013340C_ENG'] = 'Cancel the {0}. Is it all right? [UNM013340C]';
+                    msgTbl['UNM013350I'] = '{0}をキャンセルしました。[UNM013350I]';
+                    msgTbl['UNM013350I_ENG'] = '{0} canceled. [UNM013350I]';
+                    msgTbl['UNM013360I'] = '{0}は{1}までです。[UNM013360I]';
+                    msgTbl['UNM013360I_ENG'] = '{0} is up to {1}. [UNM013360I]';
+                    msgTbl['UNM013370E'] = '{0}が存在しているので削除できません。[UNM013370E]';
+                    msgTbl['UNM013370E_ENG'] = 'It can not be deleted because {0} exist. [UNM013370E]';
+                    msgTbl['UNM013380E'] = '{0}が重複しています。[UNM013380E]';
+                    msgTbl['UNM013380E_ENG'] = '{0} is excessive. [UNM013380E]';
+                    msgTbl['UNM013390E'] = '{0}は少なくとも一つは必要です。[UNM013390E]';
+                    msgTbl['UNM013390E_ENG'] = 'At least one {0} is required. [UNM013390E]';
+                    msgTbl['UNM013400E'] = '{0}が登録可能な件数を超えました。[UNM013400E]';
+                    msgTbl['UNM013400E_ENG'] = '{0} have exceeded the counts that can be registered. [UNM013400E]';
+                    msgTbl['UNM013410I'] = '{0}の場合は、{1}は入力できません。[UNM013410I]';
+                    msgTbl['UNM013410I_ENG'] = 'In the case of {0}, {1} can not be entered. [UNM013410I]';
+                    msgTbl['UNM013420E'] = '{0}は{1}に存在しません。[UNM013420E]';
+                    msgTbl['UNM013420E_ENG'] = '{0} does not exist in the {1}. [UNM013420E]';
+                    msgTbl['UNM013430E'] = '{0}の取得に失敗しました。[UNM013430E]';
+                    msgTbl['UNM013430E_ENG'] = 'Failed to get {0}. [UNM013430E]';
+                    msgTbl['UNM013440E'] = '{0}は{1}で使用されています。[UNM013440E]';
+                    msgTbl['UNM013440E_ENG'] = '{0} have been used in the {1}. [UNM013440E]';
+                    msgTbl['UNM013450E'] = '学籍番号({0}) 1行の{1}出力可能件数を超えています。[UNM013450E]';
+                    msgTbl['UNM013450E_ENG'] = 'College register number ({0}) has been exceeded the {1} output possible number of one line. [UNM013450E]';
+                    msgTbl['UNM013460E'] = '{0}が登録可能な数を超えました。[UNM013460E]';
+                    msgTbl['UNM013460E_ENG'] = '{0} have exceeded the counts that can be registered. [UNM013460E]';
+                    msgTbl['UNM013470E'] = '{0}は入力できません。[UNM013470E]';
+                    msgTbl['UNM013470E_ENG'] = '{0} can not be entered. [UNM013470E]';
+                    msgTbl['UNM013480C'] = '入力した修正内容は登録されません。複写登録画面へ遷移してもよろしいですか？[UNM013480C]';
+                    msgTbl['UNM013480C_ENG'] = 'The correction you entered is not registered. Are you sure to move to the copy registration screen? [UNM013480C]';
+                    msgTbl['UNM013490C'] = '登録を行っていない場合、入力した項目が無効になります。よろしいですか？[UNM013490C]';
+                    msgTbl['UNM013490C_ENG'] = 'If you do not register, the entered item will be invalid. Is it OK? [UNM013490C]';
+                    msgTbl['UNM013500E'] = '指定された{0}は存在しません。[UNM013500E]';
+                    msgTbl['UNM013500E_ENG'] = 'Specified {0} does not exist. [UNM013500E]';
+                    msgTbl['UNM013510E'] = '{0}を選択する場合は、{1}を入力してください。[UNM013510E]';
+                    msgTbl['UNM013510E_ENG'] = 'If you select the {0}, please enter the {1}. [UNM013510E]';
+                    msgTbl['UNM013520E'] = '{0}を選択する場合は、{1}は入力できません。[UNM013520E]';
+                    msgTbl['UNM013520E_ENG'] = 'If you select the {0}, don\'t enter the {1}. [UNM013520E]';
+                    msgTbl['UNM013530E'] = '{0}場合は、{1}を選択してください。[UNM013530E]';
+                    msgTbl['UNM013530E_ENG'] = 'In case of {0}, please select the {1}. [UNM013530E]';
+                    msgTbl['UNM013540E'] = '{0}は少なくとも一つは必要である為、削除できません。[UNM013540E]';
+                    msgTbl['UNM013540E_ENG'] = 'At least one of {0} is required, you can not delete it. [UNM013540E]';
+                    msgTbl['UNM013550E'] = '{0}の削除に失敗しました。[UNM013550E]';
+                    msgTbl['UNM013550E_ENG'] = 'Failed to delete {0}. [UNM013550E]';
+                    msgTbl['UNM013560E'] = '画面の入力値が更新されています。削除処理を中断します。[UNM013560E]';
+                    msgTbl['UNM013560E_ENG'] = 'Input value of the screen has been updated. Suspended the delete process. [UNM013560E]';
+                    msgTbl['UNM013570E'] = '指定された条件に誤りがあります[UNM013570E]';
+                    msgTbl['UNM013570E_ENG'] = 'There is an error in the specified conditions. [UNM013570E]';
+                    msgTbl['UNM013580E'] = '{0}よりデータ取得に失敗しました。[UNM013580E]';
+                    msgTbl['UNM013580E_ENG'] = 'Failed to acquisit from {0}. [UNM013580E]';
+                    msgTbl['UNM013590E'] = '指定された{0}では、{1}は指定できません。[UNM013590E]';
+                    msgTbl['UNM013590E_ENG'] = 'In the specified {0}, {1} can not be specified. [UNM013590E]';
+                    msgTbl['UNM013600E'] = '{0}は、複数登録できません。[UNM013600E]';
+                    msgTbl['UNM013600E_ENG'] = 'You can not register more than one {0}. [UNM013600E]';
+                    msgTbl['UNM013610C'] = '入力した{0}を{1}します。よろしいですか？[UNM013610C]';
+                    msgTbl['UNM013610C_ENG'] = '{1} the entered {0}. Is it all right? [UNM013610C]';
+                    msgTbl['UNM013620I'] = '{0}の{1}を{2}しました。[UNM013620I]';
+                    msgTbl['UNM013620I_ENG'] = '{1} of {0} was {2}. [UNM013620I]';
+                    msgTbl['UNM013630E'] = '{0}不正[UNM013630E]';
+                    msgTbl['UNM013630E_ENG'] = 'Invalid {0} [UNM013630E]';
+                    msgTbl['UNM013640I'] = '{0}が正常に完了しました。[UNM013640I]';
+                    msgTbl['UNM013640I_ENG'] = '{0} has been successfully completed. [UNM013640I]';
+                    msgTbl['UNM013650E'] = '{0}には{1}以降の年月を入力してください。[UNM013650E]';
+                    msgTbl['UNM013650E_ENG'] = 'Please enter a year and month after the {1} to {0}. [UNM013650E]';
+                    msgTbl['UNM013660C'] = '入力した{0}を{1}します。よろしいですか？\n{2}[UNM013660C]';
+                    msgTbl['UNM013660C_ENG'] = '{1} input {0}. Is it all right? {2}[UNM013660C]';
+                    msgTbl['UNM013670I'] = '{0}処理を受け付けました。\n処理結果は「プリンタ出力用端末」からご確認ください。[UNM013670I]';
+                    msgTbl['UNM013670I_ENG'] = '{0} process was accepted. Please confirm the processing result from [a terminal for the printer output]. [UNM013670I]';
+                    msgTbl['UNM013680C'] = 'メインメニューに遷移します。よろしいですか？[UNM013680C]';
+                    msgTbl['UNM013680C_ENG'] = 'Transit to the main menu. Is it all right? [UNM013680C]';
+                    msgTbl['UNM013690E'] = '{0}を入力する場合は、{1}を入力してください。[UNM013690E]';
+                    msgTbl['UNM013690E_ENG'] = 'To enter {0}, enter {1}. [UNM013690E]';
+                    msgTbl['UNM013700C'] = '無効としてよろしいですか？[UNM013700C]';
+                    msgTbl['UNM013700C_ENG'] = 'Would you like to invalidate? [UNM013700C]';
+                    msgTbl['UNM013710I'] = '{0}を無効としました。[UNM013710I]';
+                    msgTbl['UNM013710I_ENG'] = 'Invalidated {0}. [UNM013710I]';
+                    msgTbl['UNM013720E'] = '{0}の場合は、{1}は選択できません。[UNM013720E]';
+                    msgTbl['UNM013720E_ENG'] = 'In the case of {0}, {1} can not be selected. [UNM013720E]';
+                    msgTbl['UNM013730C'] = '{0}します。よろしいですか？[UNM013730C]';
+                    msgTbl['UNM013730C_ENG'] = '{0}.Are you sure？[UNM013730C]';
+                    msgTbl['UNM013740C'] = '{0}を登録します。よろしいですか？\n{1}[UNM013740C]';
+                    msgTbl['UNM013740C_ENG'] = 'Register {0}. Is it all right? {1}[UNM013740C]';
+                    msgTbl['UNM013750C'] = '{0}します。よろしいですか？\n{1}[UNM013750C]';
+                    msgTbl['UNM013750C_ENG'] = '{0} Is it all right? {1}[UNM013750C]';
+                    msgTbl['UNM013750E'] = '{0}には全角カタカナ文字のみ(全角空白を含む、全角空白のみ除く)を入力してください。[UNM013750E]';
+                    msgTbl['UNM013760E'] = '{0}には全角カタカナと全角英字のみ(全角空白、全角ピリオドを含む、全角空白のみ除く)を入力してください。[UNM013760E]';
+                    msgTbl['UNM013770E'] = '在籍者管理チェックに失敗しました。[UNM013770E]';
+                    msgTbl['UNM013780E'] = '進路希望情報を登録してください。[UNM013780E]<br>\n<a href="https://cubics-as-out.mng.chukyo-u.ac.jp/unias/RAA020PED15Action.do?REQ_PRFR_MNU_ID=MNUIDSTD13002&UA=0&UE=0&US=1&UP=0&UT=0&UC=0&CMOD=0&DBEP=0&DBGQ=0&DBTL=0&DBQL=0&DBAT=0&DBME=0&DBEA=0&DBEB=0&DBCL=0&DBAD=0&DBCH=0&DBAV=0&DBDS=0&DAVR=0&DISP=0&DCOP=0&DATV=0&DHIR=0&DATR=0&DOBG=0&DVSC=0&DCTM=0&DRMK=0&DCND=0&DCTM2=0&DEVT=0&DBIV=0">進路希望情報</a>';
+                    msgTbl['UNM013790E'] = '進路決定情報を登録してください。上部に「■進路情報入力（決定）　決定情報の照会画面」と表示されている画面では、右下の「新規登録」ボタンをクリックしてください。[UNM013790E]<br>\n<a href="https://cubics-as-out.mng.chukyo-u.ac.jp/unias/RAA020PVI05Action.do?REQ_PRFR_MNU_ID=MNUIDSTD13001&UA=0&UE=0&US=1&UP=0&UT=0&UC=0&CMOD=0&DBEP=0&DBGQ=0&DBTL=0&DBQL=0&DBAT=0&DBME=0&DBEA=0&DBEB=0&DBCL=0&DBAD=0&DBCH=0&DBAV=0&DBDS=1&DAVR=0&DISP=0&DCOP=0&DATV=0&DHIR=0&DATR=0&DOBG=0&DVSC=0&DCTM=0&DRMK=0&DCND=0&DCTM2=0&DEVT=0&DBIV=0">進路決定情報</a>\n<br><br>進路が決まった方へ<br>● 手順1：「履修申請・成績時間割表」確認前に<a href="https://career.chukyo-u.ac.jp/private/career/careerevent/detail_past.php?id=80">こちら</a>から進路報告<br>● 手順2：進路報告後、再度ALBOにログインし、「進路決定情報」をクリック<br>● 手順3：上部に「■進路情報入力（決定）」と表示のある画面では、右下の「新規登録」ボタンをクリック';
+                    msgTbl['UNM019330E'] = '{0}に値を入力してください。[UNM019330E]';
+                    msgTbl['UNM019330E_ENG'] = 'Please enter a value in {0}. [UNM019330E]';
+                    msgTbl['UNM019335E'] = '入力できるデータの数が多すぎます。[UNM019335E]';
+                    msgTbl['UNM019335E_ENG'] = 'There is too much inputable number of data. [UNM019335E]';
+                    msgTbl['UNM024010C'] = '{0}よろしいですか？[UNM024010C]';
+                    msgTbl['UNM024010C_ENG'] = '{0} Is it all right? [UNM024010C]';
+                    msgTbl['UNMOPSA10C'] = '{0}を申請します。よろしいですか？[UNMOPSA10C]';
+                    msgTbl['UNMOPSA10C_ENG'] = 'Apply for the {0}. Is it all right? [UNMOPSA10C]';
+                    msgTbl['UNMOPSA20C'] = '{0}を承認します。よろしいですか？[UNMOPSA20C]';
+                    msgTbl['UNMOPSA20C_ENG'] = 'Approve for the {0}. Is it all right? [UNMOPSA20C]';
+                    msgTbl['UNMOPSA30E'] = '{0}と{1}の両方が入力されています。[UNMOPSA30E]';
+                    msgTbl['UNMOPSA30E_ENG'] = 'Both {0} and {1} are entered. [UNMOPSA30E]';
+                    msgTbl['UNMOPSA40E'] = '{0}と{1}の両方とも入力されていません。[UNMOPSA40E]';
+                    msgTbl['UNMOPSA40E_ENG'] = 'Neither {0} nor {1} is entered. [UNMOPSA40E]';
+                    msgTbl['UNMOPSA50C'] = '{0}を登録します。よろしいですか？[UNMOPSA50C]';
+                    msgTbl['UNMOPSA50C_ENG'] = 'Register {0}. Is it all right? [UNMOPSA50C]';
+                    msgTbl['UNMOPSA60I'] = '{0}を登録しました。[UNMOPSA60I]';
+                    msgTbl['UNMOPSA60I_ENG'] = '{0} is registered. [UNMOPSA60I]';
+                    msgTbl['UNMOPSA70E'] = '{0}ため、{1}してください。[UNMOPSA70E]';
+
+
+                    var SELECT_LANGUAGE = "";
+                    ->
+                </script>
+
+
+
+                <!--ブロックheader-->
+                <div id="header">
+                    <p>
+
+
+                        <a href="#" onClick="return goMenu();" tabIndex="1">
+
+
+                            <img src="images/common_header_systemlogo.png" class="header_logo" title="Uniprove AS">
+
+
+                        </a>
+
+
+                    </p>
+
+
+                    <div id="header_menu">
+                        <div id="header_menu_bg">
+                            <ul>
+                                <!--HELP表示判断 START-->
+
+                                <!--HELP表示判断 END-->
+                                <li class="logout"><a href="#" onClick="return execLogout();" tabIndex="1">ログアウト</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <!--ブロックheaderbg-->
+                    <div id="headerbg">
+                        <a href="#header1"><img src="images/spacer.gif" width="0" height="0" class="invisible"
+                                title="ヘッダをスキップ"></a>
+                        <!--MH:ヘッダ-->
+                        <div id="head" class="clearfix">
+
+                            <div>
+                                <p>ログイン日時：2025年06月21日 19時11分20秒</p>
+                                <!--<img src="images/separater.gif" title="" width="2" height="24">-->
+                                <p>中京　太郎（学生）</p>
+                                <!--<img src="images/separater.gif" title="" width="2" height="24">-->
+                            </div>
+
+                        </div>
+                        <!--/MH:ヘッダ-->
+                    </div>
+                    <!--/ブロックheaderbg-->
+
+                    <a name="header1"></a>
+                    <!--MT:画面タイトル-->
+                    <h1>
+                        授業・時間割照会&nbsp;&nbsp;
+
+                        授業時間割照会画面
+
+                    </h1>
+                    <ul id="idhelp" class="idhelp">
+                        <li>(ARF010PCT01)</li>
+                    </ul>
+                    <!--/MT:画面タイトル-->
+
+                    <!--MN:ナビゲーション-->
+                    <ul id="taskname">
+
+
+                        <li>授業時間割照会画面</li>
+
+
+                    </ul>
+                    <!-- 多言語対応 START -->
+
+                    <div style="text-align:right;">
+
+
+
+
+
+                    </div>
+
+                    <!-- 多言語対応 END -->
+
+                </div>
+                <!--/ブロックheader-->
+
+
+
+
+
+
+
+                <!--/ブロックheader-->
+
+                <!--ブロックMenu-->
+
+
+                <!--/ブロックMenu-->
+
+                <!--ブロックcontents-->
+
+                <div id="contents">
+                    <!--PCm:ポップメッセージ-->
+
+                    <!--/PCm:ポップメッセージ-->
+
+                    <!--MCi:入力-->
+                    <div class="tablearea">
+                        <h2>学生情報</h2>
+                        <!-- 管理者・職員の場合-->
+
+                        <!-- 学生の場合 -->
+
+                        <table class="output">
+                            <caption class="hide">学生情報</caption>
+                            <tr>
+                                <th>学籍番号</th>
+                                <td>
+                                    t324000
+                                    <input type="hidden" name="lblScrgNo" value="t324000" id="lblScrgNo">
+                                </td>
+                                <th>学生氏名</th>
+                                <td colspan="5">
+                                    中京　太郎<BR />(CHUKYO TARO)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>学生区分</th>
+                                <td>
+                                    学部（正規）
+                                    <input type="hidden" name="lblStdDvNm" value="学部（正規）" id="lblStdDvNm">
+                                </td>
+                                <th>所属区分</th>
+                                <td>
+                                    学部生
+                                    <input type="hidden" name="lblStdAldvNm" value="学部生" id="lblStdAldvNm">
+                                </td>
+                                <th>学生状態</th>
+                                <td>
+                                    在学
+                                    <input type="hidden" name="lblCc001ScrDispNm" value="在学" id="lblCc001ScrDispNm">
+                                </td>
+                                <th>クラス</th>
+                                <td>
+                                    F
+                                    <input type="hidden" name="lblCc003ScrDispNm" value="F" id="lblCc003ScrDispNm">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>学部</th>
+                                <td>
+                                    工学部
+                                    <input type="hidden" name="lblFclNm" value="工学部" id="lblFclNm">
+                                </td>
+                                <th>学科</th>
+                                <td>
+                                    情報工学科
+                                    <input type="hidden" name="lblDprNm" value="情報工学科" id="lblDprNm">
+                                </td>
+                                <th>コース</th>
+                                <td colspan="3">
+                                    （共通）
+                                    <input type="hidden" name="lblSpcoNm" value="（共通）" id="lblSpcoNm">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>住所・電話番号（固定）（携帯）</th>
+                                <td colspan="7">
+
+                                    <input type="hidden" name="lblPscd" value="" id="lblPscd">
+                                    〒000-0000 愛知県〇〇市〇〇町〇〇ー〇〇 （090-0000-0000） （登録なし）
+                                    <input type="hidden" name="lblCc008ScrDispNmStdAddrStdTelNo"
+                                        value="〒000-0000 愛知県〇〇市〇〇町〇〇ー〇〇 （090-0000-0000） （登録なし）"
+                                        id="lblCc008ScrDispNmStdAddrStdTelNo">
+                                </td>
+                            </tr>
+                        </table>
+                        <B>※住所、電話番号等に変更があれば速やかに「学生情報登録申請機能」で修正してください。</B>
+
+                    </div>
+                    <!--ブロックtablearea-->
+                    <div class="tablearea">
+                        <div class="tabmenu">
+                            <ul>
+                                <li><span>授業時間割情報</span></li>
+                                <li><a href="javascript:void(0);"
+                                        onclick="goTabClick('ARF010PCT01EventAction.do?ETab2=event', this.form);return false;">未使用機能</a>
+                                </li>
+                                <li><a href="javascript:void(0);"
+                                        onclick="goTabClick('ARF010PCT01EventAction.do?ETab3=event', this.form);return false;">未使用機能</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3 class="outputset">履修項目</h3>
+                        <p><B>履修科目が表示されない場合は、日付を授業開講日に修正し、「GO」をクリックしてください</B></p>
+                        <p class="legendsymbol">凡例 ：
+                            <img src="images/icon_kyukou.gif" title="休講" width="17" height="17">休講
+                            <img src="images/icon_hokou.gif" title="補講" width="17" height="17">補講
+                            <img src="images/icon_jyugyouhenkou.gif" title="授業変更" width="17" height="17">授業変更
+                            <img src="images/icon_detail_curriculum.gif" title="授業の詳細" width="18" height="18">履修科目の詳細
+                        </p>
+                        <h3 class="outputset">履修科目 ※下欄にＡ～Ｃ限は表示されません</h3>
+                        <div class="searcharea">
+                            <ul>
+                                <li>
+                                    <input type="image" name="EPrevious" src="images/icon_back.gif" title="前のページ">
+                                    <!-- 指定期間 -->
+                                    2025年06月16日～2025年06月21日
+                                    <input type="hidden" name="lblSpcfProd" value="2025年06月16日～2025年06月21日">
+                                    <input type="image" name="ENext" src="images/icon_next.gif" title="次のページ">
+                                    <img src="images/separater.gif" width="2" height="24" title="">
+                                </li>
+                                <li>
+                                    日付
+
+                                    <!-- 指定日付(西暦.和暦) -->
+                                    <select name="selTypeCal" id="selTypeCal">
+                                        <option value="0" selected="selected">西暦</option>
+                                        <option value="M">明治</option>
+                                        <option value="T">大正</option>
+                                        <option value="S">昭和</option>
+                                        <option value="H">平成</option>
+                                        <option value="R">令和</option>
+                                    </select>
+                                    <input type="hidden" name="selTypeCalMapOut"
+                                        value="0&gt;西暦&lt;M&gt;明治&lt;T&gt;大正&lt;S&gt;昭和&lt;H&gt;平成&lt;R&gt;令和&lt;">
+                                    <!-- 指定日付(年) -->
+
+
+                                    <input type="text" name="txtYear" maxlength="4" value="2025" id="txtYear"
+                                        style="width:5em">年
+                                    <!-- 指定日付(月) -->
+
+
+                                    <input type="text" name="txtMonth" maxlength="2" value="06" id="txtMonth"
+                                        style="width:3em">月
+                                    <!-- 指定日付(日) -->
+
+
+                                    <input type="text" name="txtDay" maxlength="2" value="21" id="txtDay"
+                                        style="width:3em">日
+                                    <input type="image" name="EPageSet" src="images/icon_go.gif" title="ページ設定">
+                                </li>
+                            </ul>
+                        </div>
+
+                        <table class="output_curriculum">
+                            <caption class="hide"></caption>
+                            <tr>
+                                <th scope="col">時限</th>
+
+                                <th width="16.1%" scope="col">
+                                    月<BR />06/16
+                                    <input type="hidden" name="lstLsnDt_st[0].lblLsnDt" value="月&lt;BR/&gt;06/16">
+                                </th>
+
+                                <th width="16.1%" scope="col">
+                                    火<BR />06/17
+                                    <input type="hidden" name="lstLsnDt_st[1].lblLsnDt" value="火&lt;BR/&gt;06/17">
+                                </th>
+
+                                <th width="16.1%" scope="col">
+                                    水<BR />06/18
+                                    <input type="hidden" name="lstLsnDt_st[2].lblLsnDt" value="水&lt;BR/&gt;06/18">
+                                </th>
+
+                                <th width="16.1%" scope="col">
+                                    木<BR />06/19
+                                    <input type="hidden" name="lstLsnDt_st[3].lblLsnDt" value="木&lt;BR/&gt;06/19">
+                                </th>
+
+                                <th width="16.1%" scope="col">
+                                    金<BR />06/20
+                                    <input type="hidden" name="lstLsnDt_st[4].lblLsnDt" value="金&lt;BR/&gt;06/20">
+                                </th>
+
+                                <th width="16.1%" scope="col">
+                                    土<BR />06/21
+                                    <input type="hidden" name="lstLsnDt_st[5].lblLsnDt" value="土&lt;BR/&gt;06/21">
+                                </th>
+
+                            </tr>
+
+
+
+                            <tr>
+                                <th class="nobr" scope="row">1時限</th>
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnPointer" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnPointer" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[0].lblClrNm" value="1731">
+                                    <input type="hidden" name="lstStdTsCht_st[0].lblSbjKnjNm" value="コンピュータネット">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnClrNm" value="1731&lt;BR/&gt;1732">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnSbjKnjNm" value="コンピュータネットワーク">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnLsnCd1" value="T31311070">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnTmtxCd" value="A1">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[0].hdnOpcDt" value="20250616">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311070&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(0)"
+                                        onmouseout="del_mess(0)">1731</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(1)"
+                                        onmouseout="del_mess(1)">コンピュータネット</a>
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnPointer" value="3">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnPointer" value="3">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[1].lblClrNm" value="1731">
+                                    <input type="hidden" name="lstStdTsCht_st[1].lblSbjKnjNm" value="アルゴリデータ構造２">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnClrNm" value="1731&lt;BR/&gt;1732">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnSbjKnjNm" value="アルゴリズムとデータ構造２">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnLsnCd1" value="T31311160">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnTmtxCd" value="D1">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[1].hdnOpcDt" value="20250619">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311160&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(2)"
+                                        onmouseout="del_mess(2)">1731</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(3)"
+                                        onmouseout="del_mess(3)">アルゴリデータ構造２</a>
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnPointer" value="4">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnPointer" value="4">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[2].lblClrNm" value="1731">
+                                    <input type="hidden" name="lstStdTsCht_st[2].lblSbjKnjNm" value="Ｊａｖａ言語１">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnClrNm" value="1731&lt;BR/&gt;1732">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnLsnCd1" value="T31310930">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnTmtxCd" value="E1">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[2].hdnOpcDt" value="20250620">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310930&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(4)"
+                                        onmouseout="del_mess(4)">1731</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    Ｊａｖａ言語１
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+                            </tr>
+
+
+
+                            <tr>
+                                <th class="nobr" scope="row">2時限</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnPointer" value="7">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnPointer" value="7">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[3].lblClrNm" value="1731">
+                                    <input type="hidden" name="lstStdTsCht_st[3].lblSbjKnjNm" value="画像パターン処理">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnClrNm" value="1731&lt;BR/&gt;1732">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnLsnCd1" value="T31311200">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnTmtxCd" value="B2">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[3].hdnOpcDt" value="20250617">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311200&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(5)"
+                                        onmouseout="del_mess(5)">1731</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    画像パターン処理
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnPointer" value="9">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnPointer" value="9">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[4].lblClrNm" value="1731">
+                                    <input type="hidden" name="lstStdTsCht_st[4].lblSbjKnjNm" value="ライティング／コミュ">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnClrNm" value="1731&lt;BR/&gt;1732">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnSbjKnjNm" value="ライティング／コミュニケーション">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnLsnCd1" value="T31310100">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnTmtxCd" value="D2">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[4].hdnOpcDt" value="20250619">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310100&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(6)"
+                                        onmouseout="del_mess(6)">1731</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(7)"
+                                        onmouseout="del_mess(7)">ライティング／コミュ</a>
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnPointer" value="10">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnPointer" value="10">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[5].lblClrNm" value="1731">
+                                    <input type="hidden" name="lstStdTsCht_st[5].lblSbjKnjNm" value="Ｊａｖａ言語１演習">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnClrNm" value="1731&lt;BR/&gt;1732">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnLsnCd1" value="T31310940">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnTmtxCd" value="E2">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[5].hdnOpcDt" value="20250620">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310940&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(8)"
+                                        onmouseout="del_mess(8)">1731</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    Ｊａｖａ言語１演習
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+                            </tr>
+
+
+
+                            <tr>
+                                <th class="nobr" scope="row">3時限</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnPointer" value="13">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnPointer" value="13">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[6].lblClrNm" value="2133">
+                                    <input type="hidden" name="lstStdTsCht_st[6].lblSbjKnjNm" value="幾何学">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnClrNm" value="2133">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnLsnCd1" value="T31310070">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnTmtxCd" value="B3">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[6].hdnOpcDt" value="20250617">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310070&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B3&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(9)"
+                                        onmouseout="del_mess(9)">2133</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    幾何学
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnPointer" value="16">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnPointer" value="16">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[7].lblClrNm" value="2142">
+                                    <input type="hidden" name="lstStdTsCht_st[7].lblSbjKnjNm" value="レトリックの論理学">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnClrNm" value="2142">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnLsnCd1" value="T30007818">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnTmtxCd" value="E3">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[7].hdnOpcDt" value="20250620">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T30007818&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E3&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(10)"
+                                        onmouseout="del_mess(10)">2142</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    レトリックの論理学
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+                            </tr>
+
+
+
+                            <tr>
+                                <th class="nobr" scope="row">4時限</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnPointer" value="18">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnPointer" value="18">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[8].lblClrNm" value="1731">
+                                    <input type="hidden" name="lstStdTsCht_st[8].lblSbjKnjNm" value="情報工学実験１">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnClrNm" value="1731&lt;BR/&gt;1732">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnLsnCd1" value="T31310840">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnTmtxCd" value="A4">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[8].hdnOpcDt" value="20250616">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310840&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(11)"
+                                        onmouseout="del_mess(11)">1731</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    情報工学実験１
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnPointer" value="19">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnPointer" value="19">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[9].lblClrNm" value="2143">
+                                    <input type="hidden" name="lstStdTsCht_st[9].lblSbjKnjNm" value="社会における統計学">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnClrNm" value="2143">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnLsnCd1" value="T30007668">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnTmtxCd" value="B4">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[9].hdnOpcDt" value="20250617">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T30007668&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(12)"
+                                        onmouseout="del_mess(12)">2143</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    社会における統計学
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnPointer" value="21">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnPointer" value="21">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[10].lblClrNm" value="2131">
+                                    <input type="hidden" name="lstStdTsCht_st[10].lblSbjKnjNm" value="オペシステム">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnClrNm" value="2131">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnSbjKnjNm" value="オペレーティングシステム">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnLsnCd1" value="T31311020">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnTmtxCd" value="D4">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[10].hdnOpcDt" value="20250619">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311020&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(13)"
+                                        onmouseout="del_mess(13)">2131</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(14)"
+                                        onmouseout="del_mess(14)">オペシステム</a>
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnPointer" value="22">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnPointer" value="22">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[11].lblClrNm" value="845">
+                                    <input type="hidden" name="lstStdTsCht_st[11].lblSbjKnjNm" value="技術英語１">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnClrNm" value="845">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnLsnCd1" value="T31310120">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnTmtxCd" value="E4">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[11].hdnOpcDt" value="20250620">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310120&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+
+                                    <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(15)"
+                                        onmouseout="del_mess(15)">845</a>
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    技術英語１
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+                            </tr>
+
+
+
+                            <tr>
+                                <th class="nobr" scope="row">5時限</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment">
+
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnPointer" value="24">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnColNm1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnPointer" value="24">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnPrcDv" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnColFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnSplcFlg1" value="0">
+                                    <input type="hidden" name="lstStdTsCht_st[12].lblClrNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].lblSbjKnjNm" value="情報工学実験１">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnClrNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnSbjKnjNm" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnLsnCd1" value="T31310840">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnLsnOpcFcy1" value="2025">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnTacTrmCd1" value="01">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnSplcAplNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnTstDispFlg1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnSeqNo1" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnLscGapNo" value="">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnTmtxCd" value="A5">
+                                    <!-- 授業変更アイコン　 -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnArf010Flg" value="1">
+                                    <input type="hidden" name="lstStdTsCht_st[12].hdnOpcDt" value="20250616">
+                                    <!-- 補講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 休講日アイコン　(履修項目) -->
+
+
+                                    <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
+
+                                    <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
+
+                                    <a href="javaScript:;"
+                                        onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310840&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A5&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616')"><img
+                                            src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
+                                            height="17"></a>
+
+                                    <!-- 教室名称　(履修項目) -->
+                                    <br>
+                                    <!-- 科目名称　(履修項目) -->
+                                    情報工学実験１
+                                </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+                            </tr>
+
+
+
+                            <tr>
+                                <th class="nobr" scope="row">6時限</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+                            </tr>
+
+
+
+                            <tr>
+                                <th class="nobr" scope="row">7時限</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <td class="segment"></td>
+
+
+
+                            </tr>
+
+
+                        </table>
+                        <!--  集中・その他 -->
+                        <table class="output">
+                            <caption>集中・その他</caption>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">機能</th>
+                                <th scope="col">休補講</th>
+                                <th scope="col">履修期</th>
+                                <th scope="col">教室名称</th>
+                                <th scope="col">科目名称</th>
+                                <th scope="col">集中講義期間</th>
+                                <th scope="col">備考</th>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="buttonarea">
+
+                    </div>
+
+                    <input type="hidden" name="hdnScrgNo" value="t324000" id="hdnScrgNo">
+
+                    <input type="hidden" name="lblSpcfProd" value="2025年06月16日～2025年06月21日" id="lblSpcfProd">
+
+                    <input type="hidden" name="hdnTypeCal" value="" id="hdnTypeCal">
+                    <input type="hidden" name="hdnYear" value="" id="hdnYear">
+                    <input type="hidden" name="hdnMonth" value="" id="hdnMonth">
+                    <input type="hidden" name="hdnDay" value="" id="hdnDay">
+
+                    <input type="hidden" name="hdnFnkJumpScrId" value="" id="hdnFnkJumpScrId">
+                    <input type="hidden" name="hdnFnkJumpDv" value="" id="hdnFnkJumpDv">
+                    <input type="hidden" name="hdnFnkJumpPrc" value="false" id="hdnFnkJumpPrc">
+                    <input type="hidden" name="hdnSelectDate" value="20250621000000000" id="hdnSelectDate">
+
+                    <input type="hidden" name="hdnWkGetDv" value="0" id="hdnWkGetDv">
+                    <input type="hidden" name="hdnUsrClsi" value="S" id="hdnUsrClsi">
+
+                    <!--ページフラグ-->
+                    <input type="hidden" name="hdnDispPageFlg" value="" id="hdnDispPageFlg">
+
+                </div>
+                <!--/ブロックcontents-->
+            </form>
+        </div>
+        <!--/ブロックmain-->
+
+
+
+        <!--MF:フッタ-->
+        <div id="footer">
+            <!--画面表示タイプ未設定時のみ「メインメニューへ戻る」ボタン表示-->
+
+            <div id="mainmenu"><a href="#" onClick="return printing();"><img src="images/btn_print.gif"
+                        class="foot_print" title="画面印刷"></a>&nbsp;<a href="#" onClick="return goMenu();"><img
+                        src="images/btn_mainmenu.gif" class="foot_main" title="メインメニューへ戻る"></a></div>
+
+            <address>All Rights Reserved, Copyright(c) 2007,2022, Hitachi, Ltd.(2)</address>
+        </div>
+        <!--/MF:フッタ-->
+
+    </div>
+    <!--/ブロックcontainer-->
+
+    <noscript>
+        <div>
+            JavaScriptとCookieは必ず使用可能にしてください。
+        </div>
+    </noscript>
+
+</body>
+
+</html>

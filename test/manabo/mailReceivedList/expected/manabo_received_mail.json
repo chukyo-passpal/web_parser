@@ -1,0 +1,342 @@
+{
+    "summary": "139件中 1 〜 30件",
+    "pages": [
+        {
+            "label": "1",
+            "page": "1",
+            "active": true
+        },
+        {
+            "label": "2",
+            "page": "2",
+            "active": false
+        },
+        {
+            "label": "3",
+            "page": "3",
+            "active": false
+        },
+        {
+            "label": "4",
+            "page": "4",
+            "active": false
+        },
+        {
+            "label": "5",
+            "page": "5",
+            "active": false
+        },
+        {
+            "label": "»",
+            "page": "2",
+            "active": false
+        },
+        {
+            "label": "»»",
+            "page": "5",
+            "active": false
+        }
+    ],
+    "mails": [
+        {
+            "id": "15313350",
+            "title": "Re: Re: Re: ゼミ応募メール確認のお願い",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "$(function () { $(\".x-fancy\").on(\"click\", function (e) { e.preventDefault(); }); $(\".x-fancy\").fancybox({ type: \"image\" }); }) ラシキア 城治",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年6月20日(金) 19:27"
+        },
+        {
+            "id": "15312445",
+            "title": "Re: ゼミ応募メール確認のお願い",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_arrow_right.png",
+            "mailLink": "#",
+            "senderName": "ラシキア 城治",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年6月20日(金) 16:57"
+        },
+        {
+            "id": "15311915",
+            "title": "Re: ゼミ面接のお願いについて",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "中京 太郎",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年6月20日(金) 16:10"
+        },
+        {
+            "id": "15307023",
+            "title": "学生広報スタッフ『ライト』（４期生）募集中！！",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "学生広報スタッフ「ライト」4期生募集クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月20日(金) 12:46"
+        },
+        {
+            "id": "15296239",
+            "title": "ゼミ登録の受付締め切り間近です",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "ゼミ登録クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月20日(金) 12:26"
+        },
+        {
+            "id": "15262696",
+            "title": "【訂正】【参加学生募集】世界ラリー選手権フォーラムエイト・ラリージャパン2025観戦者をもてなし、豊田市の魅力をPRせよ",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "ラリージャパン連携プロジェクト募集クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月17日(火) 09:35"
+        },
+        {
+            "id": "15248494",
+            "title": "【参加学生募集】世界ラリー選手権フォーラムエイト・ラリージャパン2025観戦者をもてなし、豊田市の魅力をPRせよ",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "ラリージャパン連携プロジェクト募集クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月17日(火) 09:10"
+        },
+        {
+            "id": "15227672",
+            "title": "ゼミ第1次選考申請をしてください",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "ゼミ登録クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月16日(月) 09:00"
+        },
+        {
+            "id": "15185119",
+            "title": "数値計算実験のレポートについて",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "情報工学実験１クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月11日(水) 15:00"
+        },
+        {
+            "id": "15160575",
+            "title": "ネットワーク実験のレポートについて",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "情報工学実験１クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月9日(月) 13:35"
+        },
+        {
+            "id": "15156170",
+            "title": "自衛隊ゲスト講師",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "コンピュータネットワーククラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年6月9日(月) 08:19"
+        },
+        {
+            "id": "15075441",
+            "title": "ゼミ紹介メモの締め切り延長",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "ライティング／コミュニケーションクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年5月31日(土) 11:30"
+        },
+        {
+            "id": "15071540",
+            "title": "ゼミ紹介メモの締め切り延長",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "ライティング／コミュニケーションクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年5月30日(金) 16:54"
+        },
+        {
+            "id": "15049925",
+            "title": "ネットワーク実験の授業録画",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "情報工学実験１クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年5月28日(水) 12:52"
+        },
+        {
+            "id": "15015928",
+            "title": "教材の受講期限が近付いています。",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "システム管理者(情報システム担当者）",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年5月25日(日) 08:00"
+        },
+        {
+            "id": "14950106",
+            "title": "来週からのネットワーク実験の準備",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "情報工学実験１クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年5月19日(月) 17:30"
+        },
+        {
+            "id": "14906901",
+            "title": "ゼミ登録クラスの運用開始",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "ゼミ登録クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年5月14日(水) 17:24"
+        },
+        {
+            "id": "14858351",
+            "title": "あなたのアイデアで日本のトップリーグで活躍するスポーツチームのファン獲得に挑戦しませんか？",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "【追加募集】スポーツチームファン獲得プロジェクト募集クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年5月9日(金) 10:28"
+        },
+        {
+            "id": "14842403",
+            "title": "研究室 (ゼミ) 紹介",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "ライティング／コミュニケーションクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年5月8日(木) 09:03"
+        },
+        {
+            "id": "14802548",
+            "title": "ビジネスアイデアワークショップ開催のご案内",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail.png",
+            "mailLink": "#",
+            "senderName": "ビジネスアイデアワークショップ申込クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年4月29日(火) 14:30"
+        },
+        {
+            "id": "14729855",
+            "title": "📚chukyo career school [6/21(土)]定員制・先着順",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "2年生・1年生対象📚chukyo career school [6/21(土)]定員制・先着順クラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年4月22日(火) 13:26"
+        },
+        {
+            "id": "14647729",
+            "title": "授業スライドのトラブルについて",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "コンピュータネットワーククラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年4月14日(月) 11:05"
+        },
+        {
+            "id": "14537898",
+            "title": "🌈新2年生対象キャリアガイダンス📅🎉［4/7 - 4/9］参加必須",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "キャリア支援課",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年3月28日(金) 18:40"
+        },
+        {
+            "id": "14521759",
+            "title": "教材の受講期限が近付いています。",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "システム管理者(情報システム担当者）",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年3月19日(水) 08:03"
+        },
+        {
+            "id": "14502764",
+            "title": "【トヨタ自動車硬式野球部×中京大学】地域を盛り上げるイベントを一緒に作りませんか？",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "【トヨタ自動車硬式野球部×中京大学】交流試合運営体験＆企画提案プロジェクトクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年3月7日(金) 15:07"
+        },
+        {
+            "id": "14483248",
+            "title": "教材の受講期限が近付いています。",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "システム管理者(情報システム担当者）",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年2月26日(水) 08:03"
+        },
+        {
+            "id": "14471486",
+            "title": "【2/27締切迫る！】あなたのアイデアで社会の課題に挑戦しませんか？",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト募集クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年2月24日(月) 12:24"
+        },
+        {
+            "id": "14460059",
+            "title": "【2/27締切】あなたのアイデアで日本のトップリーグで活躍するスポーツチームのファン獲得に挑戦しませんか？",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト募集クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年2月20日(木) 12:58"
+        },
+        {
+            "id": "14445560",
+            "title": "【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト参加学生募集のお知らせ",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "【クインシーズ刈谷・ブレイヴキングス刈谷×中京大学】スポーツチームファン獲得プロジェクト募集クラスクラス",
+            "senderImage": "/common/images/icons/members.png",
+            "receivedAt": "2025年2月12日(水) 19:58"
+        },
+        {
+            "id": "14430965",
+            "title": "教材の受講期限が近付いています。",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "senderName": "システム管理者(情報システム担当者）",
+            "senderImage": "/common/images/noimage-member.jpg",
+            "receivedAt": "2025年2月6日(木) 08:00"
+        }
+    ]
+}

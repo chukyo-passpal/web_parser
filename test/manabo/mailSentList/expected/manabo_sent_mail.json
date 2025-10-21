@@ -1,0 +1,93 @@
+{
+    "summary": "8件中 1 〜 8件",
+    "mails": [
+        {
+            "id": "15312842",
+            "title": "Re: Re: ゼミ応募メール確認のお願い",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "$(function () { $(\".x-fancy\").on(\"click\", function (e) { e.preventDefault(); }); $(\".x-fancy\").fancybox({ type: \"image\" }); }) ラシキア 城治",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2025年6月20日(金) 17:05",
+            "unreadCount": 0
+        },
+        {
+            "id": "15312262",
+            "title": "ゼミ応募メール確認のお願い",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "ラシキア 城治",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2025年6月20日(金) 16:37",
+            "unreadCount": 0
+        },
+        {
+            "id": "15311915",
+            "title": "Re: ゼミ面接のお願いについて",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "中京 太郎",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2025年6月20日(金) 16:10",
+            "unreadCount": 0
+        },
+        {
+            "id": "15288073",
+            "title": "ゼミ面接のお願いについて",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "ラシキア 城治",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2025年6月19日(木) 14:17",
+            "unreadCount": 0
+        },
+        {
+            "id": "14408275",
+            "title": "Re: 最終課題の評価公開",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "正木 彰伍",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2025年1月29日(水) 12:55",
+            "unreadCount": 0
+        },
+        {
+            "id": "14115175",
+            "title": "11回目の課題の得点について",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "宮川 裕貴, 正木 彰伍",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2024年12月18日(水) 17:06",
+            "unreadCount": 0
+        },
+        {
+            "id": "13673242",
+            "title": "Re: おたずね",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "正木 彰伍",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2024年11月15日(金) 09:20",
+            "unreadCount": 0
+        },
+        {
+            "id": "13341370",
+            "title": "Re: 【重要】提出してもらった解析学の宿題02について",
+            "statusIconAlt": null,
+            "statusIconSrc": "/common/images/icons/mail_read.png",
+            "mailLink": "#",
+            "recipientName": "佐藤 俊郎",
+            "recipientImage": "/common/images/noimage-member.jpg",
+            "sentAt": "2024年10月9日(水) 21:51",
+            "unreadCount": 0
+        }
+    ]
+}

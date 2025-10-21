@@ -1,0 +1,77 @@
+<script>
+    $(function () {
+        $('.a-reply-mail').on('click', function (e) {
+            e.preventDefault();
+
+            var memberIds = [];
+            memberIds.push($(this).attr('from_member_id'));
+
+
+            glexa.closeRemoteModal();
+            glexa.openModalMailForm($(this).attr('reply_mail_id'), memberIds);
+        });
+
+        $('.a-reopen-mail').on('click', function (e) {
+            e.preventDefault();
+            glexa.closeRemoteModal();
+            openModalMailView($(this).attr('mail_id'));
+            reloadMails();
+        });
+
+        $('.a-modal-mail-form-unread').off('click').on('click', function (e) {
+            e.preventDefault();
+            glexa.closeRemoteModal();
+            glexa.openModalMailForm(false, [$(this).attr('member_id')]);
+        });
+    });
+</script>
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+                    class="glyphicon glyphicon-remove"></i></button>
+            <h4 class="modal-title">Re: Re: Re: ゼミ応募メール確認のお願い</h4>
+        </div>
+        <div class="modal-body">
+            <div class="text-left margin-bottom-md">
+                <a href="#" class="a-reply-mail" reply_mail_id="15313350" from_member_id="13452"><img
+                        src="/common/images/icons/undo.png" alt="" class="icon" /> 返信</a>
+                <a href="#" class="a-reopen-mail" mail_id="15312445"><img src="/common/images/icons/link.png" alt=""
+                        class="icon" /> 次へ</a>
+            </div>
+            <div class="margin-top-lg td-thumbnail text-left">
+                <a class="x-fancy a-member-thumbnail" href="/common/images/noimage-member.jpg" title=""
+                    style="width:25px;height:25px;"><span style="width:25px;height:25px;"><img
+                            src="/common/images/noimage-member.jpg" alt=""
+                            style="max-width:25px;max-height:25px;" /></span></a>
+                <script>$(function () { $(".x-fancy").on("click", function (e) { e.preventDefault(); }); $(".x-fancy").fancybox({ type: "image" }); })</script>
+                <b class="margin-left-sm"> ラシキア　城治</b>
+                2025年6月20日(金) 19:27
+            </div>
+
+
+            <div class="margin-top-lg">
+                中京さん<br /><br />お疲れ様です。<br />以下から面接のご都合の良い日時(第3希望まで)を教えてください。<br />日時が合わない場合はまた別で考えます。<br /><br />23日(月)14:30<br />23日(月)16:00<br />23日(月)16:30<br />23日(月)
+                17:00<br />23日(月) 17:30<br />23日(月)
+                18:00<br /><br />26日(木)15:00<br />26日(木)15:30<br />26日(木)16:00<br />26日(木)16:30<br />26日(木)17:00<br />26日(木)17:30<br /><br />27日(金)
+                15:30<br />27日(金) 16:00<br />27日(金) 16:30<br />27日(金) 17:00<br />27日(金)
+                17:30<br /><br />よろしくお願いします。<br /><br /><br /><br />&gt; ご確認ありがとうございます。<br />&gt; <br />&gt;
+                メールの内容を再送させていただきます。確認いただけると幸いです。<br />&gt; <br />&gt; 学籍番号, 氏名：t324000, 中京 太郎<br />&gt; <br />&gt;
+                志望理由：<br />&gt; <br />&gt; 私は、ラシキアゼミの「開発を重視した研究スタイル」や、ゼミ生同士が切磋琢磨しながら成長できる環境に強く魅力を感じ、志望いたしました。<br />&gt;
+                <br />&gt; 現在、私は学内ポータルサイトのネイティブアプリラッパーの開発をはじめ、ラシキアゼミで進行中の傘プロジェクトへの参加など、積極的にソフトウェア開発に取り組んでおります。<br />&gt;
+                <br />&gt; また、ハッカソンにも積極的に出場しており、受賞経験もございます。<br />&gt; <br />&gt; これまでの経験から、開発への情熱と技術力には自信があります。
+                &nbsp;<br />&gt; 本ゼミでの活動を通じて、さらに技術力を高めるとともに、チームでの協働や実践力を磨いていきたいと考えております。<br />&gt; <br />&gt;
+                ぜひ、面接の機会をいただけますと幸いです。<br />&gt; 何卒よろしくお願いいたします。<br />&gt; <br />&gt; &gt; お疲れ様です。<br />&gt; &gt;
+                届いてないです。<br />&gt; &gt; 面接の日程についてまた連絡します。<br />&gt; &gt; <br />&gt; &gt; &gt; ラシキア教授<br />&gt; &gt; &gt;
+                お忙しいところ恐れ入ります。<br />&gt; &gt; &gt; 工学部情報工学科 t324000 中京太郎です。<br />&gt; &gt; &gt; <br />&gt; &gt; &gt;
+                先日お送りしたゼミ応募に関するメールはご確認いただけましたでしょうか。<br />&gt; &gt; &gt;
+                もしご確認いただけておりましたら、ご多忙のところ恐縮ですが、ご返信をいただけますと幸いです。<br />&gt; &gt; &gt;
+            </div>
+
+        </div><!--modal-body-->
+        <div class="modal-footer">
+            <button id="btn-common-alert-modal-ok" type="button" class="btn btn-primary size10">閉じる</button>
+        </div>
+    </div><!--modal-content-->
+</div><!--modal-dialog-->
