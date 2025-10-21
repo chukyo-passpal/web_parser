@@ -26,9 +26,11 @@ const buildSlot = (cell: Element, day: string): ManaboTimetableSlotDTO => {
 
     const classNameElement = queryOne("b", anchor);
     const classNameText = normalizeWhitespace(classNameElement ? getTextContent(classNameElement) : "");
-    const teacherText = collectTextExcluding(anchor.children ?? [], (node) => isElement(node) && node.name === "b");
-    const hasStatusLabel = !!queryOne("small.label", anchor);
-    const teacherValue = hasStatusLabel ? null : teacherText.length ? teacherText : null;
+    const teacherText = collectTextExcluding(anchor.children ?? [], (node) => {
+        if (!isElement(node)) return false;
+        return node.name === "b" || node.name === "a" || (node.name === "small" && elementHasClass(node, "label"));
+    });
+    const teacherValue = teacherText.length ? teacherText : null;
 
     return {
         day,

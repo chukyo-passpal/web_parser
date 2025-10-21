@@ -175,7 +175,7 @@
         {
           "day": "木",
           "className": "ライティング／コミュニケーション",
-          "teacher": null,
+          "teacher": "鈴木 常彦",
           "href": "/class/85121/"
         },
         {
@@ -204,7 +204,7 @@
         {
           "day": "火",
           "className": "幾何学",
-          "teacher": null,
+          "teacher": "山田 雅之",
           "href": "/class/85120/"
         },
         {
@@ -222,7 +222,7 @@
         {
           "day": "金",
           "className": "レトリックの論理学",
-          "teacher": null,
+          "teacher": "松浦 明宏",
           "href": "/class/87014/"
         },
         {
@@ -245,7 +245,7 @@
         {
           "day": "火",
           "className": "社会における統計学",
-          "teacher": null,
+          "teacher": "永井 勇",
           "href": "/class/86987/"
         },
         {
