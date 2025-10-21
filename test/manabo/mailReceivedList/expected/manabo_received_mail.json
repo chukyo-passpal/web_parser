@@ -44,7 +44,7 @@
             "statusIconAlt": null,
             "statusIconSrc": "/common/images/icons/mail_read.png",
             "mailLink": "#",
-            "senderName": "$(function () { $(\".x-fancy\").on(\"click\", function (e) { e.preventDefault(); }); $(\".x-fancy\").fancybox({ type: \"image\" }); }) ラシキア 城治",
+            "senderName": "ラシキア 城治",
             "senderImage": "/common/images/noimage-member.jpg",
             "receivedAt": "2025年6月20日(金) 19:27"
         },

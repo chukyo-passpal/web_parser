@@ -7,7 +7,7 @@
             "statusIconAlt": null,
             "statusIconSrc": "/common/images/icons/mail_read.png",
             "mailLink": "#",
-            "recipientName": "$(function () { $(\".x-fancy\").on(\"click\", function (e) { e.preventDefault(); }); $(\".x-fancy\").fancybox({ type: \"image\" }); }) ラシキア 城治",
+            "recipientName": "ラシキア 城治",
             "recipientImage": "/common/images/noimage-member.jpg",
             "sentAt": "2025年6月20日(金) 17:05",
             "unreadCount": 0
