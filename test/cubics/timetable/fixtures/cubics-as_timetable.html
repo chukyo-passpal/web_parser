@@ -1,6 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ja">
-
 <!-- e-CANDO/Cosminexus PLayerTemplate for Struts -->
 <!-- TemplateVer.2006/07/14(01-04-A-/A) -->
 
@@ -8,11 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>授業・時間割照会　
         授業時間割照会画面
-
     </title>
-
-
-
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta http-equiv="content-style-type" content="text/css">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
@@ -27,29 +22,18 @@
     <script type="text/javascript" charset="UTF-8" src="js/asl.js"></script>
     <script language="javascript" type="text/javascript">
         < !-
-
             isElementsObject_msg1 = '指定された項目(';
         isElementsObject_msg2 = ')が存在しない';
         isElementsObject_msg3 = '処理することが';
-
         openItemSelect_msg1 = '機能IDが指定されていない';
         openItemSelect_msg2 = '処理することが';
-
         execDownload_msg1 = 'のダウンロード';
-
         execOnlinePrint_msg1 = 'の印刷または表示';
-
         itemSelectTypeI_msg1 = '対象データ';
-
         itemSelect_msg1 = 'ダウンロード項目';
-
         CMB_NULLLABEL = '未選択';
-
         ->
     </script>
-
-
-
     <script type="text/javascript">
         < !-
             window.onload = function() {
@@ -60,1241 +44,24 @@
         }
             ->
     </script>
-
     <script type="text/javascript">
         var message = new Array();
-
-
-
-
-
-
         message[0] = '1731<BR/>1732';
         message[1] = 'コンピュータネットワーク';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[2] = '1731<BR/>1732';
         message[3] = 'アルゴリズムとデータ構造２';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[4] = '1731<BR/>1732';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[5] = '1731<BR/>1732';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[6] = '1731<BR/>1732';
         message[7] = 'ライティング／コミュニケーション';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[8] = '1731<BR/>1732';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[9] = '2133';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[10] = '2142';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[11] = '1731<BR/>1732';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[12] = '2143';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[13] = '2131';
         message[14] = 'オペレーティングシステム';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         message[15] = '845';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
     <script type="text/javascript" charset="UTF-8" src="js/asl_chipHelp.js"></script>
 </head>
@@ -1302,27 +69,13 @@
 <body>
     <!--ブロックcontainer-->
     <div id="container">
-
         <!--ブロックmain-->
         <div id="main">
-
             <form name="ARF010PCT01Form" method="POST" action="/unias/ARF010PCT01EventAction.do"
                 onsubmit="return isDoubleSendCheck(this);">
                 <div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN"
                         value="a315fdb35399187f289cf28c05149824"></div>
-
                 <!--ブロックheader-->
-
-
-
-
-
-
-
-
-
-
-
                 <script language="javascript" type="text/javascript">
                     < !-
                     
@@ -1331,10 +84,8 @@
                         history.forward();
                     }
                     setCookie("BACK_CONTROL_FLG", "false");
-
                     // メニュータイプ区分
                     mnu_typ_clsi = 'A';
-
                     msgTbl['UNM000010E'] = 'ログインＩＤまたはパスワードが不正です。[UNM000010E]';
                     msgTbl['UNM000010E_ENG'] = 'Login ID or Password is invalid. [UNM000010E]';
                     msgTbl['UNM000020E'] = 'ログインに失敗しました。{0}[UNM000020E]';
@@ -1673,126 +424,74 @@
                     msgTbl['UNMOPSA60I'] = '{0}を登録しました。[UNMOPSA60I]';
                     msgTbl['UNMOPSA60I_ENG'] = '{0} is registered. [UNMOPSA60I]';
                     msgTbl['UNMOPSA70E'] = '{0}ため、{1}してください。[UNMOPSA70E]';
-
-
                     var SELECT_LANGUAGE = "";
                     ->
                 </script>
-
-
-
                 <!--ブロックheader-->
                 <div id="header">
                     <p>
-
-
                         <a href="#" onClick="return goMenu();" tabIndex="1">
-
-
                             <img src="images/common_header_systemlogo.png" class="header_logo" title="Uniprove AS">
-
-
                         </a>
-
-
                     </p>
-
-
                     <div id="header_menu">
                         <div id="header_menu_bg">
                             <ul>
                                 <!--HELP表示判断 START-->
-
                                 <!--HELP表示判断 END-->
                                 <li class="logout"><a href="#" onClick="return execLogout();" tabIndex="1">ログアウト</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
-
                     <!--ブロックheaderbg-->
                     <div id="headerbg">
                         <a href="#header1"><img src="images/spacer.gif" width="0" height="0" class="invisible"
                                 title="ヘッダをスキップ"></a>
                         <!--MH:ヘッダ-->
                         <div id="head" class="clearfix">
-
                             <div>
                                 <p>ログイン日時：2025年06月21日 19時11分20秒</p>
                                 <!--<img src="images/separater.gif" title="" width="2" height="24">-->
                                 <p>中京　太郎（学生）</p>
                                 <!--<img src="images/separater.gif" title="" width="2" height="24">-->
                             </div>
-
                         </div>
                         <!--/MH:ヘッダ-->
                     </div>
                     <!--/ブロックheaderbg-->
-
                     <a name="header1"></a>
                     <!--MT:画面タイトル-->
                     <h1>
                         授業・時間割照会&nbsp;&nbsp;
-
                         授業時間割照会画面
-
                     </h1>
                     <ul id="idhelp" class="idhelp">
                         <li>(ARF010PCT01)</li>
                     </ul>
                     <!--/MT:画面タイトル-->
-
                     <!--MN:ナビゲーション-->
                     <ul id="taskname">
-
-
                         <li>授業時間割照会画面</li>
-
-
                     </ul>
                     <!-- 多言語対応 START -->
-
                     <div style="text-align:right;">
-
-
-
-
-
                     </div>
-
                     <!-- 多言語対応 END -->
-
                 </div>
                 <!--/ブロックheader-->
-
-
-
-
-
-
-
                 <!--/ブロックheader-->
-
                 <!--ブロックMenu-->
-
-
                 <!--/ブロックMenu-->
-
                 <!--ブロックcontents-->
-
                 <div id="contents">
                     <!--PCm:ポップメッセージ-->
-
                     <!--/PCm:ポップメッセージ-->
-
                     <!--MCi:入力-->
                     <div class="tablearea">
                         <h2>学生情報</h2>
                         <!-- 管理者・職員の場合-->
-
                         <!-- 学生の場合 -->
-
                         <table class="output">
                             <caption class="hide">学生情報</caption>
                             <tr>
@@ -1848,7 +547,6 @@
                             <tr>
                                 <th>住所・電話番号（固定）（携帯）</th>
                                 <td colspan="7">
-
                                     <input type="hidden" name="lblPscd" value="" id="lblPscd">
                                     〒000-0000 愛知県〇〇市〇〇町〇〇ー〇〇 （090-0000-0000） （登録なし）
                                     <input type="hidden" name="lblCc008ScrDispNmStdAddrStdTelNo"
@@ -1858,7 +556,6 @@
                             </tr>
                         </table>
                         <B>※住所、電話番号等に変更があれば速やかに「学生情報登録申請機能」で修正してください。</B>
-
                     </div>
                     <!--ブロックtablearea-->
                     <div class="tablearea">
@@ -1894,7 +591,6 @@
                                 </li>
                                 <li>
                                     日付
-
                                     <!-- 指定日付(西暦.和暦) -->
                                     <select name="selTypeCal" id="selTypeCal">
                                         <option value="0" selected="selected">西暦</option>
@@ -1907,73 +603,50 @@
                                     <input type="hidden" name="selTypeCalMapOut"
                                         value="0&gt;西暦&lt;M&gt;明治&lt;T&gt;大正&lt;S&gt;昭和&lt;H&gt;平成&lt;R&gt;令和&lt;">
                                     <!-- 指定日付(年) -->
-
-
                                     <input type="text" name="txtYear" maxlength="4" value="2025" id="txtYear"
                                         style="width:5em">年
                                     <!-- 指定日付(月) -->
-
-
                                     <input type="text" name="txtMonth" maxlength="2" value="06" id="txtMonth"
                                         style="width:3em">月
                                     <!-- 指定日付(日) -->
-
-
                                     <input type="text" name="txtDay" maxlength="2" value="21" id="txtDay"
                                         style="width:3em">日
                                     <input type="image" name="EPageSet" src="images/icon_go.gif" title="ページ設定">
                                 </li>
                             </ul>
                         </div>
-
                         <table class="output_curriculum">
                             <caption class="hide"></caption>
                             <tr>
                                 <th scope="col">時限</th>
-
                                 <th width="16.1%" scope="col">
                                     月<BR />06/16
                                     <input type="hidden" name="lstLsnDt_st[0].lblLsnDt" value="月&lt;BR/&gt;06/16">
                                 </th>
-
                                 <th width="16.1%" scope="col">
                                     火<BR />06/17
                                     <input type="hidden" name="lstLsnDt_st[1].lblLsnDt" value="火&lt;BR/&gt;06/17">
                                 </th>
-
                                 <th width="16.1%" scope="col">
                                     水<BR />06/18
                                     <input type="hidden" name="lstLsnDt_st[2].lblLsnDt" value="水&lt;BR/&gt;06/18">
                                 </th>
-
                                 <th width="16.1%" scope="col">
                                     木<BR />06/19
                                     <input type="hidden" name="lstLsnDt_st[3].lblLsnDt" value="木&lt;BR/&gt;06/19">
                                 </th>
-
                                 <th width="16.1%" scope="col">
                                     金<BR />06/20
                                     <input type="hidden" name="lstLsnDt_st[4].lblLsnDt" value="金&lt;BR/&gt;06/20">
                                 </th>
-
                                 <th width="16.1%" scope="col">
                                     土<BR />06/21
                                     <input type="hidden" name="lstLsnDt_st[5].lblLsnDt" value="土&lt;BR/&gt;06/21">
                                 </th>
-
                             </tr>
-
-
-
                             <tr>
                                 <th class="nobr" scope="row">1時限</th>
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[0].hdnPointer" value="0">
                                     <input type="hidden" name="lstStdTsCht_st[0].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[0].hdnPointer" value="0">
@@ -1993,31 +666,19 @@
                                     <input type="hidden" name="lstStdTsCht_st[0].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[0].hdnTmtxCd" value="A1">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[0].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[0].hdnOpcDt" value="20250616">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311070&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(0)"
                                         onmouseout="del_mess(0)">1731</a>
                                     <br>
@@ -2025,118 +686,9 @@
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(1)"
                                         onmouseout="del_mess(1)">コンピュータネット</a>
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[1].hdnPointer" value="3">
                                     <input type="hidden" name="lstStdTsCht_st[1].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[1].hdnPointer" value="3">
@@ -2156,31 +708,19 @@
                                     <input type="hidden" name="lstStdTsCht_st[1].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[1].hdnTmtxCd" value="D1">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[1].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[1].hdnOpcDt" value="20250619">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311160&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(2)"
                                         onmouseout="del_mess(2)">1731</a>
                                     <br>
@@ -2188,48 +728,7 @@
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(3)"
                                         onmouseout="del_mess(3)">アルゴリデータ構造２</a>
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[2].hdnPointer" value="4">
                                     <input type="hidden" name="lstStdTsCht_st[2].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[2].hdnPointer" value="4">
@@ -2249,154 +748,31 @@
                                     <input type="hidden" name="lstStdTsCht_st[2].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[2].hdnTmtxCd" value="E1">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[2].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[2].hdnOpcDt" value="20250620">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310930&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E1&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(4)"
                                         onmouseout="del_mess(4)">1731</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     Ｊａｖａ言語１
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
                             </tr>
-
-
-
                             <tr>
                                 <th class="nobr" scope="row">2時限</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[3].hdnPointer" value="7">
                                     <input type="hidden" name="lstStdTsCht_st[3].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[3].hdnPointer" value="7">
@@ -2416,114 +792,27 @@
                                     <input type="hidden" name="lstStdTsCht_st[3].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[3].hdnTmtxCd" value="B2">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[3].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[3].hdnOpcDt" value="20250617">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311200&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(5)"
                                         onmouseout="del_mess(5)">1731</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     画像パターン処理
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[4].hdnPointer" value="9">
                                     <input type="hidden" name="lstStdTsCht_st[4].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[4].hdnPointer" value="9">
@@ -2543,31 +832,19 @@
                                     <input type="hidden" name="lstStdTsCht_st[4].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[4].hdnTmtxCd" value="D2">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[4].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[4].hdnOpcDt" value="20250619">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310100&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(6)"
                                         onmouseout="del_mess(6)">1731</a>
                                     <br>
@@ -2575,48 +852,7 @@
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(7)"
                                         onmouseout="del_mess(7)">ライティング／コミュ</a>
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[5].hdnPointer" value="10">
                                     <input type="hidden" name="lstStdTsCht_st[5].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[5].hdnPointer" value="10">
@@ -2636,154 +872,31 @@
                                     <input type="hidden" name="lstStdTsCht_st[5].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[5].hdnTmtxCd" value="E2">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[5].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[5].hdnOpcDt" value="20250620">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310940&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E2&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(8)"
                                         onmouseout="del_mess(8)">1731</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     Ｊａｖａ言語１演習
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
                             </tr>
-
-
-
                             <tr>
                                 <th class="nobr" scope="row">3時限</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[6].hdnPointer" value="13">
                                     <input type="hidden" name="lstStdTsCht_st[6].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[6].hdnPointer" value="13">
@@ -2803,149 +916,28 @@
                                     <input type="hidden" name="lstStdTsCht_st[6].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[6].hdnTmtxCd" value="B3">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[6].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[6].hdnOpcDt" value="20250617">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310070&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B3&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(9)"
                                         onmouseout="del_mess(9)">2133</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     幾何学
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[7].hdnPointer" value="16">
                                     <input type="hidden" name="lstStdTsCht_st[7].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[7].hdnPointer" value="16">
@@ -2965,119 +957,30 @@
                                     <input type="hidden" name="lstStdTsCht_st[7].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[7].hdnTmtxCd" value="E3">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[7].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[7].hdnOpcDt" value="20250620">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T30007818&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E3&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(10)"
                                         onmouseout="del_mess(10)">2142</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     レトリックの論理学
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
                             </tr>
-
-
-
                             <tr>
                                 <th class="nobr" scope="row">4時限</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[8].hdnPointer" value="18">
                                     <input type="hidden" name="lstStdTsCht_st[8].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[8].hdnPointer" value="18">
@@ -3097,79 +1000,26 @@
                                     <input type="hidden" name="lstStdTsCht_st[8].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[8].hdnTmtxCd" value="A4">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[8].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[8].hdnOpcDt" value="20250616">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310840&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(11)"
                                         onmouseout="del_mess(11)">1731</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     情報工学実験１
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[9].hdnPointer" value="19">
                                     <input type="hidden" name="lstStdTsCht_st[9].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[9].hdnPointer" value="19">
@@ -3189,114 +1039,27 @@
                                     <input type="hidden" name="lstStdTsCht_st[9].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[9].hdnTmtxCd" value="B4">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[9].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[9].hdnOpcDt" value="20250617">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T30007668&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=B4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250617')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(12)"
                                         onmouseout="del_mess(12)">2143</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     社会における統計学
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[10].hdnPointer" value="21">
                                     <input type="hidden" name="lstStdTsCht_st[10].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[10].hdnPointer" value="21">
@@ -3316,31 +1079,19 @@
                                     <input type="hidden" name="lstStdTsCht_st[10].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[10].hdnTmtxCd" value="D4">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[10].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[10].hdnOpcDt" value="20250619">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31311020&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=D4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250619')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(13)"
                                         onmouseout="del_mess(13)">2131</a>
                                     <br>
@@ -3348,48 +1099,7 @@
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(14)"
                                         onmouseout="del_mess(14)">オペシステム</a>
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[11].hdnPointer" value="22">
                                     <input type="hidden" name="lstStdTsCht_st[11].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[11].hdnPointer" value="22">
@@ -3409,119 +1119,30 @@
                                     <input type="hidden" name="lstStdTsCht_st[11].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[11].hdnTmtxCd" value="E4">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[11].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[11].hdnOpcDt" value="20250620">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310120&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=E4&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250620')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
-
                                     <a class="chiphelp" href="JavaScript:;" onmouseover="disp_mess(15)"
                                         onmouseout="del_mess(15)">845</a>
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     技術英語１
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
                             </tr>
-
-
-
                             <tr>
                                 <th class="nobr" scope="row">5時限</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment">
-
                                     <input type="hidden" name="lstStdTsCht_st[12].hdnPointer" value="24">
                                     <input type="hidden" name="lstStdTsCht_st[12].hdnColNm1" value="">
                                     <input type="hidden" name="lstStdTsCht_st[12].hdnPointer" value="24">
@@ -3541,650 +1162,47 @@
                                     <input type="hidden" name="lstStdTsCht_st[12].hdnLscGapNo" value="">
                                     <input type="hidden" name="lstStdTsCht_st[12].hdnTmtxCd" value="A5">
                                     <!-- 授業変更アイコン　 -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <input type="hidden" name="lstStdTsCht_st[12].hdnArf010Flg" value="1">
                                     <input type="hidden" name="lstStdTsCht_st[12].hdnOpcDt" value="20250616">
                                     <!-- 補講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 休講日アイコン　(履修項目) -->
-
-
                                     <img src="images/spacer.gif" title="" width="17" height="17" class="right_top">
-
                                     <!-- 授業・時間割照会(詳細)アイコン　(履修項目) -->
-
                                     <a href="javaScript:;"
                                         onclick="execPopupWindowOpen('ARF020PVI01Action.do?LSN_CD=T31310840&LSN_OPC_FCY=2025&TAC_TRM_CD=01&SPLC_APL_NO=&TSTINFT_DISP_FLG=&SEQ_NO=&TMTX_CD=A5&LSCGAP_NO=&ARF010_FLG=1&OPC_DT=20250616')"><img
                                             src="images/icon_detail_curriculum.gif" title="詳細(曜時)" width="17"
                                             height="17"></a>
-
                                     <!-- 教室名称　(履修項目) -->
                                     <br>
                                     <!-- 科目名称　(履修項目) -->
                                     情報工学実験１
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
                             </tr>
-
-
-
                             <tr>
                                 <th class="nobr" scope="row">6時限</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
                             </tr>
-
-
-
                             <tr>
                                 <th class="nobr" scope="row">7時限</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <td class="segment"></td>
-
-
-
                             </tr>
-
-
                         </table>
                         <!--  集中・その他 -->
                         <table class="output">
@@ -4199,62 +1217,45 @@
                                 <th scope="col">集中講義期間</th>
                                 <th scope="col">備考</th>
                             </tr>
-
                         </table>
                     </div>
                     <div class="buttonarea">
-
                     </div>
-
                     <input type="hidden" name="hdnScrgNo" value="t324000" id="hdnScrgNo">
-
                     <input type="hidden" name="lblSpcfProd" value="2025年06月16日～2025年06月21日" id="lblSpcfProd">
-
                     <input type="hidden" name="hdnTypeCal" value="" id="hdnTypeCal">
                     <input type="hidden" name="hdnYear" value="" id="hdnYear">
                     <input type="hidden" name="hdnMonth" value="" id="hdnMonth">
                     <input type="hidden" name="hdnDay" value="" id="hdnDay">
-
                     <input type="hidden" name="hdnFnkJumpScrId" value="" id="hdnFnkJumpScrId">
                     <input type="hidden" name="hdnFnkJumpDv" value="" id="hdnFnkJumpDv">
                     <input type="hidden" name="hdnFnkJumpPrc" value="false" id="hdnFnkJumpPrc">
                     <input type="hidden" name="hdnSelectDate" value="20250621000000000" id="hdnSelectDate">
-
                     <input type="hidden" name="hdnWkGetDv" value="0" id="hdnWkGetDv">
                     <input type="hidden" name="hdnUsrClsi" value="S" id="hdnUsrClsi">
-
                     <!--ページフラグ-->
                     <input type="hidden" name="hdnDispPageFlg" value="" id="hdnDispPageFlg">
-
                 </div>
                 <!--/ブロックcontents-->
             </form>
         </div>
         <!--/ブロックmain-->
-
-
-
         <!--MF:フッタ-->
         <div id="footer">
             <!--画面表示タイプ未設定時のみ「メインメニューへ戻る」ボタン表示-->
-
             <div id="mainmenu"><a href="#" onClick="return printing();"><img src="images/btn_print.gif"
                         class="foot_print" title="画面印刷"></a>&nbsp;<a href="#" onClick="return goMenu();"><img
                         src="images/btn_mainmenu.gif" class="foot_main" title="メインメニューへ戻る"></a></div>
-
             <address>All Rights Reserved, Copyright(c) 2007,2022, Hitachi, Ltd.(2)</address>
         </div>
         <!--/MF:フッタ-->
-
     </div>
     <!--/ブロックcontainer-->
-
     <noscript>
         <div>
             JavaScriptとCookieは必ず使用可能にしてください。
         </div>
     </noscript>
-
 </body>
 
 </html>

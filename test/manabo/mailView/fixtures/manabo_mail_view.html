@@ -2,22 +2,17 @@
     $(function () {
         $('.a-reply-mail').on('click', function (e) {
             e.preventDefault();
-
             var memberIds = [];
             memberIds.push($(this).attr('from_member_id'));
-
-
             glexa.closeRemoteModal();
             glexa.openModalMailForm($(this).attr('reply_mail_id'), memberIds);
         });
-
         $('.a-reopen-mail').on('click', function (e) {
             e.preventDefault();
             glexa.closeRemoteModal();
             openModalMailView($(this).attr('mail_id'));
             reloadMails();
         });
-
         $('.a-modal-mail-form-unread').off('click').on('click', function (e) {
             e.preventDefault();
             glexa.closeRemoteModal();
@@ -25,7 +20,6 @@
         });
     });
 </script>
-
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
@@ -49,8 +43,6 @@
                 <b class="margin-left-sm"> ラシキア　城治</b>
                 2025年6月20日(金) 19:27
             </div>
-
-
             <div class="margin-top-lg">
                 中京さん<br /><br />お疲れ様です。<br />以下から面接のご都合の良い日時(第3希望まで)を教えてください。<br />日時が合わない場合はまた別で考えます。<br /><br />23日(月)14:30<br />23日(月)16:00<br />23日(月)16:30<br />23日(月)
                 17:00<br />23日(月) 17:30<br />23日(月)
@@ -68,7 +60,6 @@
                 先日お送りしたゼミ応募に関するメールはご確認いただけましたでしょうか。<br />&gt; &gt; &gt;
                 もしご確認いただけておりましたら、ご多忙のところ恐縮ですが、ご返信をいただけますと幸いです。<br />&gt; &gt; &gt;
             </div>
-
         </div><!--modal-body-->
         <div class="modal-footer">
             <button id="btn-common-alert-modal-ok" type="button" class="btn btn-primary size10">閉じる</button>

@@ -5,34 +5,28 @@
             e.preventDefault();
             openModalMailView($(this).attr('mail_id'));
         });
-
         $('.a-remove-mails').on('click', function (e) {
             e.preventDefault();
             removeMails();
         });
-
         $('.a-download-mails').on('click', function (e) {
             e.preventDefault();
             downloadMails();
         });
-
         $('.button-sends-search').on('click', function (e) {
             e.preventDefault();
             searchMails();
         });
-
         // first load
         glexa.enterKeySubmit();
         glexa.setDatepicker();
     });
-
     function reloadMails() {
         var q = $('input[name=q]').val();
         var start = $('input[name=start_date]').val();
         var end = $('input[name=end_date]').val();
         glexa.loadMailSends('1', q, '', start, end);
     }
-
     function removeMails() {
         glexa.confirm('削除してもよろしいですか？', function () {
             glexa.ajaxForm({
@@ -43,26 +37,22 @@
             });
         });
     }
-
     function downloadMails() {
         var download = function () {
             location.href = window.urlbase + '?action=glexa_mail_csv_download_accept&mode=1';
         };
-
         var privacy = function (callback) {
             {
                 return false;
             }
             return glexa.openPrivacyAlert(download);
         }
-
         if (!privacy(download)) {
             glexa.confirm('送信したメールをダウンロードします<br />(バックアップにはファイルの容量により時間がかかる場合があります)', function () {
                 download();
             });
         }
     }
-
     function searchMails() {
         var q = $('input[name=q]').val();
         var start = $('input[name=start_date]').val();
@@ -88,7 +78,6 @@
                 </a>
             </li>
         </ul>
-
         <ul class="page-nav cf">
             <li>
                 <img src="/common/images/icons/search.png" alt="" class="icon" />
@@ -100,7 +89,6 @@
                 <button class="btn btn-default button-sends-search">検索</button>
             </li>
         </ul>
-
         <form id="form-mails">
             <input type="hidden" name="action" value="glexa_mail_send_remove_accept" />
             <script>$(function () { $(".a-exec-pager").on("click", function (e) { e.preventDefault(); glexa.loadMailSends($(this).attr("page"), '', ''); }); $(".select-exec-pager").on("change", function (e) { glexa.loadMailSends($(this).val(), '', ''); }); })</script>

@@ -13,7 +13,6 @@
         border-top: none;
     }
 </style>
-
 <script>
     $(function () {
         // event setup
@@ -21,32 +20,25 @@
             e.preventDefault();
             openModalNews(85131, $('#div-class-contents').attr('directory_id'));
         });
-
         $('.a-edit-news').on('click', function (e) {
             e.preventDefault();
             openModalNews(85131, $('#div-class-contents').attr('directory_id'), $(this).attr('news_id'));
         });
-
         $('.a-remove-news').on('click', function (e) {
             e.preventDefault();
             removeNews($(this).attr('news_id'));
         });
-
         $('.a-news-mode-edit').off().on('click', function () {
             glexa.loadClassNews(85131, 0, 'edit');
             return false;
         });
-
         $('.a-news-mode-normal').off().on('click', function () {
             glexa.loadClassNews(85131, 0);
             return false;
         });
-
         // first load
         glexa.openField();
-
     });
-
     function openModalNews(classId, directoryId, newsId) {
         params = {
             class_id: 85131,
@@ -63,7 +55,6 @@
             params: params
         });
     }
-
     function removeNews(newsId) {
         glexa.confirm('削除してもよろしいですか?', function (e) {
             glexa.ajax({
@@ -81,7 +72,6 @@
             });
         });
     }
-
     function newsEditInit() {
         $('.a-news-menu-sort').off().on('click', function () {
             setNewsEditMode('sort');
@@ -103,20 +93,15 @@
             setNewsEditMode('restore');
             return false;
         });
-
         // setNewsEditMode('init');
     }
-
     function setNewsEditMode(mode) {
         $('.a-news-menu').css({ opacity: 0.2 });
         $('.a-news-menu-' + mode).css({ opacity: 1.0 });
-
         $('.a-news-edit').hide();
         $('.a-news-edit-' + mode).show();
-
         newsSortDestroy();
         newsDragDestroy();
-
         switch (mode) {
             case 'sort':
                 newsSortInit();
@@ -135,7 +120,6 @@
                 break;
         }
     }
-
     function newsSortInit() {
         glexa.setSort({
             element: '#ul-news-list',
@@ -151,16 +135,13 @@
             },
         });
     }
-
     function newsSortDestroy() {
         glexa.destroySort({ element: '#ul-news-list' });
     }
-
     function newsDragHelper() {
         var num = $('#form-news-edit input[name="news_ids[]"]:checked').length;
         return '<fieldset style="margin-top:15px; margin-left:15px;"><span class="badge badge-danger">' + num + '</span></fieldset>';
     }
-
     function newsMoveInit() {
         glexa.setDrag({
             dragElement: '.li-news-item',
@@ -187,11 +168,9 @@
             },
         });
     }
-
     function newsDragDestroy() {
         glexa.destroyDrag({ dragElement: '.li-news-item', dropElement: '.x-news-drop' });
     }
-
     function newsCopyInit() {
         glexa.setDrag({
             dragElement: '.li-news-item',
@@ -215,7 +194,6 @@
             }
         });
     }
-
     function newsBackupInit() {
         $('.button-news-backup').off().on('click', function () {
             glexa.confirm('時間がかかる場合があります。実行してもよろしいですか？', function () {
@@ -224,7 +202,6 @@
             });
         });
     }
-
     function newsRestoreInit() {
         glexa.openRemoteModal({
             action: 'glexa_ajax_class_news_edit_restore_form',
@@ -234,18 +211,14 @@
             },
         });
     }
-
 </script>
 <div class="panel panel-default sp-margin-bottom-none sp-border-bottom-none">
     <div class="panel-heading cf info_box">
         <i class="mark"></i>お知らせ
-
-
     </div>
     <div class="panel-body class-top-news">
         <dl class="cf x-openclose" id="class-news-238195">
             <dt class="cf x-openclose-title">
-
                 <b>Powershell の日本語について</b>
             </dt>
             <div class="margin-sm">
@@ -258,7 +231,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-238117">
             <dt class="cf x-openclose-title">
-
                 <b>9回目の課題について (〆切は、授業中に）</b>
             </dt>
             <div class="margin-sm">
@@ -277,7 +249,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229127">
             <dt class="cf x-openclose-title">
-
                 <b>(４月) 受講生の皆さんへ　（授業アンケート、ルーブリック）</b>
             </dt>
             <div class="margin-sm">
@@ -294,7 +265,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229175">
             <dt class="cf x-openclose-title">
-
                 <b>出席の扱いと教室内の注意</b>
             </dt>
             <div class="margin-sm">
@@ -305,7 +275,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229136">
             <dt class="cf x-openclose-title">
-
                 <b>（出席確認） MaNaBoのまとめアンケートに答えたかどうかを確認したい</b>
             </dt>
             <div class="margin-sm">
@@ -316,7 +285,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229126">
             <dt class="cf x-openclose-title">
-
                 <b>授業のウェブページ、情報センターのウェブページ</b>
             </dt>
             <div class="margin-sm">
@@ -329,7 +297,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229139">
             <dt class="cf x-openclose-title">
-
                 <b>2024年度のテスト結果（得点だけ連絡、追加課題連絡あり）</b>
             </dt>
             <div class="margin-sm">
@@ -346,7 +313,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229123">
             <dt class="cf x-openclose-title">
-
                 <b> アルゴリズムの学習支援を実践研究している研究者たちから</b>
             </dt>
             <div class="margin-sm">
@@ -362,7 +328,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229130">
             <dt class="cf x-openclose-title">
-
                 <b>workspaceの中を整理しよう！　　gcc -oがおかしい人へ</b>
             </dt>
             <div class="margin-sm">
@@ -378,7 +343,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229122">
             <dt class="cf x-openclose-title">
-
                 <b>VSコードの自動整形</b>
             </dt>
             <div class="margin-sm">
@@ -391,7 +355,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229121">
             <dt class="cf x-openclose-title">
-
                 <b>Powershell（VSコードのターミナル）の必須コマンド</b>
             </dt>
             <div class="margin-sm">
@@ -412,7 +375,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229124">
             <dt class="cf x-openclose-title">
-
                 <b>（教務）（学生生活）勉強カフェ、いろいろな相談先情報</b>
             </dt>
             <div class="margin-sm">
@@ -426,7 +388,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229119">
             <dt class="cf x-openclose-title">
-
                 <b>（進学） 大学院関係</b>
             </dt>
             <div class="margin-sm">
@@ -439,7 +400,6 @@
         </dl>
         <dl class="cf x-openclose" id="class-news-229118">
             <dt class="cf x-openclose-title">
-
                 <b>(人工知能高等研究所) 中京大学公開講座　ソフトサイエンスシリーズ</b>
             </dt>
             <div class="margin-sm">

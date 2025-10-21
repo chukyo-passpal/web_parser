@@ -2,22 +2,17 @@
     $(function () {
         $('.a-modal-analyze').on('click', function (e) {
             e.preventDefault();
-
             var params = {
                 question_instance_id: $(this).attr('question_instance_id'),
                 class_id: 85146,
                 plugin_id: 156891,
             };
-
             // console.log(params);
-
             glexa.openRemoteModal({
                 action: 'plugin_quiz_student_ajax_grade_analyze_view',
                 params: params
             });
-
         });
-
         mathjaxDraw();
     });
 </script>
@@ -26,17 +21,12 @@
             class="glyphicon glyphicon-chevron-left"></i> クラスページへ戻る</a>
 </div>
 <div class="text-center">
-
     <span class="Red" style="font-size:50px;"><b>40</b></span> / 100
 </div>
-
-
 <script>$(function () { $(".a-exec-pager").on("click", function (e) { e.preventDefault(); getResult('156891', '85146', '839583', '1214937', '10006467', '0', $(this).attr("page")); }); $(".select-exec-pager").on("change", function (e) { getResult('156891', '85146', '839583', '1214937', '10006467', '0', $(this).val()); }); })</script>
 <div class="row margin-top-md margin-bottom-md">
     <div class="col-sm-2">1件中 1 〜 1件</div>
 </div>
-
-
 <div class="table-responsive sp-resize-table">
     <table class="table-default table-default-grade">
         <thead>
@@ -78,155 +68,94 @@
                 </th>
             </tr>
         </thead>
-
         <tbody>
             <tr>
                 <td rowspan="5">1</td>
                 <td rowspan="1">1</td>
                 <td rowspan="1">
-
                     <div class="div-instructions margin-bottom-md">
-
-
-
                         NAT は何の略か?
-
-
                     </div>
                 </td>
                 <td rowspan="1">Network Address Transrator</td>
-
                 <td>
                     Network Address Transport
                 </td>
                 <td class="text-center vertical-align-middle">
-
                     <img src="/common/images/icons/point_worst.png" alt="" class="icon icon-lg">
                 </td>
-
                 <td class="title">
-
-
                 </td>
-
             </tr>
             <tr>
                 <td rowspan="1">2</td>
                 <td rowspan="1">
-
                     <div class="div-instructions margin-bottom-md">
-
-
-
                         家庭用の NAT は主として何のために使われるか?
-
-
                     </div>
                 </td>
                 <td rowspan="1">プライベート IP アドレスとグローバル IP アドレスの変換</td>
-
                 <td>
                     プライベート IP アドレスとグローバル IP アドレスの変換
                 </td>
                 <td class="text-center vertical-align-middle">
-
                     <img src="/common/images/icons/point_good.png" alt="" class="icon icon-lg">
                     20 点
                 </td>
-
                 <td class="title">
-
-
                 </td>
-
             </tr>
             <tr>
                 <td rowspan="1">3</td>
                 <td rowspan="1">
-
                     <div class="div-instructions margin-bottom-md">
-
-
-
                         NAPT は何を用いて行きと帰りの通信の対応をとっているか?
-
-
                     </div>
                 </td>
                 <td rowspan="1">ポート番号</td>
-
                 <td>
                     プロトコル番号
                 </td>
                 <td class="text-center vertical-align-middle">
-
                     <img src="/common/images/icons/point_worst.png" alt="" class="icon icon-lg">
                 </td>
-
                 <td class="title">
-
-
                 </td>
-
             </tr>
             <tr>
                 <td rowspan="1">4</td>
                 <td rowspan="1">
-
                     <div class="div-instructions margin-bottom-md">
-
-
-
                         DHCP は何の略か?
-
-
                     </div>
                 </td>
                 <td rowspan="1">Dynamic Host Configuration Protocol</td>
-
                 <td>
                     Dynamic Host Configuration Protocol
                 </td>
                 <td class="text-center vertical-align-middle">
-
                     <img src="/common/images/icons/point_good.png" alt="" class="icon icon-lg">
                     20 点
                 </td>
-
                 <td class="title">
-
-
                 </td>
-
             </tr>
             <tr>
                 <td rowspan="1">5</td>
                 <td rowspan="1">
-
                     <div class="div-instructions margin-bottom-md">
-
-
-
                         DHCP で受け渡される情報を選択せよ (複数)
-
-
                     </div>
                 </td>
                 <td rowspan="1">IP アドレス<br />ネットマスク<br />DNS リゾルバの IP アドレス<br />ゲートウェイの IP アドレス</td>
-
                 <td>
                     ゲートウェイの IP アドレス<br>IP アドレス<br>ネットマスク
                 </td>
                 <td class="text-center vertical-align-middle">
-
                     <img src="/common/images/icons/point_worst.png" alt="" class="icon icon-lg">
                 </td>
-
                 <td class="title">
-
-
                 </td>
-
             </tr>
         </tbody>
     </table>

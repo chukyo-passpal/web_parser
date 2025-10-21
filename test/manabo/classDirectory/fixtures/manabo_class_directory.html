@@ -11,22 +11,18 @@
             }
             setTimeout(function () { saveDirectoryOpenState(); }, 300);
         }).css('cursor', 'pointer');
-
         $('.a-open-directory-form').on('click', function (e) {
             e.preventDefault();
             openDirectoryModal($(this));
         });
-
         $('.a-remove-directory').on('click', function (e) {
             e.preventDefault();
             removeDirectory();
         });
-
         $('.a-copy-directory').on('click', function (e) {
             e.preventDefault();
             copyDirectory();
         });
-
         $('.a-open-contents').on('click', function (e) {
             e.preventDefault();
             glexa.sessionStorage.setItem('class_id', 85131);
@@ -36,23 +32,18 @@
             glexa.loadClassNews(85131, $(this).attr('directory_id'));
             glexa.loadClassContents(85131, $(this).attr('directory_id'));
         });
-
         $('.checkbox-directories').on('change', function (e) {
             setDirectoryEditMode($(this).val());
         });
-
         // first load
         setDirectoryEditMode();
         initDirectoryOpenState();
     });
-
     function initDirectoryOpenState() {
         openState = eval('[' + glexa.localStorage.getItem('directory_open_state_85131') + ']');
         if (!openState) {
             openState = [];
         }
-
-
         $('.li-directories').each(function () {
             if (openState.indexOf(parseInt($(this).attr('directory_id'))) < 0) {
                 $(this).find('.glyphicon-folder-toggle').removeClass('glyphicon-folder-open').addClass('glyphicon-folder-close');
@@ -60,7 +51,6 @@
             }
         });
     }
-
     function saveDirectoryOpenState(directoryId) {
         var openState = [];
         if (directoryId) {
@@ -73,21 +63,18 @@
         });
         glexa.localStorage.setItem('directory_open_state_85131', openState);
     }
-
     function setDirectoryEditMode(mode) {
         resetDirectoryUI();
         if (!mode) {
             mode = glexa.sessionStorage.getItem('directory_edit_mode');
             $('input[name=directory_edit_' + mode + ']').prop('checked', true);
         }
-
         if ($('input[name=directory_edit_' + mode + ']').prop('checked')) {
             var mode = $('.checkbox-directories:checked').val();
             $('.checkbox-directories').prop('checked', false);
             $('input[name=directory_edit_' + mode + ']').prop('checked', true);
             $('header,.btn,.panel').children().css({ opacity: 0.5 });
             $('.div-panel-directory').children().css({ opacity: 1 });
-
             if (mode == 'sort') {
                 glexa.setSort({
                     element: '.x-directory-sort',
@@ -120,17 +107,14 @@
             glexa.sessionStorage.removeItem('directory_edit_mode');
         }
     }
-
     function resetDirectoryUI() {
         $('header,.btn,.panel').children().css({ opacity: 1 });
         glexa.destroySort({ element: '.x-directory-sort' });
         glexa.destroyDrag({ dragElement: '.x-directory-drag', dropElement: '.x-directory-drop' });
     }
-
     function helperDirectory() {
         return '<fieldset style="min-width:300px;margin-top:15px;">' + $(this).find('.x-directory-name').html() + '</fieldset>';
     }
-
     function openDirectoryModal(object) {
         params = {
             class_id: 85131,
@@ -146,7 +130,6 @@
             params: params
         });
     }
-
     function setDirectorySorable(directoryIds) {
         glexa.ajax({
             action: 'teacher_ajax_class_directory_list_sort_accept',
@@ -158,10 +141,8 @@
             }
         });
     }
-
     function removeDirectory() {
     }
-
     function copyDirectory() {
         callback = function (e) {
             var is_limited = $(e.target).hasClass('btn-common-confirm-modal-yes') ? 1 : 0
@@ -180,11 +161,9 @@
             })
             return false;
         }
-
         glexa.confirm('公開設定の期間もコピーしますか？', callback, '', callback);
     }
 </script>
-
 <style>
     .class-directory .a-class-name,
     .class-directory span.span-class-name {
@@ -204,7 +183,6 @@
                             </div>
                         </div>
                     </span>
-
                     <ul>
                         <li sortable_ids="1214705" class="x-directory-drag" directory_id="1214705">
                             <div class="x-content-drop x-directory-drop x-news-drop" class_id="85131"
@@ -214,7 +192,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214705">
                                         <span class="x-directory-name">第1回 マージと分割統治法</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -229,7 +206,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214706">
                                         <span class="x-directory-name">第2回 クイックソート</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -244,7 +220,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214707">
                                         <span class="x-directory-name">第3回 構造体、ポインターによるデータ構造の定義</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -259,7 +234,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214708">
                                         <span class="x-directory-name">第4回 リスト構造</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -274,7 +248,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214709">
                                         <span class="x-directory-name">第5回 リスト構造の実現</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -289,7 +262,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214710">
                                         <span class="x-directory-name">第6回 スタックとキュー</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -304,7 +276,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214711">
                                         <span class="x-directory-name">第7回 スタックとキューの実現</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -319,7 +290,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214712">
                                         <span class="x-directory-name">第8回 グラフ</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -334,7 +304,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214713">
                                         <span class="x-directory-name">第9回 グラフの基本探索アルゴリズム</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -349,7 +318,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214714">
                                         <span class="x-directory-name">第10回 グラフの基本探索アルゴリズムの実現</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -364,7 +332,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214715">
                                         <span class="x-directory-name">第11回 洗練された探索アルゴリズム</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -379,7 +346,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214716">
                                         <span class="x-directory-name">第12回 木構造と二分探索木</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -394,7 +360,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214717">
                                         <span class="x-directory-name">第13回 二分探索木の実現と基本操作</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -409,7 +374,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214718">
                                         <span class="x-directory-name">第14回 ヒープ</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -424,7 +388,6 @@
                                 <span class="x-drag">
                                     <a href="#" class="a-open-contents" directory_id="1214719">
                                         <span class="x-directory-name">第15回 ヒープの実現と基本操作</span>
-
                                     </a>
                                 </span>
                             </div>
@@ -436,8 +399,6 @@
             </ul>
         </div><!--class-directory-->
     </div><!--panel-body-->
-
-
     <ul class="margin-bottom-none">
         <div id="div-directory_form"></div>
     </ul>

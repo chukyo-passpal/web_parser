@@ -5,50 +5,41 @@
             e.preventDefault();
             openModalMailView($(this).attr('mail_id'));
         });
-
         $('.a-remove-mails').on('click', function (e) {
             e.preventDefault();
             removeMails();
         });
-
         $('.a-download-mails').on('click', function (e) {
             e.preventDefault();
             downloadMails();
         });
-
         $('.a-readall-mails').on('click', function (e) {
             e.preventDefault();
             readallMails();
         });
-
         $('.a-unread-mail-list').on('click', function (e) {
             e.preventDefault();
             glexa.loadMailReceives(null, null, null, 1);
         });
-
         $('.a-all-mail-list').on('click', function (e) {
             e.preventDefault();
             glexa.loadMailReceives();
         });
-
         $('.button-receives-search').on('click', function (e) {
             e.preventDefault();
             searchMails();
         });
-
         // first load
         glexa.setToggleCheckbox();
         glexa.enterKeySubmit();
         glexa.setDatepicker();
     });
-
     function reloadMails() {
         var q = $('input[name=q]').val();
         var start = $('input[name=start_date]').val();
         var end = $('input[name=end_date]').val();
         glexa.loadMailReceives('1', q, '', start, end);
     }
-
     function removeMails() {
         glexa.confirm('削除してもよろしいですか？', function () {
             glexa.ajaxForm({
@@ -59,7 +50,6 @@
             });
         });
     }
-
     function readallMails() {
         glexa.confirm('すべてのメールを既読にしてもよろしいですか？', function () {
             glexa.ajaxForm({
@@ -71,19 +61,16 @@
             });
         });
     }
-
     function downloadMails() {
         var download = function () {
             location.href = window.urlbase + '?action=glexa_mail_csv_download_accept&mode=0';
         };
-
         if (!glexa.openPrivacyAlert(download)) {
             glexa.confirm('受信したメールをダウンロードします。<br />時間がかかる場合がありますのでそのままお待ちください', function () {
                 download();
             });
         }
     }
-
     function searchMails() {
         var q = $('input[name=q]').val();
         var start = $('input[name=start_date]').val();
@@ -113,10 +100,8 @@
                 </a>
             </li>
         </ul>
-
         <form id="readall_form" action="/mails/" method="post"><input type="hidden" name="action"
                 value="glexa_mail_receive_readall"></form>
-
         <ul class="page-nav cf">
             <li>
                 <img src="/common/images/icons/search.png" alt="" class="icon" />
@@ -128,7 +113,6 @@
                 <button class="btn btn-default button-receives-search">検索</button>
             </li>
         </ul>
-
         <script>$(function () { $(".a-exec-pager").on("click", function (e) { e.preventDefault(); glexa.loadMailReceives($(this).attr("page"), '', ''); }); $(".select-exec-pager").on("change", function (e) { glexa.loadMailReceives($(this).val(), '', ''); }); })</script>
         <div class="row margin-top-md margin-bottom-md">
             <div class="col-sm-2">139件中 1 〜 30件</div>
@@ -148,7 +132,6 @@
                 </nav>
             </div>
         </div>
-
         <form id="form-mails">
             <input type="hidden" name="action" value="glexa_ajax_mail_remove_accept" />
             <div class="table-responsive sp-resize-table">

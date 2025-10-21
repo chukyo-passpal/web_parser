@@ -6,8 +6,6 @@
             var pagetype = $(this).attr('page_type');
             glexa.loadClassContents(85131, 1214705, pagetype);
         });
-
-
         $('.a-content-open').on('click', function (e) {
             e.preventDefault();
             if ($(this).attr('plugin_key') == 'resource') {
@@ -16,21 +14,16 @@
             $(this).closest('tr').next('tr').toggle('fast');
             $(this).closest('tr').next('tr').find('.x-content-hide').slideToggle('fast');
         });
-
         $('.a-fullscreen').on('click', function (e) {
             if (!glexa.isApp()) {
                 e.preventDefault();
                 glexa.startExam($(this).attr('href'));
             }
         });
-
         $('.btn-start-locked-content').on('click', function (e) {
-
             var form = $(this).parent('form:first');
-
             var is_exam = $(form).find('input[name=is_exam]:first').val();
             var plugin_key = $(form).find('input[name=plugin_key]:first').val();
-
             if (parseInt(is_exam) == 0 || glexa.isApp() || plugin_key != 'quiz') {
                 // 試験モード✖
                 // スマホ・タブレット上
@@ -38,39 +31,29 @@
                 // 以外は試験モードでの起動をしない
                 return true;
             }
-
             e.preventDefault();
-
             var content_id = $(form).find('input[name=content_id]:first').val();
             var uniqid = $(form).find('input[name=uniqid]:first').val();
             var password = $(form).find('input[name=password]:first').val();
             var url = '/content/?plugin_key=' + plugin_key + '&content_id=' + content_id + '&uniqid=' + uniqid + '&password=' + password;
             glexa.startExam(url);
         });
-
         $('.select-load-contents').on('change', function () {
             getContentList(85131, 1214705, $(this).val());
         });
-
         $('.x-content-hide').hide();
-
         $('.td-menu').children().hide();
-
         // first load
         setDirectoryId(1214705);
         glexa.loadClassSyllabus(85131, 1214705);
-
-
         if (!glexa.isApp()) {
             $('.exam-message').removeClass('display-none');
         }
     });
-
     function getContentEditMode() {
         var mode = glexa.sessionStorage.getItem('content_edit_mode');
         return mode;
     }
-
     function resetContentUI() {
         $('.a-content-menu').css({ opacity: 1 });
         $('.td-content-checkbox').hide();
@@ -79,7 +62,6 @@
         glexa.destroySort({ element: '.tbody-content-sort' });
         glexa.destroyDrag({ dragElement: '.tr-content-drag', dropElement: '.x-content-drop' });
     }
-
     function setContentEditMode(mode, isForce) {
         var currentMode = getContentEditMode();
         if (!isForce && getContentEditMode() == mode) {
@@ -93,7 +75,6 @@
                 $('.a-content-' + mode).css({ opacity: 1 });
                 $('.div-edit').hide();
                 glexa.inlineEditor('destroy');
-
                 // 機能別処理
                 switch (mode) {
                     case 'sort':
@@ -104,7 +85,6 @@
                             onSuccess: saveContentSort
                         });
                         break;
-
                     case 'move':
                         $('.div-drag-form').show();
                         $('.td-content-checkbox').show();
@@ -140,7 +120,6 @@
                             }
                         });
                         break;
-
                     case 'copy':
                     case 'share':
                         $('.div-drag-form').show();
@@ -164,12 +143,10 @@
                                 params.use_pool = $('input[name=use_pool]').prop('checked') ? 1 : 0;
                                 params.use_pool_same = $('input[name=use_pool_same]').prop('checked') ? 1 : 0;
                                 params.is_limited = $('input[name=is_limited]').prop('checked') ? 1 : 0;
-
                                 contentIds = [];
                                 $('.input-content-ids:checked').each(function () {
                                     contentIds.push($(this).val());
                                 });
-
                                 if ($(e.target).attr('class_id')) {
                                     params.class_id = $(e.target).attr('class_id');
                                     params.directory_id = $(e.target).attr('directory_id');
@@ -192,7 +169,6 @@
                             }
                         });
                         break;
-
                     case 'backup':
                         $('.div-backup-form').show();
                         $('.td-content-checkbox').show();
@@ -212,7 +188,6 @@
                             });
                         });
                         break;
-
                     case 'remove':
                         $('.td-content-checkbox').show();
                         $('.div-remove-form').show();
@@ -239,14 +214,12 @@
                         });
                         break;
                 }
-
             } else {
                 glexa.sessionStorage.removeItem('content_edit_mode');
                 $('.a-content-menu').css({ opacity: 1 });
             }
         }
     }
-
     function helperContent() {
         $(this).closest('tr').find('.input-content-ids').prop('checked', true);
         names = [];
@@ -255,11 +228,9 @@
         });
         return '<fieldset style="min-width:300px;margin-top:30px;"><span class="badge badge-danger">' + names.length + '</span> ' + names.join(',').substr(0, 120) + '</fieldset>';
     }
-
     function setDirectoryId(directoryId) {
         $('#div-class-contents').attr('directory_id', directoryId);
     }
-
     function setEnable(contentId) {
         glexa.ajax({
             action: 'teacher_ajax_class_content_list_enable_accept',
@@ -271,7 +242,6 @@
             }
         });
     }
-
     function saveContentTitle(object) {
         glexa.ajax({
             action: 'teacher_ajax_class_content_list_title_accept',
@@ -284,7 +254,6 @@
             }
         });
     }
-
     function saveContentSort(contentIds) {
         glexa.ajax({
             action: 'teacher_ajax_class_content_list_sort_accept',
@@ -298,7 +267,6 @@
             }
         });
     }
-
     function openModalRestoreForm(classId, directoryId) {
         params = {
             class_id: 85131,
@@ -309,7 +277,6 @@
             params: params
         });
     }
-
     function openModalRestoreWebTubeForm(classId, directoryId) {
         params = {
             class_id: 85131,
@@ -320,7 +287,6 @@
             params: params
         });
     }
-
     function getContentList(classId, directoryId, viewType) {
         params = {
             view_type: viewType
@@ -337,13 +303,11 @@
             params: params
         });
     }
-
     function editShareContent(pluginKey, pluginId, contentId) {
         glexa.confirm('共有された全ての教材に影響がありますがよろしいですか？', function (e) {
             location.href = '/plugin/' + pluginKey + '/edit/' + pluginId + '/';
         });
     }
-
     function openModalGrades(contentId) {
         params = {
             class_id: 85131,
@@ -362,10 +326,8 @@
             e.preventDefault();
             openModalDownloadList($(this).attr('file_id'), 85131, $('#div-class-contents').attr('directory_id'));
         });
-
         // first load
     });
-
     function openModalDownloadList(fileId, classId, directoryId) {
         params = {
             file_id: fileId,
@@ -380,7 +342,6 @@
         });
     }
 </script>
-
 <style>
     .div-small {
         font-size: 80%;
@@ -399,13 +360,11 @@
         }
     }
 </style>
-
 <div class="panel panel-default">
     <div class="panel-heading cf">
         <i class="mark"></i>
         第1回 マージと分割統治法
         - 教材一覧
-
     </div>
     <div class="panel-body sp-padding-none">
         <div class="form-inline">
@@ -422,22 +381,9 @@
             <div class="alert alert-info">
                 受講中はWebブラウザの「←(戻る)」「→(進む)」ボタンを使用しないでください。<br>一度に複数のタブやブラウザを開いて受講しないでください。<br>また、同時に複数の端末（PC及びスマホ）から受講しないでください。<br>成績が正しく送信されない可能性があります。
             </div>
-
-
-
-
-
         </div><!--form-inline-->
-
-
-
-
-
-
-
         <div class="table-responsive sp-resize-table border-none">
             <table class="table-class-content">
-
                 <thead>
                     <tr>
                         <th width="40"></th>
@@ -446,10 +392,7 @@
                         </th>
                     </tr>
                 </thead>
-
                 <tbody class="tbody-content-sort tbody-content-select">
-
-
                     <tr>
                         <td class="border-right-none vertical-align-top">
                             <div class="plugin-icon-wrapper ">
@@ -457,7 +400,6 @@
                                 <i class="state"></i>
                             </div>
                         </td>
-
                         <td class="border-left-nonevertical-align-middle">
                             <div>
                                 <b>
@@ -465,50 +407,26 @@
                                         1回目のボード
                                     </a>
                                 </b>
-
                                 <div class="div-small">
                                 </div>
                             </div>
                         </td>
-
                     </tr>
-
-
                     <tr class="toggle-area x-content-hide">
                         <td colspan="2">
                             <div class="x-content-hide">
-
-
-
-
-
-
-
-
-
-
-
                                 <div class="description">1回目のボードです。</div>
-
-
                                 <div class="confirm">
-
                                     <div class="text-center">
-
                                         <a href="/content/812366/board/e00329344dde4a39c1cc0fe3bca98d901c87342973f83defe1bd32bfebf8c4fa/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md ">
                                             受講
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
-
-
-
-
                     <tr>
                         <td class="border-right-none vertical-align-top">
                             <div class="plugin-icon-wrapper ">
@@ -516,10 +434,8 @@
                                 <i class="state"></i>
                             </div>
                         </td>
-
                         <td class="border-left-none border-right-none" colspan="2">
                             <div>
-
                                 <div class="x-drag-title">
                                     <div class="cf">
                                         <details>
@@ -565,14 +481,7 @@
                                 </div>
                             </div>
                         </td>
-
                     </tr>
-
-
-
-
-
-
                     <tr>
                         <td class="border-right-none vertical-align-top">
                             <div class="plugin-icon-wrapper img-checked">
@@ -580,7 +489,6 @@
                                 <i class="state"></i>
                             </div>
                         </td>
-
                         <td class="border-left-nonevertical-align-middle">
                             <div>
                                 <b>
@@ -588,29 +496,14 @@
                                         レポートの大枠
                                     </a>
                                 </b>
-
                                 <div class="div-small">
                                 </div>
                             </div>
                         </td>
-
                     </tr>
-
-
                     <tr class="toggle-area x-content-hide">
                         <td colspan="2">
                             <div class="x-content-hide">
-
-
-
-
-
-
-
-
-
-
-
                                 <div class="description">
                                     <ul>
                                         <li>（　）は、私からのコメント。作成時には、忘れずに削除しよう。</li>
@@ -629,17 +522,12 @@
                                         <li>おわりに（感想、コメントなどあれば）</li>
                                     </ol>
                                 </div>
-
-
                                 <div class="confirm">
-
                                     <div class="text-center">
-
                                         <a href="/content/812368/quiz/29d342429111eedda13f712239c4f4cde1d7db4f4fde1b234a60e0c559811dba/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md ">
                                             受講
                                         </a>
-
                                         <a href="/plugin/quiz/result/151540/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md">
                                             結果
@@ -649,10 +537,6 @@
                             </div>
                         </td>
                     </tr>
-
-
-
-
                     <tr>
                         <td class="border-right-none vertical-align-top">
                             <div class="plugin-icon-wrapper img-checked">
@@ -660,7 +544,6 @@
                                 <i class="state"></i>
                             </div>
                         </td>
-
                         <td class="border-left-nonevertical-align-middle">
                             <div>
                                 <b>
@@ -668,45 +551,25 @@
                                         課題レポート
                                     </a>
                                 </b>
-
                                 <div class="div-small">
                                     <b>提出受付期間:</b> ～ 4月14日(月) 18:05
                                 </div>
                             </div>
                         </td>
-
                     </tr>
-
-
                     <tr class="toggle-area x-content-hide">
                         <td colspan="2">
                             <div class="x-content-hide">
-
-
-
-
-
-
-
-
-
-
-
                                 <div class="description">
                                     <p>〆切は、月曜日18:00です。<br />(ファイル名は半数英数字、テキストファイルをアップロードしてください）<br /><br /><span>アルゴリズム２は、細かくて面倒な、ミスすると動かないプログラムになっていきます。</span><br /><span>うっかりミスに、イライラするときもあるかもしれませんが、がんばってください。ミスやエラーを何とかしていく力も重要。<br /><br /></span>
                                     </p>
                                 </div>
-
-
                                 <div class="confirm">
-
                                     <div class="text-center">
-
                                         <a href="/content/812371/report/57a2f39c7630a0b277b3f17dc8fdc59995c22e8b0fe147b79c3322e089dcd3b9/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md ">
                                             受講
                                         </a>
-
                                         <a href="/plugin/report/result/136338/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md">
                                             結果
@@ -716,10 +579,6 @@
                             </div>
                         </td>
                     </tr>
-
-
-
-
                     <tr>
                         <td class="border-right-none vertical-align-top">
                             <div class="plugin-icon-wrapper img-checked">
@@ -727,7 +586,6 @@
                                 <i class="state"></i>
                             </div>
                         </td>
-
                         <td class="border-left-nonevertical-align-middle">
                             <div>
                                 <b>
@@ -735,29 +593,14 @@
                                         参考資料について
                                     </a>
                                 </b>
-
                                 <div class="div-small">
                                 </div>
                             </div>
                         </td>
-
                     </tr>
-
-
                     <tr class="toggle-area x-content-hide">
                         <td colspan="2">
                             <div class="x-content-hide">
-
-
-
-
-
-
-
-
-
-
-
                                 <div class="description">参考資料<br />
                                     <ul>
                                         <li>１年生春の「コンピュータのアーキテクチャと構造」の教科書
@@ -775,17 +618,12 @@
                                         </li>
                                     </ul>
                                 </div>
-
-
                                 <div class="confirm">
-
                                     <div class="text-center">
-
                                         <a href="/content/812369/quiz/06a1f270fbe93e0477869f7d44fa2ee1f3c83502ab8a1161a413c6186c5df738/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md ">
                                             受講
                                         </a>
-
                                         <a href="/plugin/quiz/result/151541/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md">
                                             結果
@@ -795,10 +633,6 @@
                             </div>
                         </td>
                     </tr>
-
-
-
-
                     <tr>
                         <td class="border-right-none vertical-align-top">
                             <div class="plugin-icon-wrapper ">
@@ -806,7 +640,6 @@
                                 <i class="state"></i>
                             </div>
                         </td>
-
                         <td class="border-left-nonevertical-align-middle">
                             <div>
                                 <b>
@@ -814,29 +647,14 @@
                                         今日のビデオ
                                     </a>
                                 </b>
-
                                 <div class="div-small">
                                 </div>
                             </div>
                         </td>
-
                     </tr>
-
-
                     <tr class="toggle-area x-content-hide">
                         <td colspan="2">
                             <div class="x-content-hide">
-
-
-
-
-
-
-
-
-
-
-
                                 <div class="description">
                                     <div>2022.4.7
                                         1時間目の授業はMaNaBoにトラブルが発生してしまったために、授業の内容にアクセスできなかった人がいたかもしれません。授業は、下のビデオに2022年度向けコメントを追加する形で進みました。<br /><br />
@@ -867,35 +685,24 @@
                                     </ul>
                                     <p>@m.chukyo-u.ac.jp のアカウントのみの限定公開になっています。</p>
                                 </div>
-
-
                                 <div class="confirm">
-
                                     <div class="text-center">
-
                                         <a href="/content/812370/quiz/2cb92c2ceb1b5f53d5e62824079420d9035200aec0276f0a3377794b5382cc90/"
                                             class="btn btn-black size-sm margin-top-sm margin-bottom-md ">
                                             受講
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
-
-
                 </tbody>
             </table>
-
-
             <div class="x-content-hide div-backup-form margin-top-lg">
                 <div class="alert alert-default text-right">
                     <button class="button-send-backup btn btn-primary btn-sm">実行</button>
                 </div>
             </div>
-
-
             <div class="x-content-hide div-remove-form margin-top-lg">
                 <div class="alert alert-default text-right">
                     <button class="button-send-remove btn btn-danger btn-sm">実行</button>
@@ -904,4 +711,3 @@
         </div><!--table-responsive-->
     </div><!--panel-body-->
 </div><!--panel-->
-
