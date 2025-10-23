@@ -39,12 +39,6 @@ export const ManaboClassContentSchema = z.object({
 
 export type ManaboClassContentDTO = z.infer<typeof ManaboClassContentSchema>;
 
-export const ManaboClassNotAttendContentSchema = z.object({
-    contentHtml: z.string(),
-});
-
-export type ManaboClassNotAttendContentDTO = z.infer<typeof ManaboClassNotAttendContentSchema>;
-
 export const ManaboClassEntryRowSchema = z.object({
     directory: z.string(),
     lectureDate: z.string().nullable(),

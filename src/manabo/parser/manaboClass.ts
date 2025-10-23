@@ -17,14 +17,12 @@ import {
     ManaboClassDirectorySchema,
     ManaboClassEntrySchema,
     ManaboClassNewsSchema,
-    ManaboClassNotAttendContentSchema,
     ManaboClassQuizResultSchema,
     ManaboClassSyllabusSchema,
     type ManaboClassContentDTO,
     type ManaboClassDirectoryDTO,
     type ManaboClassEntryDTO,
     type ManaboClassNewsDTO,
-    type ManaboClassNotAttendContentDTO,
     type ManaboClassQuizResultDTO,
     type ManaboClassSyllabusDTO,
 } from "../types/manaboClass";
@@ -115,13 +113,6 @@ export const parseManaboClassContent = (html: string): ZodSafeParseResult<Manabo
 
     return ManaboClassContentSchema.safeParse({
         items,
-    });
-};
-
-export const parseManaboClassNotAttendContent = (html: string): ZodSafeParseResult<ManaboClassNotAttendContentDTO> => {
-    const contentHtml = html.trim();
-    return ManaboClassNotAttendContentSchema.safeParse({
-        contentHtml,
     });
 };
 
