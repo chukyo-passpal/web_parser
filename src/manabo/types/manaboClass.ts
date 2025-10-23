@@ -15,26 +15,77 @@ export const ManaboClassDirectorySchema = z.object({
 
 export type ManaboClassDirectoryDTO = z.infer<typeof ManaboClassDirectorySchema>;
 
-export const ManaboClassContentActionSchema = z.object({
+export const ManaboClassContentIconSchema = z.object({
+    pluginIconSrc: z.string(),
+    isIconChecked: z.boolean(),
+});
+
+export type ManaboClassContentIconDTO = z.infer<typeof ManaboClassContentIconSchema>;
+
+export const ManaboClassContentDurationSchema = z.object({
     label: z.string(),
-    url: z.string(),
+    value: z.string(),
+});
+
+export type ManaboClassContentDurationDTO = z.infer<typeof ManaboClassContentDurationSchema>;
+
+export const ManaboClassContentFileSchema = z.object({
+    fileName: z.string(),
+    href: z.string(),
+    icon: z.string(),
+});
+
+export type ManaboClassContentFileDTO = z.infer<typeof ManaboClassContentFileSchema>;
+
+export const ManaboClassContentActionSchema = z.object({
+    title: z.string(),
+    href: z.string(),
 });
 
 export type ManaboClassContentActionDTO = z.infer<typeof ManaboClassContentActionSchema>;
 
-export const ManaboClassContentItemSchema = z.object({
-    contentId: z.string(),
-    pluginKey: z.string(),
-    title: z.string(),
-    iconSrc: z.string().nullable(),
-    descriptionHtml: z.string().nullable(),
-    action: ManaboClassContentActionSchema.nullable(),
+export const ManaboClassContentAttachedFileSchema = z.object({
+    comment: z.string(),
+    files: z.array(ManaboClassContentFileSchema),
+    duration: z.array(ManaboClassContentDurationSchema),
 });
 
-export type ManaboClassContentItemDTO = z.infer<typeof ManaboClassContentItemSchema>;
+export type ManaboClassContentAttachedFileDTO = z.infer<typeof ManaboClassContentAttachedFileSchema>;
+
+export const ManaboClassContentContentSchema = z.object({
+    title: z.string(),
+    contentId: z.string(),
+    pluginKey: z.string(),
+    duration: z.array(ManaboClassContentDurationSchema),
+});
+
+export type ManaboClassContentContentDTO = z.infer<typeof ManaboClassContentContentSchema>;
+
+export const ManaboClassContentToggleAreaSchema = z.object({
+    description: z.string(),
+    isExpired: z.boolean(),
+    actions: z.array(ManaboClassContentActionSchema),
+});
+
+export const ManaboClassFileContentSchema = z.object({
+    type: z.literal("file"),
+    icon: ManaboClassContentIconSchema,
+    attachedFile: ManaboClassContentAttachedFileSchema,
+});
+
+export type ManaboClassFileContentDTO = z.infer<typeof ManaboClassFileContentSchema>;
+
+export const ManaboClassReportContentSchema = z.object({
+    type: z.literal("report"),
+    icon: ManaboClassContentIconSchema,
+    content: ManaboClassContentContentSchema,
+    toggleArea: ManaboClassContentToggleAreaSchema,
+});
+
+export type ManaboClassReportContentDTO = z.infer<typeof ManaboClassReportContentSchema>;
 
 export const ManaboClassContentSchema = z.object({
-    items: z.array(ManaboClassContentItemSchema),
+    contents: z.array(z.union([ManaboClassFileContentSchema, ManaboClassReportContentSchema])),
 });
 
 export type ManaboClassContentDTO = z.infer<typeof ManaboClassContentSchema>;
