@@ -29,7 +29,6 @@ import {
 import type { ZodSafeParseResult } from "zod";
 
 const normalizeWhitespace = (value: string): string => value.replace(/\s+/g, " ").trim();
-
 const findNextMatchingSibling = (element: Element | null | undefined, selector: string): Element | null => {
     let next = nextSiblingElement(element);
     while (next) {
@@ -67,52 +66,142 @@ export const parseManaboClassDirectory = (html: string): ZodSafeParseResult<Mana
 
 export const parseManaboClassContent = (html: string): ZodSafeParseResult<ManaboClassContentDTO> => {
     const document = loadDocument(html);
+
+    const extractDurations = (context: Element): Array<{ label: string; value: string }> => {
+        const containers = queryAll(".div-small", context);
+        const durations: Array<{ label: string; value: string }> = [];
+
+        containers.forEach((container) => {
+            const boldElements = queryAll("b", container);
+            boldElements.forEach((bold) => {
+                const label = normalizeWhitespace(getTextContent(bold));
+                const valueFragments: string[] = [];
+                let current: AnyNode | null = bold.next;
+                while (current) {
+                    if (isElement(current) && current.name.toLowerCase() === "b") {
+                        break;
+                    }
+                    if (isElement(current)) {
+                        const tagName = current.name.toLowerCase();
+                        if (tagName === "br") {
+                            valueFragments.push(" ");
+                        } else {
+                            valueFragments.push(getTextContent(current));
+                        }
+                    } else {
+                        valueFragments.push(getTextContent(current));
+                    }
+                    current = current.next;
+                }
+                const value = normalizeWhitespace(valueFragments.join(" "));
+                if (label.length > 0 || value.length > 0) {
+                    durations.push({
+                        label,
+                        value,
+                    });
+                }
+            });
+        });
+
+        return durations;
+    };
+
+    const contents: ManaboClassContentDTO["contents"] = [];
     const rows = queryAll(".table-class-content tbody tr", document);
-    const items: {
-        contentId: string;
-        pluginKey: string;
-        title: string;
-        iconSrc: string | null;
-        descriptionHtml: string | null;
-        action: {
-            label: string;
-            url: string;
-        } | null;
-    }[] = [];
 
     rows.forEach((row) => {
-        const anchor = queryOne("a.a-content-open", row);
-        if (!anchor) {
+        if (matches(row, ".toggle-area")) {
             return;
         }
 
-        const contentId = getAttribute(anchor, "content_id") ?? "";
-        const pluginKey = getAttribute(anchor, "plugin_key") ?? "";
-        const title = normalizeWhitespace(getTextContent(anchor));
-        const iconSrc = getAttribute(queryOne(".plugin-icon", row), "src");
-        const toggleRow = findNextMatchingSibling(row, ".toggle-area");
-        const descriptionHtml = toggleRow ? getInnerHtml(queryOne(".description", toggleRow)).trim() || null : null;
-        const actionButton = toggleRow ? queryOne(".confirm a.btn", toggleRow) : null;
-        const action =
-            actionButton && getAttribute(actionButton, "href")
-                ? {
-                      label: normalizeWhitespace(getTextContent(actionButton)),
-                      url: getAttribute(actionButton, "href") ?? "",
-                  }
-                : null;
+        const cells = queryAll("td", row);
+        if (!cells.length) {
+            return;
+        }
 
-        items.push({
-            contentId,
-            pluginKey,
-            title,
-            iconSrc,
-            descriptionHtml,
-            action,
+        const detailCell = cells[1];
+        const pluginIconWrapper = queryOne(".plugin-icon-wrapper", row);
+        const pluginIconSrc = getAttribute(queryOne(".plugin-icon", row), "src") ?? "";
+        const isIconChecked =
+            (pluginIconWrapper?.attribs?.class ?? "")
+                .split(/\s+/)
+                .filter((value) => value.length > 0)
+                .includes("img-checked");
+
+        const icon = {
+            pluginIconSrc,
+            isIconChecked,
+        };
+
+        const isFileRow = !!detailCell?.attribs?.colspan && detailCell.attribs.colspan === "2";
+
+        if (isFileRow) {
+            const commentNode = queryOne(".x-drag-title .cf", row);
+            const comment = commentNode ? getInnerHtml(commentNode).trim() : "";
+            const files = queryAll(".margin-top-md .display-block", row)
+                .map((block) => {
+                    const link = queryOne("a", block);
+                    const fileName = normalizeWhitespace(getTextContent(link));
+                    const href = getAttribute(link, "href") ?? "";
+                    const fileIcon = getAttribute(queryOne("img.icon", block), "src") ?? "";
+                    return {
+                        fileName,
+                        href,
+                        icon: fileIcon,
+                    };
+                })
+                .filter((file) => file.fileName.length > 0 || file.href.length > 0 || file.icon.length > 0);
+
+            contents.push({
+                type: "file",
+                icon,
+                attachedFile: {
+                    comment,
+                    files,
+                    duration: extractDurations(row),
+                },
+            });
+            return;
+        }
+
+        const titleAnchor = queryOne("a.a-content-open", row);
+        const titleElement = titleAnchor ?? queryOne("b", row);
+        const title = titleElement ? normalizeWhitespace(getTextContent(titleElement)) : "";
+        const contentId = titleAnchor ? getAttribute(titleAnchor, "content_id") ?? "" : "";
+        const pluginKey = titleAnchor ? getAttribute(titleAnchor, "plugin_key") ?? "" : "";
+        const duration = extractDurations(row);
+
+        const toggleRow = findNextMatchingSibling(row, ".toggle-area");
+        const toggleContainer = toggleRow ? queryOne(".x-content-hide", toggleRow) ?? toggleRow : null;
+        const descriptionNode = toggleContainer ? queryOne(".description", toggleContainer) : null;
+        const description = descriptionNode ? getInnerHtml(descriptionNode).trim() : "";
+        const isExpired = toggleContainer ? !!queryOne(".confirm .error", toggleContainer) : false;
+        const actions = toggleContainer
+            ? queryAll(".confirm a.btn", toggleContainer).map((actionNode) => ({
+                  title: normalizeWhitespace(getTextContent(actionNode)),
+                  href: getAttribute(actionNode, "href") ?? "",
+              }))
+            : [];
+
+        contents.push({
+            type: "report",
+            icon,
+            content: {
+                title,
+                contentId,
+                pluginKey,
+                duration,
+            },
+            toggleArea: {
+                description,
+                isExpired,
+                actions,
+            },
         });
     });
 
     return ManaboClassContentSchema.safeParse({
-        items,
+        contents,
     });
 };
 

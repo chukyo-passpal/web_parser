@@ -78,7 +78,6 @@ manaboの様々な機能をパースする複数のパーサーを提供しま�
 import {
   parseManaboClassDirectory,      // 授業のディレクトリ一覧
   parseManaboClassContent,         // 授業コンテンツ一覧
-  parseManaboClassNotAttendContent,// 未受講コンテンツ
   parseManaboClassEntry,           // 授業への入室情報
   parseManaboClassNews,            // 授業ニュース
   parseManaboClassSyllabus,        // シラバス

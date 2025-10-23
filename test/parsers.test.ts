@@ -9,7 +9,6 @@ import {
     parseCubicsAsTimetable,
     parseManaboClassDirectory,
     parseManaboClassContent,
-    parseManaboClassNotAttendContent,
     parseManaboClassEntry,
     parseManaboClassNews,
     parseManaboClassSyllabus,
@@ -36,7 +35,6 @@ const parserCases: Array<{
     { portal: "cubics", page: "timetable", parser: parseCubicsAsTimetable },
     { portal: "manabo", page: "classDirectory", parser: parseManaboClassDirectory },
     { portal: "manabo", page: "classContent", parser: parseManaboClassContent },
-    { portal: "manabo", page: "classNotAttendContent", parser: parseManaboClassNotAttendContent },
     { portal: "manabo", page: "classEntry", parser: parseManaboClassEntry },
     { portal: "manabo", page: "classNews", parser: parseManaboClassNews },
     { portal: "manabo", page: "classSyllabus", parser: parseManaboClassSyllabus },
@@ -78,9 +76,7 @@ parserCases.forEach(({ portal, page, parser }) => {
                 if (!result.success) {
                     const formattedError =
                         "error" in result && result.error
-                            ? result.error.issues
-                                  .map((issue) => `${issue.path.join(".") || "(root)"}: ${issue.message}`)
-                                  .join("\n") || result.error.toString()
+                            ? result.error.issues.map((issue) => `${issue.path.join(".") || "(root)"}: ${issue.message}`).join("\n") || result.error.toString()
                             : "Unknown parser error";
                     throw new Error(`Parser failed for ${fixtureFile}: ${formattedError}`);
                 }
