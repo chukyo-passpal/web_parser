@@ -1,0 +1,50 @@
+{
+    "contents": [
+        {
+            "type": "file",
+            "icon": {
+                "pluginIconSrc": "/common/images/icons/resource_icon_transparent.png",
+                "isIconChecked": false
+            },
+            "attachedFile": {
+                "comment": "",
+                "files": [
+                    {
+                        "fileName": "ウェブ工学(第3回）.pdf",
+                        "href": "/file/vWTNdJaE83/",
+                        "icon": "/common/images/icons/pdf.png"
+                    }
+                ],
+                "duration": []
+            }
+        },
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/report/images/icon_transparent.png",
+                "isIconChecked": false
+            },
+            "content": {
+                "title": "第1回課題",
+                "contentId": "883057",
+                "pluginKey": "report",
+                "duration": [
+                    {
+                        "label": "提出受付期間:",
+                        "value": "10月6日(月) 12:40 ～ 10月12日(日) 23:59"
+                    }
+                ]
+            },
+            "toggleArea": {
+                "description": "<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: 0in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: 游ゴシック; color: black;\">第</span><span style=\"font-family: 游ゴシック; color: black;\">1</span><span style=\"font-family: 游ゴシック; color: black;\">回課題</span></span></p>\n<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: 0in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt; font-family: 游ゴシック; color: black;\">以下の問に答えよ．</span></p>\n<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: .38in; text-indent: -.38in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: +mj-lt;\">1.　</span><span style=\"font-family: 游ゴシック; color: black;\">web</span><span style=\"font-family: 游ゴシック; color: black;\">システムの構造について</span><span style=\"font-family: 游ゴシック; color: black;\">Web</span><span style=\"font-family: 游ゴシック; color: black;\">ページを中心としてまとめよ．</span></span></p>\n<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: .38in; text-indent: -.38in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: +mj-lt;\">2.　</span><span style=\"font-family: 游ゴシック; color: black;\">情報システムを構築するとき，</span><span style=\"font-family: 游ゴシック; color: black;\">Web</span><span style=\"font-family: 游ゴシック; color: black;\">の考え方を用いてシステムを構築する利点を述べよ．</span></span></p>\n<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: .38in; text-indent: -.38in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: +mj-lt;\">3.　</span><span style=\"font-family: 游ゴシック; color: black;\">情報検索システムの構造について簡潔に示せ．</span></span></p>\n<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: .38in; text-indent: -.38in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: +mj-lt;\">4.　</span><span style=\"font-family: 游ゴシック; color: black;\">機械を用いた索引付けの方法の概略を述べよ．</span></span></p>\n<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: .38in; text-indent: -.38in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: +mj-lt;\">5.　</span><span style=\"font-family: 游ゴシック; color: black;\">索引語の選択において形態素解析に基づく方法と</span><span style=\"font-family: 游ゴシック; color: black;\">N-gram</span><span style=\"font-family: 游ゴシック; color: black;\">に基づく方法を比較せよ．</span></span></p>\n<p style=\"language: ja; margin-top: 0pt; margin-bottom: 0pt; margin-left: 0in; text-align: left; direction: ltr; unicode-bidi: embed; word-break: normal; punctuation-wrap: hanging;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: 游ゴシック; color: black;\">PDF</span><span style=\"font-family: 游ゴシック; color: black;\">形式で</span><span style=\"font-family: 游ゴシック; color: black;\">MaNaBo</span><span style=\"font-family: 游ゴシック; color: black;\">に提</span><span style=\"font-family: 游ゴシック; color: black;\">出してください．</span></span></p>",
+                "isExpired": false,
+                "actions": [
+                    {
+                        "title": "受講",
+                        "href": "/content/883057/report/af90a8756844f50f55dd6bbd5983be8fcfa02d7b1b1fcec43141e80620ef73bb/"
+                    }
+                ]
+            }
+        }
+    ]
+}

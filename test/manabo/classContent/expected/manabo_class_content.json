@@ -1,59 +1,163 @@
 {
-  "items": [
-    {
-      "contentId": "812366",
-      "pluginKey": "board",
-      "title": "1回目のボード",
-      "iconSrc": "/plugins/board/images/icon_transparent.png",
-      "descriptionHtml": "1回目のボードです。",
-      "action": {
-        "label": "受講",
-        "url": "/content/812366/board/e00329344dde4a39c1cc0fe3bca98d901c87342973f83defe1bd32bfebf8c4fa/"
-      }
-    },
-    {
-      "contentId": "812368",
-      "pluginKey": "quiz",
-      "title": "レポートの大枠",
-      "iconSrc": "/plugins/quiz/images/icon_transparent.png",
-      "descriptionHtml": "<ul>\n                                        <li>（　）は、私からのコメント。作成時には、忘れずに削除しよう。</li>\n                                        <li>授業のホームページには、アルゴリズム１の最初のうますぎる例を示してあります。（はじめに、がない頃）</li>\n                                        <li>今回は、章が4つです。</li>\n                                        <li>1. はじめに の文章例を参考に。次回は、ぜひ自分の言葉で書いてみてください。</li>\n                                    </ul>\n                                    <hr>\n                                    <p>学籍番号 学年 ゼミ 氏名</p>\n                                    <ol>\n                                        <li>はじめに<br> （何のレポートなのかを、文章にしよう） （下は例文です）<br>\n                                            2つの配列をマージするプログラム(STEP1.1)と実行例を報告する。また時間計算量を分析する。</li>\n                                        <li>STEP1 マージのプログラム　<br> （コメントをがんばろう。アルゴリズムの説明です）</li>\n                                        <li>実行例<br> (STEP1.1の例とは異なるものも示すとよいです）</li>\n                                        <li>時間計算量<br> 　（「O ( ) です」。だけではなくて、説明をしよう。教科書を参考にしよう）</li>\n                                        <li>おわりに（感想、コメントなどあれば）</li>\n                                    </ol>",
-      "action": {
-        "label": "受講",
-        "url": "/content/812368/quiz/29d342429111eedda13f712239c4f4cde1d7db4f4fde1b234a60e0c559811dba/"
-      }
-    },
-    {
-      "contentId": "812371",
-      "pluginKey": "report",
-      "title": "課題レポート",
-      "iconSrc": "/plugins/report/images/icon_transparent.png",
-      "descriptionHtml": "<p>〆切は、月曜日18:00です。<br>(ファイル名は半数英数字、テキストファイルをアップロードしてください）<br><br><span>アルゴリズム２は、細かくて面倒な、ミスすると動かないプログラムになっていきます。</span><br><span>うっかりミスに、イライラするときもあるかもしれませんが、がんばってください。ミスやエラーを何とかしていく力も重要。<br><br></span>\n                                    </p>",
-      "action": {
-        "label": "受講",
-        "url": "/content/812371/report/57a2f39c7630a0b277b3f17dc8fdc59995c22e8b0fe147b79c3322e089dcd3b9/"
-      }
-    },
-    {
-      "contentId": "812369",
-      "pluginKey": "quiz",
-      "title": "参考資料について",
-      "iconSrc": "/plugins/quiz/images/icon_transparent.png",
-      "descriptionHtml": "参考資料<br>\n                                    <ul>\n                                        <li>１年生春の「コンピュータのアーキテクチャと構造」の教科書\n                                            <ul>\n                                                <li>10章：来週とりあげるマージソートと　アルゴリズム１の最終回に学んだバブルソートを例にしています。マージソートは、再帰を扱うので、再帰についての紹介もあります。\n                                                </li>\n                                                <li>9章：C言語とコンパイル過程、実行過程の説明になっています。</li>\n                                            </ul>\n                                        </li>\n                                        <li>長谷川先生のPythonの教科書 (2023年度生)「Python言語によるプログラムイントロダクション」\n                                            <ul>\n                                                <li>p.151 からソート。マージソートも紹介があります。</li>\n                                                <li>比較演算子も変数（引数）にしているところが、この教科書らしい。</li>\n                                            </ul>\n                                        </li>\n                                    </ul>",
-      "action": {
-        "label": "受講",
-        "url": "/content/812369/quiz/06a1f270fbe93e0477869f7d44fa2ee1f3c83502ab8a1161a413c6186c5df738/"
-      }
-    },
-    {
-      "contentId": "812370",
-      "pluginKey": "quiz",
-      "title": "今日のビデオ",
-      "iconSrc": "/plugins/quiz/images/icon_transparent.png",
-      "descriptionHtml": "<div>2022.4.7\n                                        1時間目の授業はMaNaBoにトラブルが発生してしまったために、授業の内容にアクセスできなかった人がいたかもしれません。授業は、下のビデオに2022年度向けコメントを追加する形で進みました。<br><br>\n                                    </div>\n                                    <ul>\n                                        <li>ライブとビデオ（2020年度のもの）で行きます。</li>\n                                        <li>内容が20年度になっている部分はコメントします。</li>\n                                        <li>ビデオ音は、標準化しました。<br><br></li>\n                                        <li>イントロ\n                                            <ul>\n                                                <li>0. イントロ <br>https://youtu.be/CgZ2vS6IuDw</li>\n                                                <li>1. 授業イントロ　<br>https://youtu.be/xbYcwLwh6sU</li>\n                                            </ul>\n                                        </li>\n                                        <li>アルゴ１を思いだそう\n                                            <ul>\n                                                <li>2. 選択ソート<br>https://youtu.be/CDJ7PajWKbU</li>\n                                                <li>3. 配列と再帰<br>https://youtu.be/pxo_MM2djXg</li>\n                                                <li>4. 練習問題<br>https://youtu.be/RQMrbSqj4Ps<br><br></li>\n                                            </ul>\n                                        </li>\n                                        <li>今日のメインイベント\n                                            <ul>\n                                                <li>5. マージ<br>https://youtu.be/2DU6kNAY08E</li>\n                                                <li>6. 課題確認　(レポートです）<br>https://youtu.be/iJEH-zgZcWM<br><br></li>\n                                            </ul>\n                                        </li>\n                                    </ul>\n                                    <p>@m.chukyo-u.ac.jp のアカウントのみの限定公開になっています。</p>",
-      "action": {
-        "label": "受講",
-        "url": "/content/812370/quiz/2cb92c2ceb1b5f53d5e62824079420d9035200aec0276f0a3377794b5382cc90/"
-      }
-    }
-  ]
+    "contents": [
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/board/images/icon_transparent.png",
+                "isIconChecked": false
+            },
+            "content": {
+                "title": "1回目のボード",
+                "contentId": "812366",
+                "pluginKey": "board",
+                "duration": []
+            },
+            "toggleArea": {
+                "description": "1回目のボードです。",
+                "isExpired": false,
+                "actions": [
+                    {
+                        "title": "受講",
+                        "href": "/content/812366/board/e00329344dde4a39c1cc0fe3bca98d901c87342973f83defe1bd32bfebf8c4fa/"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "file",
+            "icon": {
+                "pluginIconSrc": "/common/images/icons/resource_icon_transparent.png",
+                "isIconChecked": false
+            },
+            "attachedFile": {
+                "comment": "<details><summary>▼アルゴリズム1 最後の話題をクイズにすると</summary>クイズ：　ソート問題　　解答例：　ソート問題解答例 そうだったなぁ、と思い出しておいてください<br /><br /></details><details><summary>▼パワーポイントについて</summary><span>パワーポイントは教科書とセットになっています。</span><br /><span>パワーポイントだけを見ればよい、という意図ではありません。</span><br /><br /><span>パワーポイントは、講義で利用するための資料なので、口語的だったり、文章が不完全だったりします。教科書の表現も確認するようにしてください。<br /><br /></span></details><details><summary>▼教科書のアルゴリズム</summary><span>教科書の疑似コードを基に説明します。この分野の伝統的な知識です。疑似コードを参考にせずに自作したとしても、必ず疑似コード（とプログラム）も理解するようにしてください。</span><br /><br /><span>疑似コードを実装しなさい、と指示がある場合、そうでないプログラムはそのままでは減点になります。説明をつけてもらえれば助かります。<br /><br /></span></details><details><summary>▼今日の流れ</summary>ライブとビデオ（2020年度のもの）で行きます。内容が20年度になっている部分はコメントします。<br /><br />0. イントロ <br />1.授業イントロ　<br /><br />（アルゴ１を思いだそう）<br />2. 選択ソート<br />3. 配列と再帰<br />4.練習問題<br /><br />（今日のメインイベント）<br />5. マージ<br />6.課題確認　(レポートです）（ChatGPTでもなんでも利用してよい。利用する力と自分の理解力をつけること）</details>",
+                "files": [
+                    {
+                        "fileName": "ソート問題.pdf",
+                        "href": "/file/mse3ewdw8/",
+                        "icon": "/common/images/icons/pdf.png"
+                    },
+                    {
+                        "fileName": "ソート問題解答例.pdf",
+                        "href": "/file/VpECRNWn/",
+                        "icon": "/common/images/icons/pdf.png"
+                    },
+                    {
+                        "fileName": "1.pdf",
+                        "href": "/file/DJzAc5WWax/",
+                        "icon": "/common/images/icons/pdf.png"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/quiz/images/icon_transparent.png",
+                "isIconChecked": false
+            },
+            "content": {
+                "title": "レポートの大枠",
+                "contentId": "812368",
+                "pluginKey": "quiz",
+                "duration": []
+            },
+            "toggleArea": {
+                "description": "<ul><li>（　）は、私からのコメント。作成時には、忘れずに削除しよう。</li><li>授業のホームページには、アルゴリズム１の最初のうますぎる例を示してあります。（はじめに、がない頃）</li><li>今回は、章が4つです。</li><li>1. はじめに の文章例を参考に。次回は、ぜひ自分の言葉で書いてみてください。</li></ul><hr /><p>学籍番号 学年 ゼミ 氏名</p><ol><li>はじめに<br /> （何のレポートなのかを、文章にしよう） （下は例文です）<br />2つの配列をマージするプログラム(STEP1.1)と実行例を報告する。また時間計算量を分析する。</li><li>STEP1 マージのプログラム　<br /> （コメントをがんばろう。アルゴリズムの説明です）</li><li>実行例<br /> (STEP1.1の例とは異なるものも示すとよいです）</li><li>時間計算量<br /> 　（「O ( ) です」。だけではなくて、説明をしよう。教科書を参考にしよう）</li><li>おわりに（感想、コメントなどあれば）</li></ol>",
+                "isExpired": false,
+                "actions": [
+                    {
+                        "title": "受講",
+                        "href": "/content/812368/quiz/29d342429111eedda13f712239c4f4cde1d7db4f4fde1b234a60e0c559811dba/"
+                    },
+                    {
+                        "title": "結果",
+                        "href": "/plugin/quiz/result/151540/"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/report/images/icon_transparent.png",
+                "isIconChecked": true
+            },
+            "content": {
+                "title": "課題レポート",
+                "contentId": "812371",
+                "pluginKey": "report",
+                "duration": [
+                    {
+                        "label": "提出受付期間:",
+                        "value": " ～ 4月14日(月) 18:05"
+                    }
+                ]
+            },
+            "toggleArea": {
+                "description": "<p>〆切は、月曜日18:00です。<br />(ファイル名は半数英数字、テキストファイルをアップロードしてください）<br /><br /><span>アルゴリズム２は、細かくて面倒な、ミスすると動かないプログラムになっていきます。</span><br /><span>うっかりミスに、イライラするときもあるかもしれませんが、がんばってください。ミスやエラーを何とかしていく力も重要。<br /><br /></span></p>",
+                "isExpired": false,
+                "actions": [
+                    {
+                        "title": "受講",
+                        "href": "/content/812371/report/57a2f39c7630a0b277b3f17dc8fdc59995c22e8b0fe147b79c3322e089dcd3b9/"
+                    },
+                    {
+                        "title": "結果",
+                        "href": "/plugin/report/result/136338/"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/quiz/images/icon_transparent.png",
+                "isIconChecked": true
+            },
+            "content": {
+                "title": "参考資料について",
+                "contentId": "812369",
+                "pluginKey": "quiz",
+                "duration": []
+            },
+            "toggleArea": {
+                "description": "参考資料<br /><ul><li>１年生春の「コンピュータのアーキテクチャと構造」の教科書<ul><li>10章：来週とりあげるマージソートと　アルゴリズム１の最終回に学んだバブルソートを例にしています。マージソートは、再帰を扱うので、再帰についての紹介もあります。</li><li>9章：C言語とコンパイル過程、実行過程の説明になっています。</li></ul></li><li>長谷川先生のPythonの教科書 (2023年度生)「Python言語によるプログラムイントロダクション」<ul><li>p.151 からソート。マージソートも紹介があります。</li><li>比較演算子も変数（引数）にしているところが、この教科書らしい。</li></ul></li></ul>",
+                "isExpired": false,
+                "actions": [
+                    {
+                        "title": "受講",
+                        "href": "/content/812369/quiz/06a1f270fbe93e0477869f7d44fa2ee1f3c83502ab8a1161a413c6186c5df738/"
+                    },
+                    {
+                        "title": "結果",
+                        "href": "/plugin/quiz/result/151541/"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/quiz/images/icon_transparent.png",
+                "isIconChecked": false
+            },
+            "content": {
+                "title": "今日のビデオ",
+                "contentId": "812370",
+                "pluginKey": "quiz",
+                "duration": []
+            },
+            "toggleArea": {
+                "description": "<div>2022.4.71時間目の授業はMaNaBoにトラブルが発生してしまったために、授業の内容にアクセスできなかった人がいたかもしれません。授業は、下のビデオに2022年度向けコメントを追加する形で進みました。<br /><br /></div><ul><li>ライブとビデオ（2020年度のもの）で行きます。</li><li>内容が20年度になっている部分はコメントします。</li><li>ビデオ音は、標準化しました。<br /><br /></li><li>イントロ<ul><li>0. イントロ <br />https://youtu.be/CgZ2vS6IuDw</li><li>1. 授業イントロ　<br />https://youtu.be/xbYcwLwh6sU</li></ul></li><li>アルゴ１を思いだそう<ul><li>2. 選択ソート<br />https://youtu.be/CDJ7PajWKbU</li><li>3. 配列と再帰<br />https://youtu.be/pxo_MM2djXg</li><li>4. 練習問題<br />https://youtu.be/RQMrbSqj4Ps<br /><br /></li></ul></li><li>今日のメインイベント<ul><li>5. マージ<br />https://youtu.be/2DU6kNAY08E</li><li>6. 課題確認　(レポートです）<br />https://youtu.be/iJEH-zgZcWM<br /><br /></li></ul></li></ul><p>@m.chukyo-u.ac.jp のアカウントのみの限定公開になっています。</p>",
+                "isExpired": false,
+                "actions": [
+                    {
+                        "title": "受講",
+                        "href": "/content/812370/quiz/2cb92c2ceb1b5f53d5e62824079420d9035200aec0276f0a3377794b5382cc90/"
+                    }
+                ]
+            }
+        }
+    ]
 }

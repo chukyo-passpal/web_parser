@@ -1,0 +1,62 @@
+{
+    "contents": [
+        {
+            "type": "file",
+            "icon": {
+                "pluginIconSrc": "/common/images/icons/resource_icon_transparent.png",
+                "isIconChecked": false
+            },
+            "attachedFile": {
+                "comment": "<span>第2回講義の事前学習用資料を掲載します。</span><br /><span>必ず予習をして、自分の考えをショートコメント用紙に記載して出席して下さい。</span><br /><span>聴講して新たな見解を得た場合は、コメントを追加して提出して下さい。</span>",
+                "files": [
+                    {
+                        "fileName": "情報技術者倫理2025_第2回講義学習資料.pdf",
+                        "href": "/file/3JCB4uM3DE/",
+                        "icon": "/common/images/icons/pdf.png"
+                    },
+                    {
+                        "fileName": "第2回_ショートコメント用紙_中京大情報系2025.xlsx",
+                        "href": "/file/e8rLdBwGxR/",
+                        "icon": "/common/images/icons/excel.png"
+                    }
+                ],
+                "duration": [
+                    {
+                        "label": "公開期間:",
+                        "value": "9月29日(月) 19:05 〜 2026年2月10日(火) 00:00"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/report/images/icon_transparent.png",
+                "isIconChecked": false
+            },
+            "content": {
+                "title": "第2回講義のショートコメント用紙",
+                "contentId": "",
+                "pluginKey": "",
+                "duration": [
+                    {
+                        "label": "受講期間:",
+                        "value": "9月29日(月) 19:05 〜 10月6日(月) 19:00"
+                    },
+                    {
+                        "label": "提出受付期間:",
+                        "value": "10月3日(金) 09:30 ～ 10月6日(月) 19:00"
+                    }
+                ]
+            },
+            "toggleArea": {
+                "description": "第2回講義のショートコメント用紙を掲載します。<br />この用紙に記入して提出して下さい。",
+                "isExpired": true,
+                "actions": [{
+                    "title": "受講",
+                    "href": "/content/866530/report/9337d47432601d47d1c0c24ba35851fae6ed14d3fba44d65d8fae5d5f20cd0a0/"
+                }]
+            }
+        }
+    ]
+}

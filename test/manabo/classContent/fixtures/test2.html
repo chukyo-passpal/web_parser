@@ -1,0 +1,477 @@
+<script>
+	$(function () {
+		// event setup
+		$('.a-reload-contents').on('click', function (e) {
+			e.preventDefault();
+			var pagetype = $(this).attr('page_type');
+			glexa.loadClassContents(91597, 1311695, pagetype);
+		});
+		$('.a-content-open').on('click', function (e) {
+			e.preventDefault();
+			if ($(this).attr('plugin_key') == 'resource') {
+				return false;
+			}
+			$(this).closest('tr').next('tr').toggle('fast');
+			$(this).closest('tr').next('tr').find('.x-content-hide').slideToggle('fast');
+		});
+		$('.a-fullscreen').on('click', function (e) {
+			if (!glexa.isApp()) {
+				e.preventDefault();
+				glexa.startExam($(this).attr('href'));
+			}
+		});
+		$('.btn-start-locked-content').on('click', function (e) {
+			var form = $(this).parent('form:first');
+			var is_exam = $(form).find('input[name=is_exam]:first').val();
+			var plugin_key = $(form).find('input[name=plugin_key]:first').val();
+			if (parseInt(is_exam) == 0 || glexa.isApp() || plugin_key != 'quiz') {
+				// 試験モード✖
+				// スマホ・タブレット上
+				// Quiz
+				// 以外は試験モードでの起動をしない
+				return true;
+			}
+			e.preventDefault();
+			var content_id = $(form).find('input[name=content_id]:first').val();
+			var uniqid = $(form).find('input[name=uniqid]:first').val();
+			var password = $(form).find('input[name=password]:first').val();
+			var url = '/content/?plugin_key=' + plugin_key + '&content_id=' + content_id + '&uniqid=' + uniqid + '&password=' + password;
+			glexa.startExam(url);
+		});
+		$('.select-load-contents').on('change', function () {
+			getContentList(91597, 1311695, $(this).val());
+		});
+		$('.x-content-hide').hide();
+		$('.td-menu').children().hide();
+		// first load
+		setDirectoryId(1311695);
+		glexa.loadClassSyllabus(91597, 1311695);
+		if (!glexa.isApp()) {
+			$('.exam-message').removeClass('display-none');
+		}
+	});
+	function getContentEditMode() {
+		var mode = glexa.sessionStorage.getItem('content_edit_mode');
+		return mode;
+	}
+	function resetContentUI() {
+		$('.a-content-menu').css({ opacity: 1 });
+		$('.td-content-checkbox').hide();
+		$('.td-content-checkbox input').removeAttr('disabled');
+		$('.x-content-hide').hide();
+		glexa.destroySort({ element: '.tbody-content-sort' });
+		glexa.destroyDrag({ dragElement: '.tr-content-drag', dropElement: '.x-content-drop' });
+	}
+	function setContentEditMode(mode, isForce) {
+		var currentMode = getContentEditMode();
+		if (!isForce && getContentEditMode() == mode) {
+			glexa.loadClassContents(91597, 1311695, 'edit');
+			glexa.sessionStorage.removeItem('content_edit_mode');
+		} else {
+			resetContentUI();
+			if (mode) {
+				glexa.sessionStorage.setItem('content_edit_mode', mode);
+				$('.a-content-menu').css({ opacity: 0.2 });
+				$('.a-content-' + mode).css({ opacity: 1 });
+				$('.div-edit').hide();
+				glexa.inlineEditor('destroy');
+				// 機能別処理
+				switch (mode) {
+					case 'sort':
+						$('.div-sort-form').show();
+						glexa.setSort({
+							element: '.tbody-content-sort',
+							axis: 'y',
+							onSuccess: saveContentSort
+						});
+						break;
+					case 'move':
+						$('.div-drag-form').show();
+						$('.td-content-checkbox').show();
+						glexa.setDrag({
+							dragElement: '.tr-content-drag',
+							dropElement: '.x-content-drop',
+							helper: helperContent,
+							onDropped: function (e, ui) {
+								contentIds = [];
+								$('.input-content-ids:checked').each(function () {
+									contentIds.push($(this).val());
+								});
+								if ($(e.target).attr('class_id')) {
+									params = {
+										target_class_id: $(e.target).attr('class_id'),
+										target_directory_id: $(e.target).attr('directory_id'),
+									}
+								} else {
+									params = {
+										target_class_id: 91597,
+										target_directory_id: $(e.target).attr('directory_id')
+									}
+								}
+								params.content_ids = contentIds;
+								glexa.ajax({
+									action: 'teacher_ajax_class_content_list_move_accept',
+									params: params,
+									onSuccess: function () {
+										glexa.loadClassDirectories(91597, 1311695);
+										glexa.loadClassContents(91597, 1311695, 'edit');
+									}
+								});
+							}
+						});
+						break;
+					case 'copy':
+					case 'share':
+						$('.div-drag-form').show();
+						$('.div-copy-form').show();
+						$('.td-content-checkbox').show();
+						var dragElement = '.tr-content-drag';
+						if (mode == 'share') {
+							dragElement = '.tr-content-share-drag';
+							$('.td-content-disable-share-checkbox input').attr('disabled', 'disabled');
+							$('.td-content-disable-share-checkbox input').removeAttr('checked');
+							$('.hidden-share').hide();
+						} else {
+							$('.hidden-share').show();
+						}
+						glexa.setDrag({
+							dragElement: dragElement,
+							dropElement: '.x-content-drop',
+							helper: helperContent,
+							onDropped: function (e) {
+								params = {};
+								params.use_pool = $('input[name=use_pool]').prop('checked') ? 1 : 0;
+								params.use_pool_same = $('input[name=use_pool_same]').prop('checked') ? 1 : 0;
+								params.is_limited = $('input[name=is_limited]').prop('checked') ? 1 : 0;
+								contentIds = [];
+								$('.input-content-ids:checked').each(function () {
+									contentIds.push($(this).val());
+								});
+								if ($(e.target).attr('class_id')) {
+									params.class_id = $(e.target).attr('class_id');
+									params.directory_id = $(e.target).attr('directory_id');
+								} else {
+									params.class_id = 91597;
+									params.directory_id = $(e.target).attr('directory_id');
+								}
+								params.content_ids = contentIds;
+								if (mode == 'share') {
+									params.is_share = 1;
+								}
+								glexa.ajax({
+									action: 'teacher_ajax_class_content_list_copy_accept',
+									params: params,
+									onSuccess: function () {
+										glexa.loadClassDirectories(91597, 1311695);
+										glexa.loadClassContents(91597, 1311695, 'edit');
+									}
+								});
+							}
+						});
+						break;
+					case 'backup':
+						$('.div-backup-form').show();
+						$('.td-content-checkbox').show();
+						$('.button-send-backup').on('click', function (e) {
+							e.preventDefault();
+							if (!$('.input-content-ids:checked').length) {
+								glexa.alert('対象の教材にチェックを入れてください');
+								return;
+							}
+							glexa.confirm('時間がかかる場合があります。実行してもよろしいですか？', function (e) {
+								$(this).prop('disabled', true);
+								area = $('[class="area"]:checked').map(function () {
+									return 'area[]=' + $(this).val()
+								}).get().join('&');
+								location.href = window.urlbase + '?action=teacher_ajax_class_content_list_backup_accept&class_id=91597&' + $.param($('.input-content-ids:checked')) + '&' + $.param($('.checkbox-backups:checked'));
+								$(this).prop('disabled', false);
+							});
+						});
+						break;
+					case 'remove':
+						$('.td-content-checkbox').show();
+						$('.div-remove-form').show();
+						$('.button-send-remove').on('click', function (e) {
+							e.preventDefault();
+							glexa.confirm('本当に削除してもよろしいですか？<br>共有中の教材は、共有先の教材も削除されます。', function (e) {
+								contentIds = [];
+								$('.input-content-ids:checked').each(function () {
+									contentIds.push($(this).val());
+								});
+								glexa.ajax({
+									action: 'teacher_ajax_class_content_list_remove_accept',
+									params: {
+										class_id: 91597,
+										directory_id: 1311695,
+										content_ids: contentIds
+									},
+									onSuccess: function () {
+										glexa.loadClassDirectories(91597, 1311695);
+										glexa.loadClassContents(91597, 1311695, 'edit');
+									}
+								});
+							});
+						});
+						break;
+				}
+			} else {
+				glexa.sessionStorage.removeItem('content_edit_mode');
+				$('.a-content-menu').css({ opacity: 1 });
+			}
+		}
+	}
+	function helperContent() {
+		$(this).closest('tr').find('.input-content-ids').prop('checked', true);
+		names = [];
+		$('.input-content-ids:checked').each(function () {
+			names.push($(this).closest('tr').find('.x-drag-title').html());
+		});
+		return '<fieldset style="min-width:300px;margin-top:30px;"><span class="badge badge-danger">' + names.length + '</span> ' + names.join(',').substr(0, 120) + '</fieldset>';
+	}
+	function setDirectoryId(directoryId) {
+		$('#div-class-contents').attr('directory_id', directoryId);
+	}
+	function setEnable(contentId) {
+		glexa.ajax({
+			action: 'teacher_ajax_class_content_list_enable_accept',
+			params: {
+				content_id: contentId
+			},
+			onSuccess: function () {
+				glexa.loadClassContents(91597, 1311695);
+			}
+		});
+	}
+	function saveContentTitle(object) {
+		glexa.ajax({
+			action: 'teacher_ajax_class_content_list_title_accept',
+			params: {
+				content_id: object.attr('content_id'),
+				title: object.val()
+			},
+			onSuccess: function () {
+				glexa.loadClassContents(91597, 1311695, 'edit');
+			}
+		});
+	}
+	function saveContentSort(contentIds) {
+		glexa.ajax({
+			action: 'teacher_ajax_class_content_list_sort_accept',
+			params: {
+				class_id: 91597,
+				directory_id: 1311695,
+				content_ids: contentIds
+			},
+			onSuccess: function (res) {
+				//glexa.loadClassContents(91597, 1311695, 'edit');
+			}
+		});
+	}
+	function openModalRestoreForm(classId, directoryId) {
+		params = {
+			class_id: 91597,
+			directory_id: directoryId
+		}
+		glexa.openRemoteModal({
+			action: 'teacher_modal_class_content_restore_form',
+			params: params
+		});
+	}
+	function openModalRestoreWebTubeForm(classId, directoryId) {
+		params = {
+			class_id: 91597,
+			directory_id: directoryId
+		}
+		glexa.openRemoteModal({
+			action: 'teacher_modal_class_content_restore_webtube_form',
+			params: params
+		});
+	}
+	function getContentList(classId, directoryId, viewType) {
+		params = {
+			view_type: viewType
+		}
+		if (classId) {
+			params.class_id = classId;
+		}
+		if (directoryId) {
+			params.directory_id = directoryId;
+		}
+		glexa.ajax({
+			action: 'glexa_ajax_class_content_list',
+			element: '#div-class-contents',
+			params: params
+		});
+	}
+	function editShareContent(pluginKey, pluginId, contentId) {
+		glexa.confirm('共有された全ての教材に影響がありますがよろしいですか？', function (e) {
+			location.href = '/plugin/' + pluginKey + '/edit/' + pluginId + '/';
+		});
+	}
+	function openModalGrades(contentId) {
+		params = {
+			class_id: 91597,
+			content_id: contentId
+		}
+		glexa.openRemoteModal({
+			action: 'teacher_modal_class_content_grade_list',
+			params: params
+		});
+	}
+</script>
+<script>
+	$(function () {
+		// event setup
+		$('.a-open-list').on('click', function (e) {
+			e.preventDefault();
+			openModalDownloadList($(this).attr('file_id'), 91597, $('#div-class-contents').attr('directory_id'));
+		});
+		// first load
+	});
+	function openModalDownloadList(fileId, classId, directoryId) {
+		params = {
+			file_id: fileId,
+			class_id: classId,
+		}
+		if (directoryId) {
+			params.directory_id = directoryId;
+		}
+		glexa.openRemoteModal({
+			action: 'teacher_modal_class_resource_file_download_list',
+			params: params
+		});
+	}
+</script>
+<style>
+	.div-small {
+		font-size: 80%;
+	}
+	@media screen and (max-width: 767px) {
+		/* sp-resize-table */
+		.table-responsive.sp-resize-table table>thead>tr>th,
+		.table-responsive.sp-resize-table table>tbody>tr>th,
+		.table-responsive.sp-resize-table table>tfoot>tr>th,
+		.table-responsive.sp-resize-table table>thead>tr>td,
+		.table-responsive.sp-resize-table table>tbody>tr>td,
+		.table-responsive.sp-resize-table table>tfoot>tr>td {
+			border: solid 1px #dbe4e3;
+		}
+	}
+</style>
+<div class="panel panel-default">
+	<div class="panel-heading cf">
+		<i class="mark"></i>
+		第1回
+		- 教材一覧
+	</div>
+	<div class="panel-body sp-padding-none">
+		<div class="form-inline">
+			<p class="display-inline-block margin-right-lg sp-margin-md">受講したい教材名をクリックしてください</p>
+			<select class="form-control select-load-contents sp-margin-md sp-margin-top-none" id="view_type"
+				name="view_type" onchange="glexa.getContentList(91597,1311695,'')">
+				<option value="1">すべて</option>
+				<option value="2">受講済み</option>
+				<option value="3">未受講</option>
+				<option value="4">受講可能</option>
+				<option value="5">期限切れ</option>
+				<option value="6">締め切り順</option>
+			</select>
+			<div class="alert alert-info">
+				受講中はWebブラウザの「←(戻る)」「→(進む)」ボタンを使用しないでください。<br>一度に複数のタブやブラウザを開いて受講しないでください。<br>また、同時に複数の端末（PC及びスマホ）から受講しないでください。<br>成績が正しく送信されない可能性があります。
+			</div>
+		</div><!--form-inline-->
+		<div class="table-responsive sp-resize-table border-none">
+			<table class="table-class-content">
+				<thead>
+					<tr>
+						<th width="40"></th>
+						<th>
+							<div class="div-inner md">教材名</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody class="tbody-content-sort tbody-content-select">
+					<tr>
+						<td class="border-right-none vertical-align-top">
+							<div class="plugin-icon-wrapper ">
+								<img src="/common/images/icons/resource_icon_transparent.png" class="plugin-icon" />
+								<i class="state"></i>
+							</div>
+						</td>
+						<td class="border-left-none border-right-none" colspan="2">
+							<div>
+								<div class="x-drag-title">
+									<div class="cf">
+										第1回の資料です。
+									</div>
+								</div>
+								<div class="margin-top-md">
+									<div class="cf margin-bottom-lg">
+										<div class="display-block">
+											<img src="/common/images/icons/pdf.png" alt="" class="icon" /> <a
+												href="/file/EYEPC8pNN7/" target="_blank">SportScience1.pdf</a>
+										</div>
+									</div>
+								</div>
+								<div class="div-small">
+									<b>公開期間:</b>
+									〜
+									2026年1月31日(土) 00:00
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="border-right-none vertical-align-top">
+							<div class="plugin-icon-wrapper img-checked">
+								<img src="/plugins/report/images/icon_transparent.png" class="plugin-icon" />
+								<i class="state"></i>
+							</div>
+						</td>
+						<td class="border-left-nonevertical-align-middle">
+							<div>
+								<b>
+									<a href="#" class="a-content-open" content_id="873760" plugin_key="report">
+										第1回小レポート
+									</a>
+								</b>
+								<div class="div-small">
+									<b>受講期間:</b>
+									9月22日(月) 10:00
+									〜
+									9月22日(月) 23:59
+									<span style="margin-right: 2em;"></span>
+									<b>提出受付期間:</b>9月22日(月) 10:00 ～ 9月22日(月) 23:59
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr class="toggle-area x-content-hide">
+						<td colspan="2">
+							<div class="x-content-hide">
+								<div class="description">
+									<span>スポーツ科学に関して興味があること、知りたいこと、授業で扱ってほしいトピックなどを教えてください。MaNaBoの「第1回小レポート」から提出してください（授業日の23:59まで）。</span>
+								</div>
+								<div class="confirm">
+									<div class="text-center">
+										<p class="error">受講期限が過ぎました</p>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="x-content-hide div-backup-form margin-top-lg">
+				<div class="alert alert-default text-right">
+					<button class="button-send-backup btn btn-primary btn-sm">実行</button>
+				</div>
+			</div>
+			<div class="x-content-hide div-remove-form margin-top-lg">
+				<div class="alert alert-default text-right">
+					<button class="button-send-remove btn btn-danger btn-sm">実行</button>
+				</div>
+			</div>
+		</div><!--table-responsive-->
+	</div><!--panel-body-->
+</div><!--panel-->

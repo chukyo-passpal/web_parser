@@ -1,0 +1,54 @@
+{
+    "contents": [
+        {
+            "type": "file",
+            "icon": {
+                "pluginIconSrc": "/common/images/icons/resource_icon_transparent.png",
+                "isIconChecked": false
+            },
+            "attachedFile": {
+                "comment": "第1回の資料です。",
+                "files": [
+                    {
+                        "fileName": "SportScience1.pdf",
+                        "href": "/file/EYEPC8pNN7/",
+                        "icon": "/common/images/icons/pdf.png"
+                    }
+                ],
+                "duration": [
+                    {
+                        "label": "公開期間:",
+                        "value": "～ 2026年1月31日(土) 00:00"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "report",
+            "icon": {
+                "pluginIconSrc": "/plugins/report/images/icon_transparent.png",
+                "isIconChecked": true
+            },
+            "content": {
+                "title": "第1回小レポート",
+                "contentId": "873760",
+                "pluginKey": "report",
+                "duration": [
+                    {
+                        "label": "受講期間:",
+                        "value": "9月22日(月) 10:00 〜 9月22日(月) 23:59"
+                    },
+                    {
+                        "label": "提出受付期間:",
+                        "value": "9月22日(月) 10:00 ～ 9月22日(月) 23:59"
+                    }
+                ]
+            },
+            "toggleArea": {
+                "description": "<span>スポーツ科学に関して興味があること、知りたいこと、授業で扱ってほしいトピックなどを教えてください。MaNaBoの「第1回小レポート」から提出してください（授業日の23:59まで）。</span>",
+                "isExpired": true,
+                "actions": []
+            }
+        }
+    ]
+}
