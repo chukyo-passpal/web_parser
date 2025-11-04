@@ -1,0 +1,4 @@
+- Ensure `bun test` passes before handing off changes; run targeted tests if touching specific parsers.
+- Optionally run `bun run lint` if edits involve TypeScript lint rules.
+- For publish-ready changes, run `bun run build` to verify both module outputs compile.
+- Communicate any remaining TODOs or fixture updates (HTML/expected JSON) required for new parsers.

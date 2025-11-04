@@ -1,0 +1,116 @@
+{
+    "contents": [
+        {
+            "content": {
+                "contentId": "896199",
+                "duration": [],
+                "pluginKey": "quiz",
+                "title": "bool型"
+            },
+            "icon": {
+                "isIconChecked": true,
+                "pluginIconSrc": "/plugins/quiz/images/icon_transparent.png"
+            },
+            "toggleArea": {
+                "actions": [
+                    {
+                        "href": "/content/896199/quiz/8cdd4070f05211d8e0ab3e759e57d15df42ab5741bf54347e28c93581b8b4502/",
+                        "title": "受講"
+                    },
+                    {
+                        "href": "/plugin/quiz/result/169372/",
+                        "title": "結果"
+                    }
+                ],
+                "description": "講義資料のプログラムの場合、どんな値が出力されるか",
+                "isExpired": false,
+                "isNotAvailableYet": false
+            },
+            "type": "report"
+        },
+        {
+            "content": {
+                "contentId": "896287",
+                "duration": [
+                    {
+                        "label": "受講期間:",
+                        "value": "11月4日(火) 16:00 〜 11月10日(月) 23:59"
+                    }
+                ],
+                "pluginKey": "quiz",
+                "title": "授業フィードバック(自由コメント・任意)"
+            },
+            "icon": {
+                "isIconChecked": false,
+                "pluginIconSrc": "/plugins/quiz/images/icon_transparent.png"
+            },
+            "toggleArea": {
+                "actions": [],
+                "description": "<span>良かった点、悪かった点、質問など自由に記載して下さい</span>",
+                "isExpired": false,
+                "isNotAvailableYet": true
+            },
+            "type": "report"
+        },
+        {
+            "content": {
+                "contentId": "896292",
+                "duration": [
+                    {
+                        "label": "受講期間:",
+                        "value": "11月4日(火) 16:00 〜 11月9日(日) 09:00"
+                    }
+                ],
+                "pluginKey": "report",
+                "title": "課題"
+            },
+            "icon": {
+                "isIconChecked": false,
+                "pluginIconSrc": "/plugins/report/images/icon_transparent.png"
+            },
+            "toggleArea": {
+                "actions": [],
+                "description": "<span>課題資料を実施せよ。作成プログラムと実行結果を提出せよ</span>",
+                "isExpired": false,
+                "isNotAvailableYet": true
+            },
+            "type": "report"
+        },
+        {
+            "attachedFile": {
+                "comment": "講義資料",
+                "duration": [],
+                "files": [
+                    {
+                        "fileName": "大学_プログラミング応用1_6回目(20251104).pdf",
+                        "href": "/file/NxmBrsRG5X/",
+                        "icon": "/common/images/icons/pdf.png"
+                    }
+                ]
+            },
+            "icon": {
+                "isIconChecked": false,
+                "pluginIconSrc": "/common/images/icons/resource_icon_transparent.png"
+            },
+            "type": "file"
+        },
+        {
+            "attachedFile": {
+                "comment": "課題資料",
+                "duration": [],
+                "files": [
+                    {
+                        "fileName": "大学_プログラミング応用1_6回目(20251104)_課題.pdf",
+                        "href": "/file/VkzJUm5ZLD/",
+                        "icon": "/common/images/icons/pdf.png"
+                    }
+                ]
+            },
+            "icon": {
+                "isIconChecked": false,
+                "pluginIconSrc": "/common/images/icons/resource_icon_transparent.png"
+            },
+            "type": "file"
+        }
+    ]
+}

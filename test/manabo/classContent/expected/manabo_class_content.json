@@ -15,6 +15,7 @@
             "toggleArea": {
                 "description": "1回目のボードです。",
                 "isExpired": false,
+                "isNotAvailableYet": false,
                 "actions": [
                     {
                         "title": "受講",
@@ -66,6 +67,7 @@
             "toggleArea": {
                 "description": "<ul>\n                                        <li>（　）は、私からのコメント。作成時には、忘れずに削除しよう。</li>\n                                        <li>授業のホームページには、アルゴリズム１の最初のうますぎる例を示してあります。（はじめに、がない頃）</li>\n                                        <li>今回は、章が4つです。</li>\n                                        <li>1. はじめに の文章例を参考に。次回は、ぜひ自分の言葉で書いてみてください。</li>\n                                    </ul>\n                                    <hr>\n                                    <p>学籍番号 学年 ゼミ 氏名</p>\n                                    <ol>\n                                        <li>はじめに<br> （何のレポートなのかを、文章にしよう） （下は例文です）<br>\n                                            2つの配列をマージするプログラム(STEP1.1)と実行例を報告する。また時間計算量を分析する。</li>\n                                        <li>STEP1 マージのプログラム　<br> （コメントをがんばろう。アルゴリズムの説明です）</li>\n                                        <li>実行例<br> (STEP1.1の例とは異なるものも示すとよいです）</li>\n                                        <li>時間計算量<br> 　（「O ( ) です」。だけではなくて、説明をしよう。教科書を参考にしよう）</li>\n                                        <li>おわりに（感想、コメントなどあれば）</li>\n                                    </ol>",
                 "isExpired": false,
+                "isNotAvailableYet": false,
                 "actions": [
                     {
                         "title": "受講",
@@ -98,6 +100,7 @@
             "toggleArea": {
                 "description": "<p>〆切は、月曜日18:00です。<br>(ファイル名は半数英数字、テキストファイルをアップロードしてください）<br><br><span>アルゴリズム２は、細かくて面倒な、ミスすると動かないプログラムになっていきます。</span><br><span>うっかりミスに、イライラするときもあるかもしれませんが、がんばってください。ミスやエラーを何とかしていく力も重要。<br><br></span>\n                                    </p>",
                 "isExpired": false,
+                "isNotAvailableYet": false,
                 "actions": [
                     {
                         "title": "受講",
@@ -125,6 +128,7 @@
             "toggleArea": {
                 "description": "参考資料<br>\n                                    <ul>\n                                        <li>１年生春の「コンピュータのアーキテクチャと構造」の教科書\n                                            <ul>\n                                                <li>10章：来週とりあげるマージソートと　アルゴリズム１の最終回に学んだバブルソートを例にしています。マージソートは、再帰を扱うので、再帰についての紹介もあります。\n                                                </li>\n                                                <li>9章：C言語とコンパイル過程、実行過程の説明になっています。</li>\n                                            </ul>\n                                        </li>\n                                        <li>長谷川先生のPythonの教科書 (2023年度生)「Python言語によるプログラムイントロダクション」\n                                            <ul>\n                                                <li>p.151 からソート。マージソートも紹介があります。</li>\n                                                <li>比較演算子も変数（引数）にしているところが、この教科書らしい。</li>\n                                            </ul>\n                                        </li>\n                                    </ul>",
                 "isExpired": false,
+                "isNotAvailableYet": false,
                 "actions": [
                     {
                         "title": "受講",
@@ -152,6 +156,7 @@
             "toggleArea": {
                 "description": "<div>2022.4.7\n                                        1時間目の授業はMaNaBoにトラブルが発生してしまったために、授業の内容にアクセスできなかった人がいたかもしれません。授業は、下のビデオに2022年度向けコメントを追加する形で進みました。<br><br>\n                                    </div>\n                                    <ul>\n                                        <li>ライブとビデオ（2020年度のもの）で行きます。</li>\n                                        <li>内容が20年度になっている部分はコメントします。</li>\n                                        <li>ビデオ音は、標準化しました。<br><br></li>\n                                        <li>イントロ\n                                            <ul>\n                                                <li>0. イントロ <br>https://youtu.be/CgZ2vS6IuDw</li>\n                                                <li>1. 授業イントロ　<br>https://youtu.be/xbYcwLwh6sU</li>\n                                            </ul>\n                                        </li>\n                                        <li>アルゴ１を思いだそう\n                                            <ul>\n                                                <li>2. 選択ソート<br>https://youtu.be/CDJ7PajWKbU</li>\n                                                <li>3. 配列と再帰<br>https://youtu.be/pxo_MM2djXg</li>\n                                                <li>4. 練習問題<br>https://youtu.be/RQMrbSqj4Ps<br><br></li>\n                                            </ul>\n                                        </li>\n                                        <li>今日のメインイベント\n                                            <ul>\n                                                <li>5. マージ<br>https://youtu.be/2DU6kNAY08E</li>\n                                                <li>6. 課題確認　(レポートです）<br>https://youtu.be/iJEH-zgZcWM<br><br></li>\n                                            </ul>\n                                        </li>\n                                    </ul>\n                                    <p>@m.chukyo-u.ac.jp のアカウントのみの限定公開になっています。</p>",
                 "isExpired": false,
+                "isNotAvailableYet": false,
                 "actions": [
                     {
                         "title": "受講",

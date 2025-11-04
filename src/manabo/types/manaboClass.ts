@@ -64,6 +64,7 @@ export type ManaboClassContentContentDTO = z.infer<typeof ManaboClassContentCont
 export const ManaboClassContentToggleAreaSchema = z.object({
     description: z.string(),
     isExpired: z.boolean(),
+    isNotAvailableYet: z.boolean(),
     actions: z.array(ManaboClassContentActionSchema),
 });
 

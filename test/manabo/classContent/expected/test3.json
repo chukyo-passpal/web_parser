@@ -52,10 +52,13 @@
             "toggleArea": {
                 "description": "第2回講義のショートコメント用紙を掲載します。<br>この用紙に記入して提出して下さい。",
                 "isExpired": true,
-                "actions": [{
-                    "title": "受講",
-                    "href": "/content/866530/report/9337d47432601d47d1c0c24ba35851fae6ed14d3fba44d65d8fae5d5f20cd0a0/"
-                }]
+                "isNotAvailableYet": false,
+                "actions": [
+                    {
+                        "title": "受講",
+                        "href": "/content/866530/report/9337d47432601d47d1c0c24ba35851fae6ed14d3fba44d65d8fae5d5f20cd0a0/"
+                    }
+                ]
             }
         }
     ]

@@ -47,6 +47,7 @@
             "toggleArea": {
                 "description": "<span>スポーツ科学に関して興味があること、知りたいこと、授業で扱ってほしいトピックなどを教えてください。MaNaBoの「第1回小レポート」から提出してください（授業日の23:59まで）。</span>",
                 "isExpired": true,
+                "isNotAvailableYet": false,
                 "actions": []
             }
         }

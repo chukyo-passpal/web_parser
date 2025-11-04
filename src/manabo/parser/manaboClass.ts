@@ -174,7 +174,12 @@ export const parseManaboClassContent = (html: string): ZodSafeParseResult<Manabo
         const toggleContainer = toggleRow ? queryOne(".x-content-hide", toggleRow) ?? toggleRow : null;
         const descriptionNode = toggleContainer ? queryOne(".description", toggleContainer) : null;
         const description = descriptionNode ? getInnerHtml(descriptionNode).trim() : "";
-        const isExpired = toggleContainer ? !!queryOne(".confirm .error", toggleContainer) : false;
+        const errorNodes = toggleContainer ? queryAll(".confirm .error", toggleContainer) : [];
+        const errorMessages = errorNodes.map((errorNode) => normalizeWhitespace(getTextContent(errorNode))).filter((message) => message.length > 0);
+        const hasNotAvailableYetError = errorMessages.some((message) => message.includes("まだ受講できません"));
+        const isNotAvailableYet = hasNotAvailableYetError;
+        // Treat "まだ受講できません" as a future availability notice, not an expiration.
+        const isExpired = errorNodes.length > 0 ? !hasNotAvailableYetError : false;
         const actions = toggleContainer
             ? queryAll(".confirm a.btn", toggleContainer).map((actionNode) => ({
                   title: normalizeWhitespace(getTextContent(actionNode)),
@@ -194,6 +199,7 @@ export const parseManaboClassContent = (html: string): ZodSafeParseResult<Manabo
             toggleArea: {
                 description,
                 isExpired,
+                isNotAvailableYet,
                 actions,
             },
         });
