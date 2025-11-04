@@ -122,11 +122,10 @@ export const parseManaboClassContent = (html: string): ZodSafeParseResult<Manabo
         const detailCell = cells[1];
         const pluginIconWrapper = queryOne(".plugin-icon-wrapper", row);
         const pluginIconSrc = getAttribute(queryOne(".plugin-icon", row), "src") ?? "";
-        const isIconChecked =
-            (pluginIconWrapper?.attribs?.class ?? "")
-                .split(/\s+/)
-                .filter((value) => value.length > 0)
-                .includes("img-checked");
+        const isIconChecked = (pluginIconWrapper?.attribs?.class ?? "")
+            .split(/\s+/)
+            .filter((value) => value.length > 0)
+            .includes("img-checked");
 
         const icon = {
             pluginIconSrc,
@@ -207,17 +206,24 @@ export const parseManaboClassContent = (html: string): ZodSafeParseResult<Manabo
 
 export const parseManaboClassEntry = (html: string): ZodSafeParseResult<ManaboClassEntryDTO> => {
     const document = loadDocument(html);
-    const rows = queryAll("table.table-default tbody tr", document).map((row) => {
-        const cells = queryAll("td", row);
-        const directory = normalizeWhitespace(getTextContent(cells[0] ?? null));
-        const lectureDateRaw = normalizeWhitespace(getTextContent(cells[1] ?? null));
-        const status = normalizeWhitespace(getTextContent(cells[2] ?? null));
-        return {
-            directory,
-            lectureDate: lectureDateRaw.length ? lectureDateRaw : null,
-            status,
-        };
-    });
+    const rows = queryAll("table.table-default tbody tr", document)
+        .filter((row) => {
+            const cells = queryAll("td", row);
+            // colspan属性を持つセルがある場合（空の状態を示す行）をフィルタリング
+            const hasColspan = cells.some((cell) => getAttribute(cell, "colspan") !== null);
+            return !hasColspan;
+        })
+        .map((row) => {
+            const cells = queryAll("td", row);
+            const directory = normalizeWhitespace(getTextContent(cells[0] ?? null));
+            const lectureDateRaw = normalizeWhitespace(getTextContent(cells[1] ?? null));
+            const status = normalizeWhitespace(getTextContent(cells[2] ?? null));
+            return {
+                directory,
+                lectureDate: lectureDateRaw.length ? lectureDateRaw : null,
+                status,
+            };
+        });
 
     return ManaboClassEntrySchema.safeParse({
         rows,
