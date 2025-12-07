@@ -1,6 +1,14 @@
-- `bun install` – install dependencies.
-- `bun test` – run the parser test suite against fixtures/expected JSON.
-- `bun run lint` – lint TypeScript sources with ESLint.
-- `bun run build` – build both CJS and ESM outputs via tsc (uses `tsconfig.cjs.json` / `tsconfig.esm.json`).
-- `bun run build:cjs` / `bun run build:esm` – build individual module formats.
-- `bun run publish` – build and publish package (runs `bun run build` then `npm publish`).
+# Suggested Commands
+
+## Development
+- **Install Dependencies:** `bun install`
+- **Build:** `bun run build` (Builds both CJS and ESM formats)
+- **Lint:** `bun run lint`
+- **Test:** `bun test`
+
+## Publishing
+- **Publish:** `bun run publish` (Builds and publishes to npm)
+
+## System Utilities (macOS/zsh)
+- `ls`, `cd`, `grep`, `find`
+- `git status`, `git add`, `git commit`, `git push`
