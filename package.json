@@ -1,6 +1,6 @@
 {
-    "name": "@chukyo-passpal/web_parser",
-    "version": "0.3.5",
+    "name": "@chukyo-umebo/web_parser",
+    "version": "0.0.1",
     "publishConfig": {
         "access": "public"
     },
