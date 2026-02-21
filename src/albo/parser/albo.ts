@@ -6,6 +6,8 @@ import {
     type AlboInformationDTO,
     AlboPersonalSchema,
     type AlboPersonalDTO,
+    AlboTimetableSchema,
+    type AlboTimetableDTO,
 } from "../types/albo";
 
 const parseAlboJson = <T>(input: string, schema: { safeParse: (value: unknown) => ZodSafeParseResult<T> }): ZodSafeParseResult<T> => {
@@ -21,3 +23,5 @@ export const parseAlboCalendar = (json: string): ZodSafeParseResult<AlboCalendar
 export const parseAlboInformation = (json: string): ZodSafeParseResult<AlboInformationDTO> => parseAlboJson(json, AlboInformationSchema);
 
 export const parseAlboPersonal = (json: string): ZodSafeParseResult<AlboPersonalDTO> => parseAlboJson(json, AlboPersonalSchema);
+
+export const parseAlboTimetable = (json: string): ZodSafeParseResult<AlboTimetableDTO> => parseAlboJson(json, AlboTimetableSchema);

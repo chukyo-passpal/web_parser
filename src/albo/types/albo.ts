@@ -28,6 +28,60 @@ export const AlboCalendarSchema = z.object({
 
 export type AlboCalendarDTO = z.infer<typeof AlboCalendarSchema>;
 
+export const AlboTimetableBadgeSchema = z.object({
+    term: z.string(),
+});
+
+export type AlboTimetableBadgeDTO = z.infer<typeof AlboTimetableBadgeSchema>;
+
+export const AlboTimetableItemSchema = z.object({
+    uuid: z.string(),
+    id: z.string(),
+    execute_date: z.string(),
+    day_of_week: z.number(),
+    time_number: z.number(),
+    class_id: z.string(),
+    class_name: z.string(),
+    term: z.string(),
+    campus: z.string(),
+    teacher: z.string(),
+    room: z.string().nullable(),
+    memo: z.string(),
+    options: z.unknown().nullable(),
+    created_at: z.number(),
+    execute_school_year: z.string(),
+    class_type: z.number(),
+    memo_en: z.string().nullable(),
+    options_en: z.unknown().nullable(),
+    order: z.number(),
+    badge: AlboTimetableBadgeSchema,
+    term_en: z.string(),
+    class_name_en: z.string(),
+    campus_en: z.string(),
+    cancels: z.array(z.unknown()),
+    extras: z.array(z.unknown()),
+    changes: z.array(z.unknown()),
+});
+
+export type AlboTimetableItemDTO = z.infer<typeof AlboTimetableItemSchema>;
+
+export const AlboTimetableSchema = z.object({
+    is_successful: z.boolean(),
+    code: z.number(),
+    api_version: z.number(),
+    gmt: z.number(),
+    user: z.unknown().nullable(),
+    result: z.object({
+        time_table_type: z.string(),
+        page_total: z.number(),
+        page_size: z.number(),
+        item_count: z.number(),
+        items: z.array(AlboTimetableItemSchema),
+    }),
+});
+
+export type AlboTimetableDTO = z.infer<typeof AlboTimetableSchema>;
+
 export const AlboInformationCategorySchema = z.object({
     uuid: z.string(),
     name: z.string(),

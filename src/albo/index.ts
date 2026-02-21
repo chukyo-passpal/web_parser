@@ -1,7 +1,10 @@
-export { parseAlboCalendar, parseAlboInformation, parseAlboPersonal } from "./parser/albo";
+export { parseAlboCalendar, parseAlboInformation, parseAlboPersonal, parseAlboTimetable } from "./parser/albo";
 export {
     type AlboCalendarDTO,
     type AlboCalendarItemDTO,
+    type AlboTimetableDTO,
+    type AlboTimetableBadgeDTO,
+    type AlboTimetableItemDTO,
     type AlboInformationDTO,
     type AlboInformationCategoryDTO,
     type AlboInformationFileDTO,
