@@ -1,0 +1,47 @@
+{
+    "is_successful": true,
+    "code": 200,
+    "api_version": 2,
+    "gmt": 1771659858,
+    "user": null,
+    "result": {
+        "page_total": 1,
+        "page_size": 1000,
+        "item_count": 4,
+        "source_name": "学年暦（学部）",
+        "items": [
+            {
+                "calendar_source_uuid": "ac304d66-b0a8-11f0-afed-06347f3ce845",
+                "summary": "天皇誕生日（祝日）",
+                "description": null,
+                "start_at": 1771772400,
+                "end_at": 1771858800,
+                "created_at": 1771659001
+            },
+            {
+                "calendar_source_uuid": "ac304d66-b0a8-11f0-afed-06347f3ce845",
+                "summary": "卒業・進級判定発表（全４年・工・国際1年）",
+                "description": null,
+                "start_at": 1772809200,
+                "end_at": 1772895600,
+                "created_at": 1771659001
+            },
+            {
+                "calendar_source_uuid": "ac304d66-b0a8-11f0-afed-06347f3ce845",
+                "summary": "卒業式【予定】",
+                "description": null,
+                "start_at": 1773846000,
+                "end_at": 1773932400,
+                "created_at": 1771659001
+            },
+            {
+                "calendar_source_uuid": "ac304d66-b0a8-11f0-afed-06347f3ce845",
+                "summary": "春分の日（祝日）",
+                "description": null,
+                "start_at": 1773932400,
+                "end_at": 1774018800,
+                "created_at": 1771659001
+            }
+        ]
+    }
+}

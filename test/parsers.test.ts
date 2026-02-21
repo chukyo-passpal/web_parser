@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url";
 import type { ZodSafeParseResult } from "zod";
 
 import {
-    parseCubicsPtNews,
+    parseAlboCalendar,
+    parseAlboInformation,
+    parseAlboPersonal,
     parseCubicsAsTimetable,
     parseManaboClassDirectory,
     parseManaboClassContent,
@@ -31,7 +33,9 @@ const parserCases: Array<{
     page: string;
     parser: ParserFunction;
 }> = [
-    { portal: "albo", page: "news", parser: parseCubicsPtNews },
+    { portal: "albo", page: "calendar", parser: parseAlboCalendar },
+    { portal: "albo", page: "information", parser: parseAlboInformation },
+    { portal: "albo", page: "personal", parser: parseAlboPersonal },
     { portal: "cubics", page: "timetable", parser: parseCubicsAsTimetable },
     { portal: "manabo", page: "classDirectory", parser: parseManaboClassDirectory },
     { portal: "manabo", page: "classContent", parser: parseManaboClassContent },
