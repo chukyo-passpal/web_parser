@@ -1,6 +1,6 @@
 # Project Summary
 
-**Name:** `@chukyo-passpal/web_parser`
+**Name:** `@chukyo-umebo/web_parser`
 **Description:** A TypeScript library for parsing HTML content from university systems (Albo, Cubics, Manabo). It extracts data into structured, validated objects.
 
 ## Structure

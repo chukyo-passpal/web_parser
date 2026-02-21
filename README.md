@@ -1,4 +1,4 @@
-# @chukyo-passpal/web_parser
+# @chukyo-umebo/web_parser
 
 中京大学の各種システム（Albo, Cubics, Manabo）のHTMLを解析し、構造化されたデータとして抽出するためのTypeScriptライブラリです。
 
@@ -11,15 +11,15 @@
 ## インストール
 
 ```bash
-bun add @chukyo-passpal/web_parser
+bun add @chukyo-umebo/web_parser
 # または
-npm install @chukyo-passpal/web_parser
+npm install @chukyo-umebo/web_parser
 ```
 
 ## 使い方
 
 ```typescript
-import { parseManaboNews } from "@chukyo-passpal/web_parser";
+import { parseManaboNews } from "@chukyo-umebo/web_parser";
 
 const html = `...`; // 取得したHTML文字列
 const result = parseManaboNews(html);
@@ -33,7 +33,7 @@ if (result.success) {
 
 ## 対応システム
 
-- **Albo**: アルバイト情報など
+- **Albo**: お知らせ情報など
 - **Cubics**: 履修登録、時間割など
 - **Manabo**: ポータルサイト（お知らせ、課題、メールなど）
 
